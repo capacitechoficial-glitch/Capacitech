@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mostrar formulário de inscrição
     document.getElementById('showFormBtn').addEventListener('click', function() {
         document.getElementById('formContainer').classList.add('active');
         window.scrollTo({
@@ -7,25 +6,25 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
-    
-    // Envio do formulário
-    document.getElementById('inscricaoForm').addEventListener('submit', function(e) {
+
+    const form = document.getElementById('inscricaoForm');
+
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Validação simples
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const telefone = document.getElementById('telefone').value;
-        
-        if(nome && email && telefone) {
-            alert('Inscrição enviada com sucesso! Em breve você receberá as instruções por e-mail e WhatsApp.');
-            this.reset();
-        } else {
-            alert('Por favor, preencha todos os campos obrigatórios.');
-        }
+        const formData = new FormData(form);
+
+        fetch('/', {
+            method: 'POST',
+            body: formData
+        }).then(() => {
+            alert('✅ Inscrição enviada com sucesso! Em breve você receberá as instruções.');
+            form.reset();
+        }).catch(() => {
+            alert('❌ Ocorreu um erro. Tente novamente.');
+        });
     });
-    
-    // Máscara para telefone
+
+    // Máscara telefone
     document.getElementById('telefone').addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, '');
         if (value.length > 2) {
@@ -35,5 +34,32 @@ document.addEventListener('DOMContentLoaded', function() {
             value = `${value.substring(0,10)}-${value.substring(10)}`;
         }
         e.target.value = value.substring(0, 15);
+    });
+
+    // Máscara CPF
+    document.getElementById('cpf').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 3) {
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        }
+        if (value.length > 6) {
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        }
+        if (value.length > 9) {
+            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        }
+        e.target.value = value;
+    });
+
+    // Máscara Data de Nascimento
+    document.getElementById('nascimento').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 2) {
+            value = value.replace(/(\d{2})(\d)/, '$1/$2');
+        }
+        if (value.length > 4) {
+            value = value.replace(/(\d{2})(\d)/, '$1/$2');
+        }
+        e.target.value = value.substring(0, 10);
     });
 });
