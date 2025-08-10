@@ -315,3 +315,50 @@ footer {
         padding: 0.6rem;
     }
 }
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --success: #27ae60;
+}
+
+/* ... seu CSS original ... */
+
+.site-logo {
+    max-width: 180px;
+    height: auto;
+}
+
+@media (max-width: 400px) {
+    .site-logo {
+        max-width: 140px;
+    }
+}
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --success: #27ae60;
+}
+
+/* Seu CSS original aqui... */
+
+.site-logo {
+    max-width: 180px;
+    height: auto;
+}
+
+@media (max-width: 400px) {
+    .site-logo {
+        max-width: 140px;
+    }
+}
+
+.disabled-link {
+    background: gray !important;
+    cursor: not-allowed;
+}
