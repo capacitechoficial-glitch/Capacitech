@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capacitech | Curso Intensivo de Marketing Digital</title>
+    <!-- CSS externo (mantido conforme seu original) -->
     <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
     <link rel="icon" href="ChatGPT Image 9 de ago. de 2025, 18_25_41.png" type="image/png">
+    <!-- CSS interno apenas para o campo hidden do Netlify -->
+    <style>
+        .hidden { display: none; }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo-container">
-    
                 <h1>Capacitech</h1>
             </div>
             <p>Domine as estratégias mais eficazes do mercado em apenas 5 dias</p>
@@ -80,7 +85,12 @@
     
     <section class="container form-container" id="formContainer">
         <h2>Formulário de Inscrição</h2>
-        <form id="inscricaoForm">
+        <form id="inscricaoForm" name="inscricao" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <!-- Campo Honeypot (anti-spam) -->
+            <div class="hidden">
+                <label>Não preencha este campo se for humano: <input name="bot-field"></label>
+            </div>
+            
             <div class="form-group">
                 <label for="nome">Nome Completo*</label>
                 <input type="text" id="nome" name="nome" required>
@@ -140,17 +150,17 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                   
                     <span>Capacitech</span>
                 </div>
                 <div class="footer-info">
                     <p>© 2025 Capacitech. Todos os direitos reservados.</p>
-                    <p>contato:capacitechoficial@gmail.com </p>
+                    <p>contato: capacitechoficial@gmail.com</p>
                 </div>
             </div>
         </div>
     </footer>
     
+    <!-- Script externo (mantido conforme seu original) -->
     <script src="script.js"></script>
 </body>
 </html>
