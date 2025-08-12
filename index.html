@@ -1,170 +1,270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capacitech | Curso Intensivo de Marketing Digital</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="ChatGPT Image 9 de ago. de 2025, 18_25_41.png" type="image/png">
-    <style>
-        .hidden { display: none; }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Capacitech · Curso Intensivo de Marketing Digital</title>
+  <meta name="description" content="Curso intensivo: 5 aulas gravadas + eBook + certificado digital. Promoção limitada." />
+  <link rel="icon" href="logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo-container">
-                <img src="ChatGPT Image 9 de ago. de 2025, 18_25_41.png" alt="Capacitech Logo" class="site-logo">
-            </div>
-            <p>Domine as estratégias mais eficazes do mercado em apenas 5 dias</p>
+  <header class="site-header" role="banner">
+    <div class="container header-grid">
+      <div class="brand">
+        <img src="ChatGPT Image 9 de ago. de 2025, 18_25_41.png" alt="Capacitech" class="site-logo">
+        <div class="brand-text">
+          <span class="brand-name">Capacitech</span>
+          <span class="brand-slogan">Marketing Digital • 5 aulas práticas</span>
         </div>
-    </header>
-    
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Transforme seu futuro com nosso curso intensivo</h2>
-            <p>Aprenda com especialistas do mercado e torne-se um profissional qualificado em marketing digital</p>
-            <a href="#edital" class="btn">Quero me inscrever</a>
-        </div>
-    </section>
-    
-    <section class="container">
-        <h2>O que você vai aprender</h2>
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Análise de Mercado</h3>
-                <p>Identifique oportunidades e analise concorrentes com ferramentas profissionais em tempo real.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📱</div>
-                <h3>Mídias Sociais</h3>
-                <p>Domine estratégias avançadas para Facebook, Instagram, LinkedIn e TikTok.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
-                <h3>SEO e Tráfego</h3>
-                <p>Técnicas de otimização para motores de busca e geração de tráfego qualificado.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section class="container edital" id="edital">
-        <h2>Edital do Curso</h2>
-        <p>Informações importantes sobre o curso intensivo:</p>
-        
-        <h3>Informações Gerais</h3>
-        <ul>
-            <li>Curso: <strong>Marketing Digital Intensivo</strong></li>
-            <li>Início das aulas: <span class="highlight">25 de agosto de 2025</span></li>
-            <li>Duração: 5 dias (25 a 29 de agosto)</li>
-            <li>Modalidade: 100% Online</li>
-            <li>Acesso: Materiais disponibilizados via Google Drive</li>
-        </ul>
-        
-        <h3>Metodologia</h3>
-        <ul>
-            <li>Aulas gravadas disponíveis 24h</li>
-            <li>Material complementar em PDF</li>
-            <li>Exercícios práticos diários</li>
-            <li>Suporte via WhatsApp exclusivo</li>
-        </ul>
-        
-        <h3>Certificação</h3>
-        <ul>
-            <li>Ao concluir o curso com aproveitamento mínimo de 70%, o aluno terá direito ao certificado digital.</li>
-            <li>O certificado pode ser adquirido pelo valor promocional de <span class="highlight">R$ 24,90</span>.</li>
-            <li><strong>Bônus especial:</strong> Todos os alunos recebem gratuitamente nossa <span class="highlight">Planilha de Gestão de Mídias Sociais</span>.</li>
-        </ul>
-        
-        <button id="showFormBtn" class="btn">Acessar Formulário de Inscrição</button>
-    </section>
-    
-    <section class="container form-container" id="formContainer">
-        <h2>Formulário de Inscrição</h2>
-        <form id="inscricaoForm" name="inscricao" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="inscricao">
+      </div>
 
-            <div class="hidden">
-                <label>Não preencha este campo se for humano: <input name="bot-field"></label>
-            </div>
-            
-            <div class="form-group">
-                <label for="nome">Nome Completo*</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="nascimento">Data de Nascimento*</label>
-                <input type="text" id="nascimento" name="nascimento" placeholder="DD/MM/AAAA" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="cpf">CPF*</label>
-                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">E-mail*</label>
-                <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="telefone">WhatsApp*</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(DDD) 9XXXX-XXXX" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="escolaridade">Nível de Escolaridade*</label>
-                <select id="escolaridade" name="escolaridade" required>
-                    <option value="">Selecione</option>
-                    <option value="fundamental">Ensino Fundamental</option>
-                    <option value="medio">Ensino Médio</option>
-                    <option value="superior">Ensino Superior</option>
-                    <option value="pos">Pós-graduação</option>
-                    <option value="mestrado">Mestrado</option>
-                    <option value="doutorado">Doutorado</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <input type="checkbox" id="termos" name="termos" required>
-                <label for="termos">Concordo em receber informações sobre o curso por e-mail e WhatsApp*</label>
-            </div>
-            
-            <button type="submit" class="btn btn-secondary">Enviar Inscrição</button>
-        </form>
-    </section>
-    
-    <section class="container certificado-box">
-        <h2>Certificado Válido Nacionalmente</h2>
-        <p>Com selo de autenticidade e código de verificação</p>
-        <div class="price">R$ 24,90</div>
-        <p>+ Planilha de Gestão <strong>GRÁTIS</strong></p>
-        <small style="display:block;margin-top:10px;background:rgba(255,255,255,0.2);padding:5px;border-radius:5px;">
-            ⚠ A opção de garantir o certificado será liberada apenas após o término do curso.
-        </small>
-        <a href="#formContainer" class="btn disabled-link" onclick="alert('A compra do certificado será liberada após o término do curso.'); return false;">Garantir meu certificado</a>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span>Capacitech</span>
-                </div>
-                <div class="footer-info">
-                    <p>© 2025 Capacitech. Todos os direitos reservados.</p>
-                    <p>contato: capacitechoficial@gmail.com</p>
-                </div>
-            </div>
+      <div class="header-right">
+        <div class="trusts">
+          <span class="trust">🔒 Compra segura</span>
+          <span class="trust">📞 Suporte via WhatsApp</span>
         </div>
-    </footer>
-    
-    <script src="script.js"></script>
+        <nav class="nav-actions">
+          <a class="link muted" href="#benefits">Benefícios</a>
+          <a class="btn btn-outline" href="#form" id="topBuy">Comprar</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid card">
+        <div class="hero-left">
+          <div class="kicker">Promoção limitada</div>
+          <h1 class="hero-title">Transforme suas vendas — <span class="price">R$ 69,90</span><span class="old-price">R$ 199,90</span></h1>
+          <p class="hero-desc">Curso intensivo de Marketing Digital: <strong>5 aulas gravadas</strong> + eBook + certificado digital. Aprenda estratégias práticas para gerar resultados reais.</p>
+
+          <ul class="hero-list">
+            <li>✅ Aulas objetivas e aplicáveis</li>
+            <li>✅ Materiais e templates prontos</li>
+            <li>✅ Suporte via WhatsApp</li>
+          </ul>
+
+          <div class="hero-cta">
+            <button class="btn btn-primary" id="btnBuy">Comprar por R$ 69,90</button>
+            <a class="btn btn-outline" href="#benefits">Ver programa</a>
+          </div>
+
+          <div class="meta-row">
+            <div class="countdown" id="countdown">— dias —:—:—</div>
+            <div class="muted small"> <strong></strong></div>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=8f0d9b0b3d55a5d0b1bfa3f29c4c3b2f" alt="Marketing" class="hero-image">
+          <div class="price-card">
+            <div class="price-row">
+              <div>
+                <div class="small muted">Valor promocional</div>
+                <div class="big-price">R$ 69,90</div>
+                <div class="old small muted">R$ 199,90</div>
+              </div>
+            </div>
+            <div class="guarantee">
+              <span>🔒</span>
+              <div>
+                <div class="muted">Pagamento via PIX pelo WhatsApp — contato direto e seguro.</div>
+                <div class="muted">Acesso liberado após confirmação do pagamento.</div>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary" id="btnPixInfo">Como pagar (PIX)</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits" class="container section">
+      <h2>O que você vai aprender</h2>
+      <div class="grid-3 cards">
+        <div class="card">
+          <img src="ChatGPT Image 9 de ago. de 2025, 18_25_41.png" alt="Tráfego" class="card-img">
+          <h4>Geração de tráfego qualificado</h4>
+          <p class="muted">Aprenda a atrair clientes certos usando anúncios e SEO.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f7b5f4b7248c5f0d3c3a6eaeb0f1e6c" alt="Conversão" class="card-img">
+          <h4>Campanhas que convertem</h4>
+          <p class="muted">Crie anúncios rentáveis e otimize sua verba.</p>
+        </div>
+        <div class="card">
+          <img src="motivos-cuidados-necessarios-contratar-servico-suporte-24-horas.jpg" alt="Suporte" class="card-img">
+          <h4>Suporte prático</h4>
+          <p class="muted">Grupo exclusivo e assistência para aplicar o conteúdo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="container section">
+      <h2>Depoimentos de alunos</h2>
+      <div class="testimonials">
+        <div class="testimonial card">
+          <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop&ixlib=rb-4.0.3&s=b6c6d5bce2b7a8bd9f7f7f2a5b8c6a3e" alt="Maria">
+          <div class="testi-content">
+            <strong>Maria Rodrigues</strong>
+            <div class="muted small">Empreendedora • Loja de Moda</div>
+            <p>“Aprendi a montar campanhas simples e já vi aumento real nas vendas. Curso direto ao ponto — recomendo!”</p>
+          </div>
+        </div>
+
+        <div class="testimonial card">
+          <img class="avatar" src="1715723514569.jpg" alt="Lucas">
+          <div class="testi-content">
+            <strong>Lucas Almeida</strong>
+            <div class="muted small">Analista de MKT</div>
+            <p>“Os templates e o passo a passo foram essenciais para reduzir CPC nas campanhas. Ótima didática.”</p>
+          </div>
+        </div>
+
+        <div class="testimonial card">
+          <img class="avatar" src="ana.webp" alt="Ana">
+          <div class="testi-content">
+            <strong>Ana Silva</strong>
+            <div class="muted small">Freelancer</div>
+            <p>“Conteúdo atualizado e aplicável. Atendimento via WhatsApp foi rápido — recomendo para quem quer resultado.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section id="form" class="container section card">
+      <div class="form-grid">
+        <div class="form-column">
+          <h2>Finalizar inscrição</h2>
+          <p class="muted">Preencha os dados e siga para o WhatsApp. Lá enviaremos a chave PIX para pagamento — processo simples e seguro.</p>
+
+          <form id="checkoutForm" name="inscricao" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="inscricao">
+            <input type="hidden" name="produto" value="Curso Marketing Digital - Promo R$69,90">
+
+            <div class="honeypot" style="display:none"><label>Não preencha:<input name="bot-field"></label></div>
+
+            <label for="nome">Nome completo *</label>
+            <input id="nome" name="nome" type="text" placeholder="João da Silva" required autocomplete="name">
+
+            <div class="row">
+              <div class="col">
+                <label for="nascimento">Data de nascimento *</label>
+                <input id="nascimento" name="nascimento" type="text" inputmode="numeric" placeholder="DD/MM/AAAA" required>
+              </div>
+              <div class="col">
+                <label for="cpf">CPF *</label>
+                <input id="cpf" name="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" required>
+              </div>
+            </div>
+
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="seu@exemplo.com">
+
+            <label for="telefone">WhatsApp (recomendamos)</label>
+            <input id="telefone" name="telefone" type="tel" placeholder="(DDD) 9XXXX-XXXX">
+
+            <label for="pagamento">Forma de pagamento</label>
+            <select id="pagamento" name="pagamento" aria-label="Forma de pagamento">
+              <option value="pix" selected>PIX (via WhatsApp)</option>
+            </select>
+
+            <div class="terms">
+              <input id="termos" name="termos" type="checkbox" required>
+              <label for="termos" class="muted">Li e concordo com os termos de compra e política de privacidade.</label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Finalizar e ir para WhatsApp</button>
+              <button type="button" class="btn btn-outline" id="btnReset">Limpar</button>
+            </div>
+
+            <p class="muted small">Após enviar, você será redirecionado ao WhatsApp com uma mensagem pronta. Caso queira, envie o comprovante para liberaçao imediata.</p>
+          </form>
+        </div>
+
+        <aside class="info-column">
+          <div class="price-card">
+            <div class="price-top">
+              <div class="label muted">Valor promocional</div>
+              <div class="big-price">R$ 69,90</div>
+              <div class="old small muted">R$ 199,90</div>
+            </div>
+            <ul class="guarantees">
+              <li>🔁 Reembolso em 7 dias (veja política)</li>
+              <li>📜 Certificado digital com código</li>
+              <li>🔒 Dados tratados com segurança</li>
+            </ul>
+
+            <div class="payment-improve">
+              <strong>Fluxo de pagamento melhorado</strong>
+              <p class="muted">Depois de enviar seus dados, você será direcionado ao WhatsApp com uma mensagem formatada. No WhatsApp:</p>
+              <ol class="muted">
+                <li>Receba nossa chave PIX ou QR (enviamos diretamente).</li>
+                <li>Realize o pagamento e envie o comprovante.</li>
+                <li>Confirmamos o pagamento e liberamos o acesso (em até 24h).</li>
+              </ol>
+            </div>
+
+            <button class="btn btn-secondary" id="btnPixInfo2">Ver instruções PIX</button>
+          </div>
+
+          <div class="faq card">
+            <h4>Perguntas rápidas</h4>
+            <details><summary>Quando recebo o acesso?</summary><p class="muted">Liberamos após confirmação do Pix, normalmente em até 24 horas.</p></details>
+            <details><summary>O certificado é válido?</summary><p class="muted">Sim — certificado digital com código de verificação.</p></details>
+            <details><summary>Posso pagar de outra forma?</summary><p class="muted">Atualmente trabalhamos com Pix via WhatsApp para agilidade e segurança.</p></details>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- mobile buybar -->
+  <div id="buybar" class="buybar" aria-hidden="true">
+    <div>
+      <div class="small muted">Promoção</div>
+      <div class="buybar-price">R$ 69,90</div>
+    </div>
+    <div>
+      <button class="btn btn-primary" id="bbBuy">Comprar</button>
+    </div>
+  </div>
+
+  <!-- PIX modal (instructions) -->
+  <div id="pixModal" class="modal" aria-hidden="true">
+    <div class="modal-panel card">
+      <button class="modal-close" id="pixClose" aria-label="Fechar">✕</button>
+      <h3>Como pagar via PIX</h3>
+      <p class="muted">Ao prosseguir, você será redirecionado ao WhatsApp com sua mensagem pronta. Lá enviaremos nossa chave PIX e o QR. Após o pagamento, envie o comprovante no WhatsApp.</p>
+
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="modalProceed">Entendi — Ir ao WhatsApp</button>
+        <button class="btn btn-outline" id="modalCancel">Voltar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Capacitech</strong>
+        <div class="muted small">© 2025 • contato: capacitechoficial@gmail.com</div>
+      </div>
+      <nav aria-label="Links rápidos">
+        <a href="#benefits" class="muted small">Benefícios</a>
+        <a href="#form" class="muted small">Inscrição</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
