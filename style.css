@@ -1,364 +1,156 @@
-:root {
-    --primary: #2c3e50;
-    --secondary: #3498db;
-    --accent: #e74c3c;
-    --light: #ecf0f1;
-    --dark: #2c3e50;
-    --success: #27ae60;
+/* ===== CONFIG ===== */
+const WHATSAPP_NUMBER = '5538991292731'; // número do vendedor (sem +)
+const COURSE_NAME = 'Curso Marketing Digital - Promo R$69,90';
+const PRICE = 'R$ 69,90';
+const START_DATE = new Date('2025-08-25T00:00:00-03:00'); // início do curso (BRT)
+
+/* ===== HELPERS ===== */
+const $ = sel => document.querySelector(sel);
+const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+/* ===== COUNTDOWN ===== */
+function updateCountdown(){
+  const el = $('#countdown');
+  if(!el) return;
+  const now = new Date();
+  let diff = START_DATE - now;
+  if(diff <= 0){ el.textContent = 'Início em breve'; return; }
+  const days = Math.floor(diff / (1000*60*60*24));
+  diff -= days*(1000*60*60*24);
+  const hours = Math.floor(diff / (1000*60*60));
+  diff -= hours*(1000*60*60);
+  const minutes = Math.floor(diff / (1000*60));
+  const seconds = Math.floor((diff - minutes*(1000*60))/1000);
+  el.textContent = `${days}d ${String(hours).padStart(2,'0')}h ${String(minutes).padStart(2,'0')}m ${String(seconds).padStart(2,'0')}s`;
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+/* ===== BUYBAR VISIBILITY ===== */
+function checkBuybar(){
+  const buybar = $('#buybar');
+  if(!buybar) return;
+  if(window.innerWidth <= 980){ buybar.style.display='flex'; buybar.setAttribute('aria-hidden','false'); }
+  else { buybar.style.display='none'; buybar.setAttribute('aria-hidden','true'); }
+}
+checkBuybar();
+window.addEventListener('resize', checkBuybar);
+
+/* ===== MASKS ===== */
+function maskCPF(v){ return v.replace(/\D/g,'').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2').substring(0,14); }
+function maskDate(v){ return v.replace(/\D/g,'').replace(/(\d{2})(\d)/,'$1/$2').replace(/(\d{2})(\d)/,'$1/$2').substring(0,10); }
+function maskPhone(v){ return v.replace(/\D/g,'').replace(/(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2').substring(0,16); }
+
+const cpfEl = $('#cpf'); if(cpfEl) cpfEl.addEventListener('input', e => e.target.value = maskCPF(e.target.value));
+const nascEl = $('#nascimento'); if(nascEl) nascEl.addEventListener('input', e => e.target.value = maskDate(e.target.value));
+const telEl = $('#telefone'); if(telEl) telEl.addEventListener('input', e => e.target.value = maskPhone(e.target.value));
+
+/* ===== CPF VALIDATION ===== */
+function isValidCPF(strCPF){
+  const cpf = (strCPF || '').replace(/\D/g,'');
+  if(cpf.length !== 11) return false;
+  if (/^(\d)\1+$/.test(cpf)) return false;
+  let sum=0, rem;
+  for(let i=1;i<=9;i++) sum += parseInt(cpf.substring(i-1,i)) * (11-i);
+  rem = (sum*10) % 11;
+  if(rem === 10 || rem === 11) rem = 0;
+  if(rem !== parseInt(cpf.substring(9,10))) return false;
+  sum=0;
+  for(let i=1;i<=10;i++) sum += parseInt(cpf.substring(i-1,i)) * (12-i);
+  rem = (sum*10) % 11;
+  if(rem === 10 || rem === 11) rem = 0;
+  if(rem !== parseInt(cpf.substring(10,11))) return false;
+  return true;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+/* ===== FORM SUBMIT: Netlify + WhatsApp ===== */
+const form = $('#checkoutForm');
+if(form){
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-body {
-    background-color: var(--light);
-    color: var(--dark);
-    line-height: 1.6;
-    font-size: 16px;
-}
+    const nome = $('#nome').value.trim();
+    const nascimento = $('#nascimento').value.trim();
+    const cpf = $('#cpf').value.trim();
+    const email = $('#email').value.trim();
+    const telefone = $('#telefone').value.trim();
+    const pagamento = $('#pagamento').value;
 
-header {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    padding: 1.5rem 0;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 1rem;
-}
-
-.logo {
-    height: 40px;
-    width: auto;
-}
-
-.logo-small {
-    height: 25px;
-}
-
-.container {
-    width: 95%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 1.5rem 0;
-}
-
-h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-}
-
-h2 {
-    font-size: 1.5rem;
-    color: var(--primary);
-    margin: 1rem 0;
-    border-bottom: 2px solid var(--secondary);
-    padding-bottom: 0.5rem;
-}
-
-h3 {
-    font-size: 1.2rem;
-    color: var(--secondary);
-    margin: 0.8rem 0;
-}
-
-.hero {
-    background: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    padding: 1rem;
-}
-
-.hero-content h2 {
-    color: white;
-    border-bottom: none;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.btn {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 0.7rem 1.5rem;
-    margin: 0.8rem 0;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 0.9rem;
-}
-
-.btn:hover {
-    background: #c0392b;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-}
-
-.btn-secondary {
-    background: var(--secondary);
-}
-
-.btn-secondary:hover {
-    background: #2980b9;
-}
-
-.features {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.feature-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-icon {
-    font-size: 2.5rem;
-    color: var(--secondary);
-    margin-bottom: 0.8rem;
-}
-
-.edital {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin: 2rem 0;
-}
-
-.edital ul {
-    margin: 0.8rem 0 0.8rem 1.5rem;
-}
-
-.edital li {
-    margin-bottom: 0.4rem;
-    font-size: 0.95rem;
-}
-
-.highlight {
-    background: #fffde7;
-    padding: 0.2rem 0.4rem;
-    border-left: 3px solid var(--accent);
-    font-weight: bold;
-    font-size: 0.95rem;
-}
-
-.form-container {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin: 2rem 0;
-    display: none;
-}
-
-.form-container.active {
-    display: block;
-}
-
-.form-group {
-    margin-bottom: 1.2rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.4rem;
-    font-weight: bold;
-    font-size: 0.95rem;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 0.7rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.95rem;
-}
-
-input[type="date"] {
-    padding: 0.6rem;
-}
-
-select {
-    padding: 0.7rem 0.6rem;
-}
-
-.certificado-box {
-    background: linear-gradient(135deg, var(--success), #2ecc71);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    margin: 2rem 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.price {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0.8rem 0;
-}
-
-footer {
-    background: var(--dark);
-    color: white;
-    padding: 1.5rem 0;
-    margin-top: 2rem;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    text-align: center;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.footer-info p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* Media Queries para telas maiores */
-@media (min-width: 768px) {
-    body {
-        font-size: 17px;
+    if(!nome || !nascimento || !cpf){
+      alert('Preencha Nome, Data de nascimento e CPF.');
+      return;
     }
-    
-    .logo-container {
-        flex-direction: row;
+    if(!isValidCPF(cpf)){
+      alert('CPF inválido. Verifique os dígitos e tente novamente.');
+      return;
     }
-    
-    .container {
-        width: 90%;
-        max-width: 1200px;
+
+    // montar mensagem
+    const lines = [
+      `Olá! Quero adquirir o ${COURSE_NAME}.`,
+      '',
+      'Meus dados:',
+      `Nome: ${nome}`,
+      `Nascimento: ${nascimento}`,
+      `CPF: ${cpf}`,
+      email ? `Email: ${email}` : '',
+      telefone ? `Telefone: ${telefone}` : '',
+      `Forma de pagamento: ${pagamento}`,
+      '',
+      `Valor: ${PRICE}`,
+      '',
+      'Por favor, envie a chave PIX e instruções para concluir o pagamento.'
+    ].filter(Boolean).join('\n');
+
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines)}`;
+
+    // tentar gravar no Netlify (lead)
+    try{
+      const data = new FormData(form);
+      await fetch('/', { method:'POST', body: data });
+    }catch(err){
+      console.warn('Netlify submit failed:', err);
+    }finally{
+      // abrir whatsapp numa nova aba
+      window.open(waUrl, '_blank');
+
+      // abrir modal com instruções
+      openPixModal();
+      form.reset();
     }
-    
-    .features {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-    
-    .hero-content {
-        padding: 2rem;
-    }
+  });
 }
 
-/* Ajustes para telas muito pequenas */
-@media (max-width: 400px) {
-    .hero {
-        height: 45vh;
-    }
-    
-    .btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.85rem;
-    }
-    
-    .feature-card {
-        padding: 1.2rem;
-    }
-    
-    input, select {
-        padding: 0.6rem;
-    }
-}
-:root {
-    --primary: #2c3e50;
-    --secondary: #3498db;
-    --accent: #e74c3c;
-    --light: #ecf0f1;
-    --dark: #2c3e50;
-    --success: #27ae60;
-}
+/* ===== MODAL PIX ===== */
+const pixModal = $('#pixModal');
+const pixClose = $('#pixClose');
+const modalProceed = $('#modalProceed');
+const modalCancel = $('#modalCancel');
 
-/* ... seu CSS original ... */
+function openPixModal(){ if(!pixModal) return; pixModal.setAttribute('aria-hidden','false'); }
+function closePixModal(){ if(!pixModal) return; pixModal.setAttribute('aria-hidden','true'); }
 
-.site-logo {
-    max-width: 180px;
-    height: auto;
-}
+if(pixClose) pixClose.addEventListener('click', closePixModal);
+if(modalCancel) modalCancel.addEventListener('click', closePixModal);
+if(modalProceed) modalProceed.addEventListener('click', () => { closePixModal(); /* user continues on WhatsApp */ });
 
-@media (max-width: 400px) {
-    .site-logo {
-        max-width: 140px;
-    }
-}
-:root {
-    --primary: #2c3e50;
-    --secondary: #3498db;
-    --accent: #e74c3c;
-    --light: #ecf0f1;
-    --dark: #2c3e50;
-    --success: #27ae60;
-}
+/* ===== Buttons & interactions ===== */
+const btnBuy = $('#btnBuy'); if(btnBuy) btnBuy.addEventListener('click', ()=> $('#form').scrollIntoView({behavior:'smooth',block:'center'}));
+const topBuy = $('#topBuy'); if(topBuy) topBuy.addEventListener('click', (e)=>{ e.preventDefault(); $('#form').scrollIntoView({behavior:'smooth',block:'center'}); });
+const bbBuy = $('#bbBuy'); if(bbBuy) bbBuy.addEventListener('click', ()=> btnBuy && btnBuy.click());
+const btnPixInfo = $('#btnPixInfo'); if(btnPixInfo) btnPixInfo.addEventListener('click', openPixModal);
+const btnPixInfo2 = $('#btnPixInfo2'); if(btnPixInfo2) btnPixInfo2.addEventListener('click', openPixModal);
+const btnReset = $('#btnReset'); if(btnReset) btnReset.addEventListener('click', ()=> { if(confirm('Limpar o formulário?')) form.reset(); });
 
-/* Seu CSS original aqui... */
+/* ===== Accessibility: close modal with ESC ===== */
+document.addEventListener('keydown', (ev) => { if(ev.key === 'Escape') closePixModal(); });
 
-.site-logo {
-    max-width: 180px;
-    height: auto;
-}
-
-@media (max-width: 400px) {
-    .site-logo {
-        max-width: 140px;
-    }
-}
-
-.disabled-link {
-    background: gray !important;
-    cursor: not-allowed;
+/* ===== Prevent quick double submits ===== */
+let submitting = false;
+if(form){
+  form.addEventListener('submit', ()=> {
+    if(submitting) return;
+    submitting = true;
+    setTimeout(()=> submitting = false, 5000);
+  });
 }
