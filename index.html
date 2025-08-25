@@ -27,7 +27,7 @@
         </div>
         <nav class="nav-actions">
           <a class="link muted" href="#benefits">Benefícios</a>
-          <a class="btn btn-outline" href="#form" id="topBuy">Comprar</a>
+          <a class="btn btn-outline" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" id="topBuy">Comprar</a>
         </nav>
       </div>
     </div>
@@ -39,7 +39,7 @@
       <div class="container hero-grid card">
         <div class="hero-left">
           <div class="kicker">Promoção limitada</div>
-          <h1 class="hero-title">Transforme suas vendas  <span class="price"></span><span class="old-price"></span></h1>
+          <h1 class="hero-title">Transforme suas vendas</h1>
           <p class="hero-desc">Curso intensivo de Marketing Digital: <strong>5 aulas gravadas</strong> + eBook + certificado digital. Aprenda estratégias práticas para gerar resultados reais.</p>
 
           <ul class="hero-list">
@@ -49,13 +49,13 @@
           </ul>
 
           <div class="hero-cta">
-            <button class="btn btn-primary" id="btnBuy">Comprar por R$ 69,90</button>
+            <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" id="btnBuy">Comprar por R$ 69,90</a>
             <a class="btn btn-outline" href="#benefits">Ver programa</a>
           </div>
 
           <div class="meta-row">
             <div class="countdown" id="countdown">— dias —:—:—</div>
-            <div class="muted small"> <strong></strong></div>
+            <div class="muted small"><strong></strong></div>
           </div>
         </div>
 
@@ -72,12 +72,11 @@
             <div class="guarantee">
               <span>🔒</span>
               <div>
-                <div class="muted">Pagamento via PIX pelo WhatsApp — contato direto e seguro.</div>
+                <div class="muted">Pagamento 100% seguro via Cakto.</div>
                 <div class="muted">Acesso liberado após confirmação do pagamento.</div>
               </div>
             </div>
-
-            <button class="btn btn-secondary" id="btnPixInfo">Como pagar (PIX)</button>
+            <a class="btn btn-secondary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Comprar agora</a>
           </div>
         </aside>
       </div>
@@ -137,94 +136,6 @@
         </div>
       </div>
     </section>
-
-    <!-- FORM -->
-    <section id="form" class="container section card">
-      <div class="form-grid">
-        <div class="form-column">
-          <h2>Finalizar inscrição</h2>
-          <p class="muted">Preencha os dados e siga para o WhatsApp. Lá enviaremos a chave PIX para pagamento — processo simples e seguro.</p>
-
-          <form id="checkoutForm" name="inscricao" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-            <input type="hidden" name="form-name" value="inscricao">
-            <input type="hidden" name="produto" value="Curso Marketing Digital - Promo R$69,90">
-
-            <div class="honeypot" style="display:none"><label>Não preencha:<input name="bot-field"></label></div>
-
-            <label for="nome">Nome completo *</label>
-            <input id="nome" name="nome" type="text" placeholder="João da Silva" required autocomplete="name">
-
-            <div class="row">
-              <div class="col">
-                <label for="nascimento">Data de nascimento *</label>
-                <input id="nascimento" name="nascimento" type="text" inputmode="numeric" placeholder="DD/MM/AAAA" required>
-              </div>
-              <div class="col">
-                <label for="cpf">CPF *</label>
-                <input id="cpf" name="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" required>
-              </div>
-            </div>
-
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" placeholder="seu@exemplo.com">
-
-            <label for="telefone">WhatsApp (recomendamos)</label>
-            <input id="telefone" name="telefone" type="tel" placeholder="(DDD) 9XXXX-XXXX">
-
-            <label for="pagamento">Forma de pagamento</label>
-            <select id="pagamento" name="pagamento" aria-label="Forma de pagamento">
-              <option value="pix" selected>PIX (via WhatsApp)</option>
-            </select>
-
-            <div class="terms">
-              <input id="termos" name="termos" type="checkbox" required>
-              <label for="termos" class="muted">Li e concordo com os termos de compra e política de privacidade.</label>
-            </div>
-
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Finalizar e ir para WhatsApp</button>
-              <button type="button" class="btn btn-outline" id="btnReset">Limpar</button>
-            </div>
-
-            <p class="muted small">Após enviar, você será redirecionado ao WhatsApp com uma mensagem pronta. Caso queira, envie o comprovante para liberaçao imediata.</p>
-          </form>
-        </div>
-
-        <aside class="info-column">
-          <div class="price-card">
-            <div class="price-top">
-              <div class="label muted">Valor promocional</div>
-              <div class="big-price">R$ 69,90</div>
-              <div class="old small muted">R$ 199,90</div>
-            </div>
-            <ul class="guarantees">
-              <li>🔁 Reembolso em 7 dias (veja política)</li>
-              <li>📜 Certificado digital com código</li>
-              <li>🔒 Dados tratados com segurança</li>
-            </ul>
-
-            <div class="payment-improve">
-              <strong>Fluxo de pagamento melhorado</strong>
-              <p class="muted">Depois de enviar seus dados, você será direcionado ao WhatsApp com uma mensagem formatada. No WhatsApp:</p>
-              <ol class="muted">
-                <li>Receba nossa chave PIX ou QR (enviamos diretamente).</li>
-                <li>Realize o pagamento e envie o comprovante.</li>
-                <li>Confirmamos o pagamento e liberamos o acesso (em até 24h).</li>
-              </ol>
-            </div>
-
-            <button class="btn btn-secondary" id="btnPixInfo2">Ver instruções PIX</button>
-          </div>
-
-          <div class="faq card">
-            <h4>Perguntas rápidas</h4>
-            <details><summary>Quando recebo o acesso?</summary><p class="muted">Liberamos após confirmação do Pix, normalmente em até 24 horas.</p></details>
-            <details><summary>O certificado é válido?</summary><p class="muted">Sim — certificado digital com código de verificação.</p></details>
-            <details><summary>Posso pagar de outra forma?</summary><p class="muted">Atualmente trabalhamos com Pix via WhatsApp para agilidade e segurança.</p></details>
-          </div>
-        </aside>
-      </div>
-    </section>
   </main>
 
   <!-- mobile buybar -->
@@ -234,21 +145,7 @@
       <div class="buybar-price">R$ 69,90</div>
     </div>
     <div>
-      <button class="btn btn-primary" id="bbBuy">Comprar</button>
-    </div>
-  </div>
-
-  <!-- PIX modal (instructions) -->
-  <div id="pixModal" class="modal" aria-hidden="true">
-    <div class="modal-panel card">
-      <button class="modal-close" id="pixClose" aria-label="Fechar">✕</button>
-      <h3>Como pagar via PIX</h3>
-      <p class="muted">Ao prosseguir, você será redirecionado ao WhatsApp com sua mensagem pronta. Lá enviaremos nossa chave PIX e o QR. Após o pagamento, envie o comprovante no WhatsApp.</p>
-
-      <div class="modal-actions">
-        <button class="btn btn-primary" id="modalProceed">Entendi — Ir ao WhatsApp</button>
-        <button class="btn btn-outline" id="modalCancel">Voltar</button>
-      </div>
+      <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" id="bbBuy">Comprar</a>
     </div>
   </div>
 
@@ -260,7 +157,7 @@
       </div>
       <nav aria-label="Links rápidos">
         <a href="#benefits" class="muted small">Benefícios</a>
-        <a href="#form" class="muted small">Inscrição</a>
+        <a href="https://pay.cakto.com.br/37zt5mx_541282" class="muted small" target="_blank">Comprar agora</a>
       </nav>
     </div>
   </footer>
@@ -268,4 +165,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
