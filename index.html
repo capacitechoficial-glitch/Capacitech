@@ -2,131 +2,167 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capacitech · Curso Intensivo de Marketing Digital</title>
   <meta name="description" content="Curso intensivo: 5 aulas gravadas + eBook + certificado digital. Promoção limitada." />
-  <link rel="icon" href="logo.png" />
+  <link rel="icon" href="https://img.icons8.com/fluency/512/artificial-intelligence.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* CSS mantido igual ao anterior */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0f0f;
+      color: #e7fbe7;
+    }
+    header, footer {
+      background-color: #081b12;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .site-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .brand-name {
+      color: #4cff9f;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .btn-primary {
+      background: #00ff84;
+      color: #000;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-primary:hover {
+      background: #00cc66;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 40px 20px;
+      align-items: center;
+    }
+    .hero img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,255,132,0.5);
+    }
+    .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .testimonials {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px 0;
+    }
+    .testimonial {
+      min-width: 280px;
+      background: #121e16;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,255,132,0.4);
+    }
+    .testimonial img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    footer {
+      font-size: 0.9rem;
+      color: #88b89f;
+    }
   </style>
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="container header-grid">
-      <div class="brand">
-        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=256&auto=format&fit=crop" alt="Capacitech" class="site-logo" loading="eager">
-        <div class="brand-text">
-          <span class="brand-name">Capacitech</span><br>
-          <span class="brand-slogan">Marketing Digital • 5 aulas práticas</span>
-        </div>
-      </div>
-
-      <nav class="nav-actions" aria-label="Ações principais">
-        <a class="link muted" href="#benefits">Benefícios</a>
-        <a class="link muted" href="#programa">Programa</a>
-        <a class="btn btn-outline" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" id="topBuy" rel="noopener">Comprar</a>
-      </nav>
+  <header>
+    <div class="brand">
+      <img src="https://img.icons8.com/fluency/512/artificial-intelligence.png" alt="Capacitech" class="site-logo">
+      <span class="brand-name">Capacitech</span>
     </div>
+    <a class="btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Comprar agora</a>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid card">
-        <div class="glow" aria-hidden="true"></div>
-        <div class="hero-left">
-          <div class="kicker">Promoção relâmpago</div>
-          <h1 class="hero-title">Domine Marketing Digital e venda mais em dias</h1>
-          <p class="hero-desc">Curso intensivo com <strong>5 aulas gravadas</strong> + eBook + certificado digital. Estratégias atuais para tráfego, criativos, funil e conversão — direto ao ponto.</p>
+  <section class="hero">
+    <div>
+      <h1>Transforme suas vendas</h1>
+      <p>Curso intensivo de Marketing Digital: <strong>5 aulas gravadas</strong> + eBook + certificado digital. Aprenda estratégias práticas para gerar resultados reais.</p>
+      <button class="btn-primary" onclick="window.open('https://pay.cakto.com.br/37zt5mx_541282','_blank')">Comprar por R$ 39,90</button>
+    </div>
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=900&auto=format&fit=crop" alt="Curso de Marketing Digital" />
+  </section>
 
-          <ul class="hero-list" role="list">
-            <li>✅ Aulas objetivas e aplicáveis</li>
-            <li>✅ Templates prontos + checklists</li>
-            <li>✅ Suporte via WhatsApp</li>
-          </ul>
-
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" id="btnBuy" rel="noopener">Garantir por R$ 39,90</a>
-            <a class="btn btn-outline" href="#benefits">Ver conteúdo</a>
-          </div>
-
-          <div class="meta-row" style="display:flex; align-items:center; gap:14px; margin-top:14px">
-            <div class="countdown" id="countdown" aria-live="polite">— dias —:—:—</div>
-            <div class="muted small">Vagas promocionais terminam em <span id="slotsLeft">12</span> unidades.</div>
-          </div>
-        </div>
-
-        <aside class="hero-right">
-          <!-- NOVA IMAGEM PRINCIPAL MAIS RELACIONADA AO CURSO -->
-          <img src="https://images.unsplash.com/photo-1611162616305-d7d2e1f0a25c?q=80&w=1200&auto=format&fit=crop" alt="Curso de marketing digital futurista" class="hero-image" loading="eager">
-          <div class="price-card" aria-label="Cartão de preço">
-            <div class="price-row">
-              <div>
-                <div class="small muted">Valor promocional</div>
-                <div class="big-price">R$ 39,90</div>
-                <div class="old small muted">R$ 199,90</div>
-              </div>
-              <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Comprar</a>
-            </div>
-            <div class="guarantee">
-              <span aria-hidden="true">🔒</span>
-              <div>
-                <div class="muted">Pagamento 100% seguro via Cakto.</div>
-                <div class="muted">Acesso liberado após confirmação.</div>
-              </div>
-            </div>
-          </div>
-        </aside>
+  <section id="benefits" class="container section">
+    <h2>O que você vai aprender</h2>
+    <div class="grid-3 cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop" alt="Tráfego" class="card-img">
+        <h4>Geração de tráfego qualificado</h4>
+        <p>Aprenda a atrair clientes certos usando anúncios e SEO.</p>
       </div>
-    </section>
-
-    <!-- BENEFITS -->
-    <section id="benefits" class="container section">
-      <h2>O que você vai aprender</h2>
-      <div class="grid-3 cards">
-        <div class="card">
-          <!-- IMAGEM ANTIGA TROCADa POR UMA MAIS ADEQUADA -->
-          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Gestão de tráfego e anúncios" class="card-img" loading="lazy">
-          <h4>Tráfego que converte</h4>
-          <p class="muted">Segmentação, criativos e métricas para ROI positivo no Meta e Google.</p>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1529336953121-ad5a5f1c7b77?q=80&w=1200&auto=format&fit=crop" alt="Estratégia de funil e automações" class="card-img" loading="lazy">
-          <h4>Funil e ofertas</h4>
-          <p class="muted">Do anúncio ao checkout: páginas, copy e ofertas irresistíveis.</p>
-        </div>
-        <div class="card">
-          <!-- TROQUEI AQUI POR UMA IMAGEM DE SUPORTE ONLINE MAIS MODERNA -->
-          <img src="https://images.unsplash.com/photo-1598257006626-48b1b1a31f52?q=80&w=1200&auto=format&fit=crop" alt="Suporte e mentoria digital" class="card-img" loading="lazy">
-          <h4>Suporte prático</h4>
-          <p class="muted">Grupo exclusivo e acompanhamento para aplicar o conteúdo.</p>
-        </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Conversão" class="card-img">
+        <h4>Campanhas que convertem</h4>
+        <p>Crie anúncios rentáveis e otimize sua verba.</p>
       </div>
-    </section>
-
-    <!-- As demais seções permanecem iguais -->
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>Capacitech</strong>
-        <div class="muted small">© 2025 • contato: capacitechoficial@gmail.com</div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1531497865142-487f064c2f05?q=80&w=800&auto=format&fit=crop" alt="Suporte" class="card-img">
+        <h4>Suporte prático</h4>
+        <p>Grupo exclusivo e assistência para aplicar o conteúdo.</p>
       </div>
-      <nav aria-label="Links rápidos">
-        <a href="#benefits" class="muted small">Benefícios</a>
-        <a href="#programa" class="muted small">Programa</a>
-        <a href="https://pay.cakto.com.br/37zt5mx_541282" class="muted small" target="_blank" rel="noopener">Comprar agora</a>
-      </nav>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2>Depoimentos de alunos</h2>
+    <div class="testimonials" id="testimonials">
+      <!-- Depoimentos serão adicionados dinamicamente -->
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <strong>Capacitech</strong> © 2025 • contato: capacitechoficial@gmail.com
     </div>
   </footer>
 
   <script>
-    /* JS mantido igual ao anterior */
+    const testimonials = [
+      { nome: "Maria Rodrigues", cargo: "Empreendedora", texto: "Aprendi a montar campanhas e já vi aumento real nas vendas!", avatar: "https://randomuser.me/api/portraits/women/44.jpg" },
+      { nome: "Lucas Almeida", cargo: "Analista de MKT", texto: "Templates e passo a passo essenciais para reduzir CPC.", avatar: "https://randomuser.me/api/portraits/men/46.jpg" },
+      { nome: "Ana Silva", cargo: "Freelancer", texto: "Conteúdo atualizado e aplicável. Recomendo demais!", avatar: "https://randomuser.me/api/portraits/women/65.jpg" }
+    ];
+
+    const container = document.getElementById("testimonials");
+
+    function addTestimonial() {
+      const t = testimonials[Math.floor(Math.random() * testimonials.length)];
+      const div = document.createElement("div");
+      div.classList.add("testimonial");
+      div.innerHTML = `<img src="${t.avatar}" alt="${t.nome}"><strong>${t.nome}</strong><div class="muted small">${t.cargo}</div><p>${t.texto}</p>`;
+      container.appendChild(div);
+    }
+
+    setInterval(addTestimonial, 1500);
   </script>
 </body>
 </html>
+
+
 
 
 
