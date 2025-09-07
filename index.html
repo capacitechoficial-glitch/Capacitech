@@ -74,7 +74,7 @@
     /* ---------- RIGHT / PRICE ---------- */
     .side{display:flex;flex-direction:column;gap:12px}
     .panel-visual{background:linear-gradient(180deg, rgba(0,255,122,.02), transparent);border-radius:12px;padding:14px;border:1px solid rgba(0,255,122,.03);min-height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-    .panel-visual::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ff7a' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");}
+    .panel-visual::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org2000/svg'%3E%3Cg fill='%2300ff7a' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");}
     .price-card{background:linear-gradient(180deg,#002818,#02291f);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.06);display:flex;justify-content:space-between;align-items:center;position:relative;}
     .price-card::after{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:var(--gradient);border-radius:14px;z-index:-1;opacity:0.3;}
     .price-left{display:flex;flex-direction:column}
@@ -156,17 +156,27 @@
     .feature-icon{font-size:24px;margin-bottom:15px;color:var(--cta-1);}
     .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
 
-    /* ---------- SOCIAL PROOF ---------- */
+    /* ---------- SOCIAL PROOF - DEPOIMENTOS MELHORADOS ---------- */
     .social-wrap{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
     .testi-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px;}
-    .testi-track{display:flex;gap:16px;overflow:auto;padding-bottom:15px;scrollbar-width:thin;}
+    .testi-container{position:relative;}
+    .testi-track{display:flex;gap:16px;overflow:auto;padding:10px 5px 25px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;}
     .testi-track::-webkit-scrollbar{height:6px;}
     .testi-track::-webkit-scrollbar-track{background:rgba(0,255,122,0.05);border-radius:10px;}
     .testi-track::-webkit-scrollbar-thumb{background:var(--cta-1);border-radius:10px;}
-    .testi{min-width:300px;background:linear-gradient(180deg,#042a1f,#022016);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.03);transition:all 0.3s ease;}
+    .testi{min-width:300px;background:linear-gradient(180deg,#042a1f,#022016);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.03);transition:all 0.3s ease;display:flex;flex-direction:column;}
     .testi:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
-    .testi .who{display:flex;gap:12px;align-items:center}
-    .avatar{width:56px;height:56px;border-radius:12px;object-fit:cover;border:2px solid rgba(0,255,122,0.2);}
+    .testi .who{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
+    .avatar{width:56px;height:56px;border-radius:12px;object-fit:cover;border:2px solid rgba(0,255,122,0.2);flex-shrink:0;}
+    .testi-content{flex:1;display:flex;flex-direction:column;}
+    .testi-stars{color:var(--cta-1);font-size:14px;margin-bottom:10px;}
+    .testi-text{color:var(--muted);line-height:1.5;flex:1;margin-bottom:12px;}
+    .testi-role{color:var(--cta-1);font-size:13px;font-weight:600;margin-top:auto;}
+    
+    /* Navegação para depoimentos em mobile */
+    .testi-nav{display:none;justify-content:center;gap:10px;margin-top:15px;}
+    .testi-dot{width:10px;height:10px;border-radius:50%;background:rgba(0,255,122,0.3);cursor:pointer;transition:all 0.3s ease;}
+    .testi-dot.active{background:var(--cta-1);transform:scale(1.2);}
 
     .notif-box{position:sticky;top:100px;background:var(--panel);border-radius:12px;padding:20px;border:1px solid rgba(0,255,122,.03);}
     .notif{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#031612,#02120c);border-left:4px solid var(--cta-1);margin-bottom:10px;transition:all 0.3s ease;}
@@ -215,6 +225,7 @@
       .grid-3{grid-template-columns:repeat(2,1fr);}
       .quiz-options{grid-template-columns:1fr;}
       .footer-grid{grid-template-columns:1fr 1fr;}
+      .testi{min-width:280px;}
     }
     @media (max-width:880px){
       .header-inner nav{display:none;}
@@ -236,6 +247,14 @@
       .mascote-container{bottom:70px;}
       .mascote-chat{width:220px;}
       .testi-header{flex-direction:column;align-items:flex-start;}
+      
+      /* Melhorias para depoimentos em mobile */
+      .testi-track{gap:12px;padding:10px 5px 20px;}
+      .testi{min-width:85vw;padding:15px;}
+      .testi .who{flex-direction:column;text-align:center;gap:8px;}
+      .testi-stars{justify-content:center;display:flex;}
+      .testi-role{text-align:center;}
+      .testi-nav{display:flex;}
     }
     @media (max-width:580px){
       h2.title{font-size:32px;}
@@ -245,8 +264,16 @@
       .pay-row{justify-content:center;}
       .quiz-options{grid-template-columns:1fr;}
       .mascote-chat{width:200px;right:-20px;}
-      .testi{min-width:260px;}
+      .testi{min-width:82vw;}
       .footer-grid{grid-template-columns:1fr;}
+      
+      /* Ajustes finos para mobile muito pequeno */
+      .testi{min-width:78vw;}
+      .avatar{width:50px;height:50px;}
+    }
+    @media (max-width:380px){
+      .testi{min-width:76vw;padding:12px;}
+      .testi-text{font-size:14px;}
     }
   </style>
 </head>
@@ -477,7 +504,7 @@
         <div class="feature">
           <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
           <h4>Aula 5: Escala e KPIs</h4>
-          <p>Métricas essenciais, análise de dados và checklist para escalar com segurança.</p>
+          <p>Métricas essenciais, análise de dados e checklist para escalar com segurança.</p>
         </div>
         <div class="feature">
           <div class="feature-icon"><i class="fas fa-star"></i></div>
@@ -495,7 +522,10 @@
             <h3 class="section-title" style="margin:0">Quem já fez recomenda</h3>
             <div style="color:var(--muted)">Avaliação média <span style="color:var(--cta-1);font-weight:900">4,9</span>/5</div>
           </div>
-          <div class="testi-track" id="testiTrack" aria-live="polite" aria-atomic="true"></div>
+          <div class="testi-container">
+            <div class="testi-track" id="testiTrack" aria-live="polite" aria-atomic="true"></div>
+            <div class="testi-nav" id="testiNav"></div>
+          </div>
         </div>
 
         <aside class="notif-box">
@@ -632,14 +662,57 @@
     /* ========================
        Configurações iniciais
        ======================== */
+    
+    // Lista de nomes femininos e masculinos em português
+    const femaleNames = ['Ana', 'Maria', 'Sofia', 'Laura', 'Beatriz', 'Luiza', 'Isabella', 'Manuela', 'Júlia', 'Helena', 'Gabriela', 'Alice', 'Larissa', 'Valentina', 'Clara', 'Mariana', 'Vitória', 'Emanuelly', 'Cecília', 'Lívia'];
+    const maleNames = ['João', 'Pedro', 'Gabriel', 'Lucas', 'Matheus', 'Rafael', 'Felipe', 'Daniel', 'Bruno', 'Gustavo', 'Carlos', 'Eduardo', 'Thiago', 'Leonardo', 'André', 'Vinicius', 'Rodrigo', 'Marcos', 'Paulo', 'Diego'];
+    
+    // Fotos reais de pessoas (usando API de avatares com parâmetros de gênero)
+    const getAvatarUrl = (name, gender) => {
+      const baseUrl = 'https://images.unsplash.com/photo-';
+      const femalePhotos = [
+        '1573496359142-b8d87734a5a2', '1552058544-f2b08422138a', '1544005313-94ddf0286df2', 
+        '1494790108377-be9c29b29330', '1509783236416-c324ad9fddf0', '1519764622340',
+        '1534528741770-53994a69daeb', '1508214751196-bcfd4ca60f91', '1519699047748',
+        '1507120879565-326a5a8de0c1', '1516708124097-315a0b81a914', '1545167622-3a6ac7562b5f'
+      ];
+      const malePhotos = [
+        '1507003211169-0a1dd7228f2d', '1530268729831-4b0b9e170218', '1500648767791-00dcc994a43e',
+        '1472099645785-5658abf4ff4e', '1560250097-0b93528c311a', '1552374196-c4e7ffc6e126',
+        '1530268729831-4b0b9e170218', '1506794778202-cad84cf4b5d5', '1513956589380-bad6acb912b2',
+        '1511367461984-fa4c6d2d5b4c', '1508341591423-7fe159d1b6e2', '1519345182560-3f2917c47239'
+      ];
+      
+      const photos = gender === 'female' ? femalePhotos : malePhotos;
+      const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
+      return `${baseUrl}${randomPhoto}?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80`;
+    };
+
+    // Determinar gênero pelo nome
+    const getGenderByName = (name) => {
+      const firstName = name.split(' ')[0];
+      return femaleNames.includes(firstName) ? 'female' : 'male';
+    };
+
+    // Depoimentos com nomes reais e fotos correspondentes
     const TESTS = [
-      {n:'Maria R.', r:'Empreendedora', t:'Dobrei as vendas com o funil pronto. Em 2 semanas já tinha recuperado o investimento!' , img:'https://i.pravatar.cc/120?img=65'},
-      {n:'Lucas A.', r:'Analista de Marketing', t:'Reduzi CPC em 35% e aumentei ROAS usando os métodos de teste que aprendi.' , img:'https://i.pravatar.cc/120?img=12'},
-      {n:'Ana S.', r:'Freelancer', t:'Consegui meu primeiro cliente em 5 dias. O suporte me ajudou a ajustar a abordagem.' , img:'https://i.pravatar.cc/120?img=47'},
-      {n:'Pedro S.', r:'E-commerce', t:'Escalei de 3 para 12 vendas/dia sem perder margem. As métricas fazem total diferença!' , img:'https://i.pravatar.cc/120?img=8'},
-      {n:'Camila T.', r:'Consultora', t:'Finalmente entendi como montar um funil que converte. Os templates são incríveis!' , img:'https://i.pravatar.cc/120?img=33'},
-      {n:'Ricardo L.', r:'Agencia', t:'Implementei para 3 clientes e todos tiveram resultados na primeira semana. Valeu cada centavo.' , img:'https://i.pravatar.cc/120?img=44'}
-    ];
+      {n:'Maria Silva', r:'Empreendedora', t:'Dobrei as vendas com o funil pronto. Em 2 semanas já tinha recuperado o investimento!'},
+      {n:'João Santos', r:'Analista de Marketing', t:'Reduzi CPC em 35% e aumentei ROAS usando os métodos de teste que aprendi.'},
+      {n:'Ana Costa', r:'Freelancer', t:'Consegui meu primeiro cliente em 5 dias. O suporte me ajudou a ajustar a abordagem.'},
+      {n:'Pedro Almeida', r:'E-commerce', t:'Escalei de 3 para 12 vendas/dia sem perder margem. As métricas fazem total diferença!'},
+      {n:'Sofia Rodrigues', r:'Consultora', t:'Finalmente entendi como montar um funil que converte. Os templates são incríveis!'},
+      {n:'Lucas Pereira', r:'Agencia', t:'Implementei para 3 clientes e todos tiveram resultados na primeira semana. Valeu cada centavo.'},
+      {n:'Laura Mendes', r:'Digital Influencer', t:'Aumentei meu faturamento em 300% aplicando as estratégias do curso. Recomendo!'},
+      {n:'Gabriel Oliveira', r:'Marketeiro', t:'As aulas práticas me deram confiança para testar novas abordagens com segurança.'},
+      {n:'Beatriz Souza', r:'Empresária', t:'O suporte foi fundamental para tirar minhas dúvidas durante a implementação.'},
+      {n:'Rafael Lima', r:'Gestor de Tráfego', t:'Mesmo com experiência, aprendi técnicas novas que otimizaram meus resultados.'}
+    ].map(testimonial => {
+      const gender = getGenderByName(testimonial.n);
+      return {
+        ...testimonial,
+        img: getAvatarUrl(testimonial.n, gender)
+      };
+    });
 
     /* ========================
        Mascote Interativo
@@ -712,22 +785,31 @@
       { name: "Roberto Alves", text: "Conteúdo de alta qualidade. O mascote é uma adição incrível ao site!", date: "1 dia atrás" },
       { name: "Juliana Martins", text: "Comprei o curso e já implementei as estratégias. Resultados em apenas 1 semana!", date: "2 dias atrás" },
       { name: "Fernando Lima", text: "Atendimento excepcional e material muito além das expectativas. Recomendo!", date: "3 dias atrás" }
-    ];
+    ].map(comment => {
+      const gender = getGenderByName(comment.name);
+      return {
+        ...comment,
+        img: getAvatarUrl(comment.name, gender)
+      };
+    });
 
     // Carregar comentários pré-definidos
     function loadPredefinedComments() {
       predefinedComments.forEach(comment => {
-        addCommentToDOM(comment.name, comment.text, comment.date);
+        addCommentToDOM(comment.name, comment.text, comment.date, comment.img);
       });
     }
 
     // Adicionar comentário ao DOM
-    function addCommentToDOM(name, text, date) {
+    function addCommentToDOM(name, text, date, imgUrl) {
       const commentEl = document.createElement('div');
       commentEl.className = 'comment-item';
       commentEl.innerHTML = `
         <div class="comment-header">
-          <span class="comment-author">${name}</span>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <img src="${imgUrl}" alt="${name}" style="width:40px;height:40px;border-radius:8px;object-fit:cover;">
+            <span class="comment-author">${name}</span>
+          </div>
           <span class="comment-date">${date}</span>
         </div>
         <div class="comment-text">${text}</div>
@@ -746,8 +828,11 @@
       const text = textInput.value.trim();
       
       if (name && text) {
+        const gender = getGenderByName(name);
+        const imgUrl = getAvatarUrl(name, gender);
+        
         // Para o usuário, parece que apenas seu comentário foi adicionado
-        addCommentToDOM(name, text, "Agora mesmo");
+        addCommentToDOM(name, text, "Agora mesmo", imgUrl);
         
         // Limpar o formulário
         nameInput.value = '';
@@ -758,7 +843,10 @@
         thankYouMsg.className = 'comment-item';
         thankYouMsg.innerHTML = `
           <div class="comment-header">
-            <span class="comment-author">Capacitech</span>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img src="${getAvatarUrl('Capacitech', 'male')}" alt="Capacitech" style="width:40px;height:40px;border-radius:8px;object-fit:cover;">
+              <span class="comment-author">Capacitech</span>
+            </div>
             <span class="comment-date">Agora mesmo</span>
           </div>
           <div class="comment-text">Obrigado pelo seu comentário, ${name}! Sua opinião é muito importante para nós.</div>
@@ -849,7 +937,7 @@
         investment: "R$ 0 (foco em networking)",
         profit: "R$ 1.000-2.000/mês",
         time: "3-5 semanas",
-        observation: "Usando plataformas de freelance e portfólio"
+        observation: "Usando plataformas de freelance và portfólio"
       },
       
       // Recomendações originais (mantidas para referência)
@@ -1025,6 +1113,111 @@
     }
 
     /* ========================
+       DEPOIMENTOS MELHORADOS PARA MOBILE
+       ======================== */
+    const track = document.getElementById('testiTrack');
+    const testiNav = document.getElementById('testiNav');
+    let currentTestimonial = 0;
+
+    function createTesti(t) {
+      const el = document.createElement('article');
+      el.className = 'testi';
+      el.innerHTML = `
+        <div class="who">
+          <img class="avatar" src="${t.img}" alt="${t.n}" loading="lazy">
+          <div>
+            <div style="font-weight:800">${t.n}</div>
+            <div style="color:var(--muted);font-size:13px">${t.r}</div>
+          </div>
+        </div>
+        <div class="testi-content">
+          <div class="testi-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testi-text">${t.t}</p>
+          <div class="testi-role">Aluno Capacitech</div>
+        </div>
+      `;
+      return el;
+    }
+
+    // Adicionar depoimentos
+    TESTS.forEach(t => track.appendChild(createTesti(t)));
+
+    // Criar navegação por pontos
+    function createTestiNavigation() {
+      testiNav.innerHTML = '';
+      TESTS.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'testi-dot';
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          scrollToTestimonial(index);
+        });
+        testiNav.appendChild(dot);
+      });
+    }
+
+    // Rolagem suave para depoimento específico
+    function scrollToTestimonial(index) {
+      const testiWidth = track.querySelector('.testi').offsetWidth + 16; // width + gap
+      track.scrollTo({
+        left: index * testiWidth,
+        behavior: 'smooth'
+      });
+      updateActiveDot(index);
+      currentTestimonial = index;
+    }
+
+    // Atualizar dot ativo
+    function updateActiveDot(index) {
+      const dots = testiNav.querySelectorAll('.testi-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    // Detectar mudanças na rolagem para atualizar navegação
+    track.addEventListener('scroll', () => {
+      const testiWidth = track.querySelector('.testi').offsetWidth + 16;
+      const newIndex = Math.round(track.scrollLeft / testiWidth);
+      
+      if (newIndex !== currentTestimonial) {
+        currentTestimonial = newIndex;
+        updateActiveDot(newIndex);
+      }
+    });
+
+    // Navegação por swipe em dispositivos móveis
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    track.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const minSwipeDistance = 50;
+      
+      if (touchEndX < touchStartX && touchStartX - touchEndX > minSwipeDistance) {
+        // Swipe left - próximo depoimento
+        const nextIndex = Math.min(currentTestimonial + 1, TESTS.length - 1);
+        scrollToTestimonial(nextIndex);
+      } 
+      
+      if (touchEndX > touchStartX && touchEndX - touchStartX > minSwipeDistance) {
+        // Swipe right - depoimento anterior
+        const prevIndex = Math.max(currentTestimonial - 1, 0);
+        scrollToTestimonial(prevIndex);
+      }
+    }
+
+    /* ========================
        Elementos DOM
        ======================== */
     const header = document.getElementById('header');
@@ -1085,53 +1278,6 @@
     });
 
     /* ========================
-       Testemunhos (MELHORADO)
-       ======================== */
-    const track = document.getElementById('testiTrack');
-    
-    function createTesti(t) {
-      const el = document.createElement('article');
-      el.className = 'testi';
-      el.innerHTML = `
-        <div class="who">
-          <img class="avatar" src="${t.img}" alt="${t.n}">
-          <div>
-            <div style="font-weight:800">${t.n}</div>
-            <div style="color:var(--muted);font-size:13px">${t.r}</div>
-          </div>
-        </div>
-        <div style="margin-top:10px;color:var(--cta-1);font-size:14px">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <p style="color:var(--muted);margin-top:8px">${t.t}</p>
-      `;
-      return el;
-    }
-
-    // Adiciona os primeiros testemunhos
-    TESTS.forEach(t => track.appendChild(createTesti(t)));
-
-    // Melhorar responsividade dos depoimentos
-    function adjustTestiWidth() {
-      const testiItems = document.querySelectorAll('.testi');
-      const containerWidth = track.clientWidth;
-      
-      if (containerWidth < 400) {
-        testiItems.forEach(item => {
-          item.style.minWidth = '260px';
-        });
-      } else {
-        testiItems.forEach(item => {
-          item.style.minWidth = '300px';
-        });
-      }
-    }
-
-    // Ajustar na inicialização e no redimensionamento
-    window.addEventListener('load', adjustTestiWidth);
-    window.addEventListener('resize', adjustTestiWidth);
-
-    /* ========================
        Notificações ao vivo
        ======================== */
     const names = ['Mariana','Carlos','Fernanda','João','Luiza','Eduardo','Beatriz','Thiago','Paula'];
@@ -1146,11 +1292,13 @@
         'implementou o método com sucesso'
       ];
       const action = actions[Math.floor(Math.random() * actions.length)];
+      const gender = getGenderByName(who);
+      const imgUrl = getAvatarUrl(who, gender);
       
       const el = document.createElement('div');
       el.className = 'notif';
       el.innerHTML = `
-        <img src="https://i.pravatar.cc/64?u=${who}" alt="${who}" style="width:44px;height:44px;border-radius:8px">
+        <img src="${imgUrl}" alt="${who}" style="width:44px;height:44px;border-radius:8px">
         <div>
           <strong>${who}</strong>
           <div style="color:var(--muted);font-size:13px">${action} • agora</div>
@@ -1269,11 +1417,33 @@
       e.target.style.outline = 'none';
     });
 
-    // Inicializar o quiz quando a página for carregada
+    // Inicializar quando a página for carregada
     window.addEventListener('DOMContentLoaded', () => {
       initQuiz();
+      createTestiNavigation();
       adjustTestiWidth();
+      
+      // Iniciar com o primeiro depoimento ativo
+      scrollToTestimonial(0);
     });
+
+    // Ajustar responsividade dos depoimentos
+    function adjustTestiWidth() {
+      const testiItems = document.querySelectorAll('.testi');
+      const containerWidth = track.clientWidth;
+      
+      if (containerWidth < 400) {
+        testiItems.forEach(item => {
+          item.style.minWidth = '260px';
+        });
+      } else {
+        testiItems.forEach(item => {
+          item.style.minWidth = '300px';
+        });
+      }
+    }
+
+    window.addEventListener('resize', adjustTestiWidth);
   </script>
 </body>
 </html>
