@@ -157,7 +157,8 @@
     .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
 
     /* ---------- SOCIAL PROOF ---------- */
-    .social-wrap{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+    .social-wrap{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+    .testi-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px;}
     .testi-track{display:flex;gap:16px;overflow:auto;padding-bottom:15px;scrollbar-width:thin;}
     .testi-track::-webkit-scrollbar{height:6px;}
     .testi-track::-webkit-scrollbar-track{background:rgba(0,255,122,0.05);border-radius:10px;}
@@ -213,6 +214,7 @@
       .hero-grid{grid-template-columns:1fr 400px}
       .grid-3{grid-template-columns:repeat(2,1fr);}
       .quiz-options{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
     }
     @media (max-width:880px){
       .header-inner nav{display:none;}
@@ -233,6 +235,7 @@
       .grid-3{grid-template-columns:1fr;}
       .mascote-container{bottom:70px;}
       .mascote-chat{width:220px;}
+      .testi-header{flex-direction:column;align-items:flex-start;}
     }
     @media (max-width:580px){
       h2.title{font-size:32px;}
@@ -242,6 +245,8 @@
       .pay-row{justify-content:center;}
       .quiz-options{grid-template-columns:1fr;}
       .mascote-chat{width:200px;right:-20px;}
+      .testi{min-width:260px;}
+      .footer-grid{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -439,7 +444,7 @@
 
         <div class="hero-card" id="garantia">
           <h4 style="margin:0 0 8px"><i class="fas fa-shield-alt"></i> Garantia de 7 dias</h4>
-          <p style="color:var(--muted);margin:0 0 12px">Se não tiver resultado prático nos primeiro 7 dias, devolvemos 100% do valor investido — sem perguntas ou complicações.</p>
+          <p style="color:var(--muted);margin:0 0 12px">Se não tiver resultado prático nos primeiros 7 dias, devolvemos 100% do valor investido — sem perguntas ou complicações.</p>
           <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Testar sem risco</a>
         </div>
       </div>
@@ -472,7 +477,7 @@
         <div class="feature">
           <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
           <h4>Aula 5: Escala e KPIs</h4>
-          <p>Métricas essenciais, análise de dados e checklist para escalar com segurança.</p>
+          <p>Métricas essenciais, análise de dados và checklist para escalar com segurança.</p>
         </div>
         <div class="feature">
           <div class="feature-icon"><i class="fas fa-star"></i></div>
@@ -482,13 +487,12 @@
       </div>
     </section>
 
-    <!-- SOCIAL PROOF -->
+    <!-- SOCIAL PROOF - DEPOIMENTOS MELHORADOS -->
     <section id="depoimentos" class="section container">
-      <h3 class="section-title">Quem já fez recomenda</h3>
       <div class="social-wrap">
         <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px">
-            <strong>Depoimentos reais</strong>
+          <div class="testi-header">
+            <h3 class="section-title" style="margin:0">Quem já fez recomenda</h3>
             <div style="color:var(--muted)">Avaliação média <span style="color:var(--cta-1);font-weight:900">4,9</span>/5</div>
           </div>
           <div class="testi-track" id="testiTrack" aria-live="polite" aria-atomic="true"></div>
@@ -770,7 +774,7 @@
     window.addEventListener('DOMContentLoaded', loadPredefinedComments);
 
     /* ========================
-       Quiz Interativo
+       Quiz Interativo (ATUALIZADO)
        ======================== */
     const quizData = [
       {
@@ -785,6 +789,7 @@
       {
         question: "Quanto você pode investir inicialmente em tráfego pago?",
         options: [
+          { text: "Não quero investir dinheiro", value: "none", icon: "fas fa-hand-holding-heart" },
           { text: "Até R$ 500 por mês", value: "low", icon: "fas fa-wallet" },
           { text: "Entre R$ 500 e R$ 1.500 por mês", value: "medium", icon: "fas fa-money-bill-wave" },
           { text: "Entre R$ 1.500 e R$ 3.000 por mês", value: "high", icon: "fas fa-chart-line" },
@@ -821,6 +826,33 @@
     ];
 
     const productRecommendations = {
+      // Recomendações para quem não quer investir
+      beginner_none_physical: {
+        product: "Produtos de baixo custo (como canecas personalizadas)",
+        funnel: "Funil de Vendas Orgânico (sem tráfego pago)",
+        investment: "R$ 0 (foco em tráfego orgânico)",
+        profit: "R$ 500-1.000/mês",
+        time: "4-6 semanas",
+        observation: "Usando estratégias orgânicas e parcerias"
+      },
+      beginner_none_digital: {
+        product: "E-book ou conteúdo digital de nicho",
+        funnel: "Funil de Conteúdo Gratuito + Venda",
+        investment: "R$ 0 (foco em conteúdo orgânico)",
+        profit: "R$ 800-1.500/mês",
+        time: "5-7 semanas",
+        observation: "Usando redes sociais e marketing de conteúdo"
+      },
+      beginner_none_services: {
+        product: "Serviços freelancer (design, copywriting)",
+        funnel: "Funil de Portfólio + Prospecção Ativa",
+        investment: "R$ 0 (foco em networking)",
+        profit: "R$ 1.000-2.000/mês",
+        time: "3-5 semanas",
+        observation: "Usando plataformas de freelance e portfólio"
+      },
+      
+      // Recomendações originais (mantidas para referência)
       beginner_low_physical: {
         product: "Produtos de Nicho Específico (como acessórios pet premium)",
         funnel: "Funil de Vendas Direto (1-2 etapas)",
@@ -936,6 +968,12 @@
       let recommendation = productRecommendations[recommendationKey] || productRecommendations.default;
       
       const quizContent = document.getElementById('quizContent');
+      
+      let observationHTML = '';
+      if (recommendation.observation) {
+        observationHTML = `<p style="color:var(--muted);font-style:italic;margin-top:10px;">${recommendation.observation}</p>`;
+      }
+      
       quizContent.innerHTML = `
         <div class="quiz-result">
           <div class="result-icon"><i class="fas fa-trophy"></i></div>
@@ -964,6 +1002,8 @@
               <span class="result-value">${recommendation.time}</span>
             </div>
           </div>
+          
+          ${observationHTML}
           
           <p style="color:var(--muted);margin-bottom:20px">Nosso curso inclui modelos prontos exatamente para esse tipo de produto e funil, com passo a passo detalhado.</p>
           
@@ -1045,7 +1085,7 @@
     });
 
     /* ========================
-       Testemunhos
+       Testemunhos (MELHORADO)
        ======================== */
     const track = document.getElementById('testiTrack');
     
@@ -1069,17 +1109,27 @@
     }
 
     // Adiciona os primeiros testemunhos
-    TESTS.slice(0, 3).forEach(t => track.appendChild(createTesti(t)));
+    TESTS.forEach(t => track.appendChild(createTesti(t)));
 
-    // Animação de testemunhos
-    let testiIndex = 3;
-    setInterval(() => {
-      if (testiIndex >= TESTS.length) testiIndex = 0;
-      track.appendChild(createTesti(TESTS[testiIndex]));
-      if (track.children.length > 4) track.removeChild(track.firstElementChild);
-      track.scrollTo({left: track.scrollWidth, behavior: 'smooth'});
-      testiIndex++;
-    }, 4000);
+    // Melhorar responsividade dos depoimentos
+    function adjustTestiWidth() {
+      const testiItems = document.querySelectorAll('.testi');
+      const containerWidth = track.clientWidth;
+      
+      if (containerWidth < 400) {
+        testiItems.forEach(item => {
+          item.style.minWidth = '260px';
+        });
+      } else {
+        testiItems.forEach(item => {
+          item.style.minWidth = '300px';
+        });
+      }
+    }
+
+    // Ajustar na inicialização e no redimensionamento
+    window.addEventListener('load', adjustTestiWidth);
+    window.addEventListener('resize', adjustTestiWidth);
 
     /* ========================
        Notificações ao vivo
@@ -1220,7 +1270,10 @@
     });
 
     // Inicializar o quiz quando a página for carregada
-    window.addEventListener('DOMContentLoaded', initQuiz);
+    window.addEventListener('DOMContentLoaded', () => {
+      initQuiz();
+      adjustTestiWidth();
+    });
   </script>
 </body>
 </html>
