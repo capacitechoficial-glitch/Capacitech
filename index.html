@@ -4,117 +4,138 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capacitech · Curso Intensivo de Marketing Digital</title>
-  <meta name="description" content="Curso intensivo: 5 aulas gravadas + eBook + certificado digital. Promoção limitada." />
-  <link rel="icon" href="https://img.icons8.com/fluency/48/artificial-intelligence.png" />
+  <meta name="description" content="Curso intensivo: 5 aulas gravadas + eBook + certificado digital. Promoção limitada por tempo curto.">
+  <link rel="icon" href="https://img.icons8.com/fluency/48/artificial-intelligence.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#03110d;
+      --bg:#030d0a;
+      --bg-2:#02110c;
       --panel:#071914cc;
-      --muted:#9ef8c9;
+      --muted:#a8ffd7;
       --text:#eafff3;
       --neon:#16ff8f;
       --neon-2:#00d87a;
+      --accent:#7fffd4;
       --glass:rgba(10,26,20,0.45);
       --radius:16px;
-      --container:1100px;
+      --container:1120px;
+      --shadow:0 20px 60px rgba(0,0,0,.5);
+      --bd:1px solid rgba(16,90,60,.16);
     }
     *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family:'Inter',system-ui,Roboto,Arial; background:radial-gradient(600px 400px at 10% 12%, #063a2a22, transparent), linear-gradient(180deg,var(--bg), #02120d); color:var(--text); -webkit-font-smoothing:antialiased}
-    a{color:inherit}
-    .container{max-width:var(--container); margin:0 auto; padding:0 20px}
+    html,body{height:100%;margin:0;font-family:'Inter',system-ui,Roboto,Arial;background:radial-gradient(640px 420px at 12% 10%, #063a2a22, transparent),linear-gradient(180deg,var(--bg), var(--bg-2));color:var(--text);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
 
     /* Header */
-    header.site-header{position:sticky; top:0; z-index:90; backdrop-filter: blur(8px); background:linear-gradient(90deg, rgba(1,10,7,0.5), rgba(6,20,15,0.35)); border-bottom:1px solid rgba(16,70,50,0.12)}
-    .header-grid{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; gap:12px; align-items:center}
-    .site-logo{width:52px;height:52px;border-radius:12px;object-fit:cover; box-shadow: 0 6px 30px #00ff8830}
-    .brand-name{font-weight:800; color:var(--neon); letter-spacing:0.2px}
-    .brand-slogan{display:block; font-size:12px; color:var(--muted)}
-    nav.nav-actions{display:flex; gap:12px; align-items:center}
+    header.site-header{position:sticky;top:0;z-index:90;backdrop-filter:blur(10px);background:linear-gradient(90deg, rgba(1,10,7,.55), rgba(6,20,15,.35));border-bottom:1px solid rgba(16,70,50,.12)}
+    .header-grid{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .site-logo{width:52px;height:52px;border-radius:12px;object-fit:cover;box-shadow:0 6px 30px #00ff8830}
+    .brand-name{font-weight:800;color:var(--neon);letter-spacing:.2px}
+    .brand-slogan{display:block;font-size:12px;color:var(--muted)}
+    nav.nav-actions{display:flex;gap:10px;align-items:center}
 
     /* Buttons */
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px; font-weight:600; cursor:pointer; border:1px solid rgba(20,90,60,0.18); text-decoration:none}
-    .btn-primary{background:linear-gradient(135deg,var(--neon),var(--neon-2)); color:#01220f; box-shadow:0 10px 30px #00ff8830}
-    .btn-outline{background:transparent; color:var(--muted); border:1px solid rgba(20,90,60,0.28)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;font-weight:700;cursor:pointer;border:var(--bd)}
+    .btn span.badge{font-weight:800;font-size:11px;padding:2px 8px;border-radius:999px;background:#022117;color:var(--neon);border:1px solid #0c563a}
+    .btn-primary{background:linear-gradient(135deg,var(--neon),var(--neon-2));color:#01220f;box-shadow:0 10px 30px #00ff8830;border:none}
+    .btn-outline{background:transparent;color:var(--muted);border:1px solid rgba(20,90,60,.28)}
+    .btn-ghost{background:transparent;color:var(--text);border:1px dashed rgba(20,90,60,.3)}
 
     /* Hero */
-    .hero{padding:44px 0}
-    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch}
-    .card{background:linear-gradient(180deg, rgba(8,28,20,0.6), rgba(4,17,13,0.5)); border:1px solid rgba(18,70,48,0.2); border-radius:var(--radius); box-shadow:0 20px 60px rgba(0,0,0,0.5); overflow:hidden}
+    .hero{padding:36px 0 14px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
+    .card{background:linear-gradient(180deg, rgba(8,28,20,.6), rgba(4,17,13,.5));border:1px solid rgba(18,70,48,.2);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
     .hero-left{padding:28px}
-    .kicker{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(22,255,143,0.08); color:var(--neon); font-weight:700; font-size:12px}
-    h1.hero-title{font-size:42px; margin:12px 0 8px; line-height:1.02; text-shadow:0 8px 30px #00ff8830}
-    p.hero-desc{color:#d8ffee}
-    .hero-list{margin:18px 0; display:grid; gap:10px; padding-left:0; list-style:none}
-    .hero-list li{display:flex; gap:10px; align-items:center}
-    .hero-cta{display:flex; gap:12px; margin-top:8px}
+    .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(22,255,143,.08);color:var(--neon);font-weight:800;font-size:12px;border:1px solid rgba(22,255,143,.25)}
+    .kicker .dot{width:8px;height:8px;border-radius:999px;background:var(--neon);box-shadow:0 0 16px var(--neon)}
+    h1.hero-title{font-size:42px;margin:12px 0 10px;line-height:1.03;text-shadow:0 8px 30px #00ff8830}
+    p.hero-desc{color:#d8ffee;font-size:15px}
+    .trust-row{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 6px}
+    .trust-badge{display:flex;gap:8px;align-items:center;padding:6px 10px;border-radius:10px;background:#041a13;border:1px solid #0c3728;font-size:12px}
+    .hero-list{margin:14px 0;display:grid;gap:10px;padding-left:0;list-style:none}
+    .hero-list li{display:flex;gap:10px;align-items:center}
+    .hero-cta{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
 
-    /* Right panel - using animated SVG illustration */
-    .hero-right{position:relative; min-height:340px; display:flex; align-items:center; justify-content:center}
-    .illus-wrap{width:100%; height:100%; display:flex; align-items:center; justify-content:center}
-    .price-card{position:absolute; right:18px; bottom:18px; width:320px; border-radius:14px; padding:14px; background:linear-gradient(180deg, rgba(2,20,14,0.8), rgba(4,28,20,0.72)); border:1px solid rgba(20,90,60,0.18); box-shadow:0 8px 30px #001f15}
-    .big-price{font-size:34px; font-weight:800; color:var(--neon);}
-    .old{font-size:12px; color:#9ef8c988; text-decoration:line-through}
+    /* Right panel - animated illustration + price */
+    .hero-right{position:relative;min-height:360px;display:flex;align-items:center;justify-content:center}
+    .illus-wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+    .svg-illus{width:92%;max-width:680px}
+    .price-card{position:absolute;right:18px;bottom:18px;width:330px;border-radius:14px;padding:14px;background:linear-gradient(180deg, rgba(2,20,14,.8), rgba(4,28,20,.72));border:1px solid rgba(20,90,60,.18);box-shadow:0 8px 30px #001f15}
+    .big-price{font-size:36px;font-weight:900;color:var(--neon)}
+    .old{font-size:12px;color:#9ef8c988;text-decoration:line-through}
+    .countdown{font-variant-numeric:tabular-nums;font-weight:800}
 
     /* Benefits */
     .section{padding:48px 0}
-    h2{font-size:28px; margin-bottom:18px}
-    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    .cards .card{padding:0; overflow:hidden}
-    .card-illus{width:100%; height:180px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(0,30,18,0.25), rgba(0,20,14,0.15));}
-    .card-body{padding:12px}
+    h2{font-size:28px;margin-bottom:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .cards .card{padding:0;overflow:hidden}
+    .card-illus{width:100%;height:180px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,30,18,.25), rgba(0,20,14,.15));}
+    .card-body{padding:14px}
+
+    /* Offer highlights */
+    .offer{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .offer .list{background:linear-gradient(180deg,#031710,#04120d);padding:18px;border-radius:14px;border:var(--bd)}
+    .offer .list li{margin:8px 0}
+    .guarantee{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:14px;background:#061a13;border:var(--bd)}
 
     /* Testimonials + notifications */
-    .testimonials-wrap{display:flex; gap:20px; align-items:flex-start}
+    .testimonials-wrap{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:flex-start}
     .testi-feed{flex:1}
-    .testi-track{display:flex; gap:14px; overflow:hidden}
-    .testimonial{min-width:280px; background:linear-gradient(180deg, rgba(6,24,18,0.6), rgba(6,20,16,0.5)); padding:14px; border-radius:12px; border:1px solid rgba(17,70,48,0.12)}
-    .avatar{width:52px;height:52px;border-radius:12px; object-fit:cover; box-shadow:0 6px 20px #00ff8830}
-    .testi-name{font-weight:700}
-    .testi-role{font-size:12px; color:var(--muted)}
+    .testi-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .stars{letter-spacing:2px}
+    .testi-track{display:flex;gap:14px;overflow:auto;scrollbar-width:none}
+    .testi-track::-webkit-scrollbar{display:none}
+    .testimonial{min-width:300px;background:linear-gradient(180deg, rgba(6,24,18,.6), rgba(6,20,16,.5));padding:14px;border-radius:12px;border:1px solid rgba(17,70,48,.12)}
+    .avatar{width:52px;height:52px;border-radius:12px;object-fit:cover;box-shadow:0 6px 20px #00ff8830}
+    .testi-name{font-weight:800}
+    .testi-role{font-size:12px;color:var(--muted)}
 
-    .notif-box{width:320px; position:sticky; top:88px; align-self:start}
-    .notif{background:#05140f; border-left:4px solid var(--neon); padding:12px; margin-bottom:12px; border-radius:10px; box-shadow:0 6px 20px rgba(0,0,0,0.6); display:flex; gap:10px; align-items:center}
+    .notif-box{width:100%;position:sticky;top:88px;align-self:start}
+    .notif{background:#05140f;border-left:4px solid var(--neon);padding:12px;margin-bottom:12px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.6);display:flex;gap:10px;align-items:center}
     .notif img{width:44px;height:44px;border-radius:10px}
-    .notif small{display:block; color:var(--muted)}
+    .notif small{display:block;color:var(--muted)}
 
-    /* Buybar mobile */
-    .buybar{position:fixed; left:12px; right:12px; bottom:12px; display:flex; justify-content:space-between; align-items:center; background:linear-gradient(180deg,#071914, #04110b); padding:12px; border-radius:14px; border:1px solid rgba(18,70,48,0.12); box-shadow:0 10px 30px rgba(0,0,0,0.6); z-index:999}
-    .buybar .price{font-weight:800; color:var(--neon)}
+    /* FAQ */
+    details{background:#05140f;border:1px solid rgba(17,70,48,.18);border-radius:12px;padding:12px;margin:8px 0}
+    summary{cursor:pointer;font-weight:700}
+
+    /* Footer buybar mobile */
+    .buybar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,#071914,#04110b);padding:12px;border-radius:14px;border:1px solid rgba(18,70,48,.12);box-shadow:0 10px 30px rgba(0,0,0,.6);z-index:999}
+    .buybar .price{font-weight:900;color:var(--neon)}
 
     /* small screens */
     @media (max-width:980px){
-      .hero-grid{grid-template-columns:1fr}
+      .hero-grid,.offer{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr}
       .notif-box{display:none}
-      .price-card{position:static; margin:12px}
+      .price-card{position:static;margin:12px}
       .hero-left{padding:20px}
       h1.hero-title{font-size:30px}
+      .testimonials-wrap{grid-template-columns:1fr}
     }
 
-    /* animated accent */
+    /* motion */
     .pulse { animation: pulse 2.8s infinite; }
     @keyframes pulse { 0% { transform: scale(1); opacity: .95 } 50% { transform: scale(1.02); opacity: 1 } 100% { transform: scale(1); opacity: .95 } }
-
     .float{animation:floaty 6s ease-in-out infinite}
     @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
-
-    /* SVG-sized responsive */
-    .svg-illus{width:90%; max-width:640px}
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-grid">
       <div class="brand" aria-hidden="false">
-        <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#063b28,#00ff88);display:flex;align-items:center;justify-content:center;color:#02120d;font-weight:800">CT</div>
+        <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#063b28,#00ff88);display:flex;align-items:center;justify-content:center;color:#02120d;font-weight:900">CT</div>
         <div>
           <div class="brand-name">Capacitech</div>
           <div class="brand-slogan">Marketing Digital • 5 aulas práticas</div>
         </div>
       </div>
-
       <nav class="nav-actions" aria-label="Ações do site">
         <a class="btn btn-outline" href="#benefits">Benefícios</a>
         <a class="btn btn-outline" href="#programa">Programa</a>
@@ -124,12 +145,20 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero container">
       <div class="hero-grid card">
         <div class="hero-left">
-          <div class="kicker">Promoção relâmpago</div>
-          <h1 class="hero-title">Domine Marketing Digital e cresça seu faturamento</h1>
-          <p class="hero-desc">Curso intensivo com <strong>5 aulas gravadas</strong> + eBook + certificado. Estratégias práticas para tráfego, funil e conversão — aplicáveis hoje.</p>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> Promoção relâmpago <span class="dot" aria-hidden="true" style="opacity:.6"></span></div>
+          <h1 class="hero-title">Domine o Marketing Digital e escale seu faturamento</h1>
+          <p class="hero-desc">Curso intensivo com <strong>5 aulas gravadas</strong> + eBook + certificado. Estratégias comprovadas de tráfego, funil e conversão — prontas para aplicar hoje.</p>
+
+          <div class="trust-row" aria-label="Provas de confiança">
+            <div class="trust-badge">🔒 Pagamento 100% seguro</div>
+            <div class="trust-badge">⭐ 4,9/5 por +1.200 alunos</div>
+            <div class="trust-badge">🕒 Acesso imediato</div>
+            <div class="trust-badge">✅ Garantia 7 dias</div>
+          </div>
 
           <ul class="hero-list" aria-hidden="false">
             <li>✅ Aulas objetivas e aplicáveis</li>
@@ -139,6 +168,7 @@
 
           <div class="hero-cta">
             <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Garantir por R$ 39,90</a>
+            <a class="btn btn-ghost" href="#garantia"><span class="badge">7 dias</span> Ver garantia</a>
             <a class="btn btn-outline" href="#benefits">Ver benefícios</a>
           </div>
 
@@ -150,7 +180,7 @@
 
         <aside class="hero-right">
           <div class="illus-wrap">
-            <!-- Animated SVG illustration (futuristic, green) -->
+            <!-- Animated SVG (futurista, verde) -->
             <svg class="svg-illus float" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração futurista de painéis e dados">
               <defs>
                 <linearGradient id="lg" x1="0" x2="1">
@@ -161,14 +191,8 @@
                   <stop offset="0%" stop-color="#00ff88" stop-opacity="0.5"/>
                   <stop offset="100%" stop-color="#00d87a" stop-opacity="0.2"/>
                 </linearGradient>
-                <filter id="blur">
-                  <feGaussianBlur stdDeviation="8" />
-                </filter>
               </defs>
-
               <rect x="0" y="0" width="800" height="500" rx="18" fill="url(#lg)" />
-
-              <!-- animated lines -->
               <g stroke="#00ff88" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.95">
                 <path d="M40 380 C140 300 260 420 760 300" stroke-opacity="0.45">
                   <animate attributeName="d" dur="8s" repeatCount="indefinite" values="M40 380 C140 300 260 420 760 300; M40 360 C140 280 260 440 760 320; M40 380 C140 300 260 420 760 300"/>
@@ -177,15 +201,11 @@
                   <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M40 300 C160 220 320 360 760 260; M40 280 C160 200 320 380 760 280; M40 300 C160 220 320 360 760 260"/>
                 </path>
               </g>
-
-              <!-- floating blocks -->
               <g fill="#001c14" stroke="#00ff88" stroke-opacity="0.9" stroke-width="1.2">
                 <rect x="72" y="70" width="160" height="110" rx="10" fill-opacity="0.06" />
                 <rect x="320" y="40" width="220" height="140" rx="10" fill-opacity="0.04" />
                 <rect x="540" y="120" width="180" height="90" rx="8" fill-opacity="0.05" />
               </g>
-
-              <!-- animated dots to mimic activity -->
               <g>
                 <circle cx="120" cy="120" r="4" fill="#00ff88">
                   <animate attributeName="r" dur="2s" values="4;8;4" repeatCount="indefinite"/>
@@ -197,42 +217,43 @@
                   <animate attributeName="r" dur="3s" values="3;7;3" repeatCount="indefinite"/>
                 </circle>
               </g>
-
-              <!-- header digital text block -->
               <g transform="translate(90,280)">
                 <rect x="0" y="0" width="220" height="80" rx="8" fill="#001a12" stroke="#00ff8840"/>
                 <text x="18" y="30" fill="#9ef8c9" font-size="18" font-weight="700">Analytics</text>
                 <text x="18" y="54" fill="#77f0b2" font-size="12">CPC ↓ • Conversão ↑</text>
               </g>
-
             </svg>
           </div>
 
-          <div class="price-card">
+          <div class="price-card" id="pcard">
             <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
               <div>
-                <div class="small muted">Valor promocional</div>
+                <div class="small muted">Valor promocional <span class="countdown" id="countdown">00:15:00</span></div>
                 <div class="big-price">R$ 39,90</div>
                 <div class="old">R$ 199,90</div>
               </div>
               <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Comprar</a>
             </div>
-            <div style="margin-top:10px; display:flex; gap:10px; align-items:center;">
-              <span>🔒</span>
-              <div class="muted">Pagamento 100% seguro • Acesso após confirmação</div>
+            <div style="margin-top:10px; display:flex; gap:10px; align-items:center;flex-wrap:wrap">
+              <div class="muted" style="display:flex;gap:6px;align-items:center">🔒 Pagamento seguro • Pix/Cartão/Boleto</div>
+              <div style="display:flex;gap:6px;opacity:.85" aria-hidden="true">
+                <!-- ícones simples de meios de pagamento (SVG) -->
+                <svg width="28" height="18" viewBox="0 0 32 20"><rect width="32" height="20" rx="3" fill="#012"/><rect x="3" y="3" width="26" height="14" rx="2" fill="#09d"/></svg>
+                <svg width="28" height="18" viewBox="0 0 32 20"><rect width="32" height="20" rx="3" fill="#120"/><circle cx="12" cy="10" r="6" fill="#f33"/><circle cx="20" cy="10" r="6" fill="#fc3"/></svg>
+                <svg width="28" height="18" viewBox="0 0 32 20"><rect width="32" height="20" rx="3" fill="#021"/><rect x="6" y="5" width="20" height="10" rx="2" fill="#0d8"/></svg>
+              </div>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section id="benefits" class="section container">
+    <!-- WHAT YOU GET / OFFER -->
+    <section class="section container" id="benefits">
       <h2>O que você vai aprender</h2>
       <div class="grid-3 cards">
-
         <div class="card">
           <div class="card-illus" aria-hidden="true">
-            <!-- abstract animated svg for "Tráfego" -->
             <svg width="88%" viewBox="0 0 400 180" class="pulse" xmlns="http://www.w3.org/2000/svg">
               <rect x="10" y="12" rx="10" ry="10" width="120" height="140" fill="#001a12" stroke="#00ff8840"/>
               <g fill="#00ff88">
@@ -247,10 +268,8 @@
             <p class="muted">Segmentação, criativos e dados para ROI positivo no Meta e Google.</p>
           </div>
         </div>
-
         <div class="card">
           <div class="card-illus" aria-hidden="true">
-            <!-- abstract animated svg for "Funil" -->
             <svg width="88%" viewBox="0 0 400 180" class="pulse" xmlns="http://www.w3.org/2000/svg">
               <g>
                 <polygon points="60,20 340,20 230,80 170,80" fill="#001a12" stroke="#00ff8840"/>
@@ -264,10 +283,8 @@
             <p class="muted">Páginas, copy e ofertas otimizadas para conversão.</p>
           </div>
         </div>
-
         <div class="card">
           <div class="card-illus" aria-hidden="true">
-            <!-- abstract animated svg for "Suporte" -->
             <svg width="88%" viewBox="0 0 400 180" class="pulse" xmlns="http://www.w3.org/2000/svg">
               <rect x="20" y="20" width="120" height="120" rx="12" fill="#001a12" stroke="#00ff8840"/>
               <circle cx="260" cy="80" r="36" fill="#003a2a" stroke="#00ff8840"/>
@@ -279,10 +296,32 @@
             <p class="muted">Grupo exclusivo e assistência para aplicar o conteúdo.</p>
           </div>
         </div>
+      </div>
 
+      <div class="offer" style="margin-top:18px">
+        <ul class="list">
+          <li>📹 5 aulas gravadas (passo a passo)</li>
+          <li>📘 eBook completo de apoio</li>
+          <li>🧩 Templates: funil, criativos, páginas</li>
+          <li>🎯 Plano de 14 dias para a primeira venda</li>
+          <li>👥 Grupo de suporte com respostas rápidas</li>
+          <li>🎓 Certificado de conclusão válido</li>
+        </ul>
+        <div class="guarantee" id="garantia">
+          <div style="font-size:40px;line-height:1">🛡️</div>
+          <div>
+            <h3 style="margin:0 0 6px">Garantia incondicional de 7 dias</h3>
+            <p class="muted" style="margin:0">Se dentro de <strong>7 dias</strong> você achar que o curso não é para você, devolvemos <strong>100% do valor</strong> — sem burocracia.</p>
+            <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Quero testar sem risco</a>
+              <a class="btn btn-outline" href="#programa">Ver conteúdo do curso</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- PROGRAMA -->
     <section id="programa" class="section container">
       <h2>Programa do curso</h2>
       <div class="grid-3 cards">
@@ -295,24 +334,41 @@
       </div>
     </section>
 
+    <!-- SOCIAL PROOF -->
     <section class="section container">
-      <h2>Depoimentos e atividade</h2>
       <div class="testimonials-wrap">
         <div class="testi-feed">
-          <div class="testi-track" id="testiTrack" aria-live="polite" aria-atomic="true">
-            <!-- testimonial cards injected by JS -->
+          <div class="testi-toolbar">
+            <div><strong>O que os alunos dizem</strong></div>
+            <div class="stars" aria-label="Avaliação média 4.9 de 5">★★★★★ <span class="muted">4,9/5</span></div>
           </div>
+          <div class="testi-track" id="testiTrack" aria-live="polite" aria-atomic="true"></div>
+          <div style="display:flex;justify-content:center;margin-top:10px;gap:8px">
+            <button class="btn btn-outline" id="prevT">←</button>
+            <button class="btn btn-outline" id="nextT">→</button>
+          </div>
+          <p class="small muted" style="margin-top:12px">Depoimentos reais de alunos — atualização automática.</p>
         </div>
 
         <aside class="notif-box" aria-hidden="false">
+          <div style="margin-bottom:8px;font-weight:800">Atividade recente</div>
           <div id="notifList"></div>
         </aside>
       </div>
-      <p class="small muted" style="margin-top:12px">Depoimentos reais de alunos — atualização automática.</p>
+    </section>
+
+    <!-- FAQ / DÚVIDAS -->
+    <section class="section container" id="faq">
+      <h2>Dúvidas frequentes</h2>
+      <details><summary>Quando tenho acesso ao conteúdo?</summary><p class="muted">Imediatamente após a confirmação do pagamento você recebe um e-mail com o login.</p></details>
+      <details><summary>Por quanto tempo terei acesso?</summary><p class="muted">Acesso por 12 meses com atualizações inclusas.</p></details>
+      <details><summary>Preciso ter experiência?</summary><p class="muted">Não. O curso vai do básico ao avançado, com exemplos práticos e templates.</p></details>
+      <details><summary>Como funciona a garantia?</summary><p class="muted">Até 7 dias após a compra, basta enviar um e-mail e devolvemos 100% do valor.</p></details>
     </section>
 
   </main>
 
+  <!-- BUYBAR MOBILE -->
   <div class="buybar" id="buybar" style="display:none">
     <div>
       <div class="small muted">Promoção</div>
@@ -324,24 +380,54 @@
   </div>
 
   <footer class="site-footer" style="padding:18px 20px; margin-top:40px; border-top:1px solid rgba(18,70,48,0.08)">
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap">
       <div>
         <strong>Capacitech</strong>
         <div class="muted small">© 2025 • contato: capacitechoficial@gmail.com</div>
       </div>
-      <nav aria-label="Links rápidos">
-        <a href="#benefits" class="muted small" style="margin-right:12px">Benefícios</a>
+      <nav aria-label="Links rápidos" style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#benefits" class="muted small">Benefícios</a>
         <a href="#programa" class="muted small">Programa</a>
+        <a href="#faq" class="muted small">Dúvidas</a>
       </nav>
     </div>
   </footer>
 
   <script>
-    // Helper selectors
+    // Helpers
     const $ = (sel,ctx=document) => ctx.querySelector(sel);
     const $$ = (sel,ctx=document) => [...ctx.querySelectorAll(sel)];
 
-    // Testimonials data (people in feed HAVE real avatars; site imagery is illustration-only)
+    /* =====================
+       CONTADOR PROMO (15min)
+       persiste por aba (sessionStorage)
+    ====================== */
+    (function promoCountdown(){
+      const el = document.getElementById('countdown');
+      if(!el) return;
+      const KEY='cap_promo_until';
+      let until = sessionStorage.getItem(KEY);
+      if(!until){
+        // 15 min a partir da abertura
+        until = Date.now() + 15*60*1000;
+        sessionStorage.setItem(KEY, until);
+      } else { until = +until; }
+      function tick(){
+        const left = Math.max(0, until - Date.now());
+        const m = Math.floor(left/60000);
+        const s = Math.floor((left%60000)/1000);
+        const mm = String(m).padStart(2,'0');
+        const ss = String(s).padStart(2,'0');
+        el.textContent = ` ${mm}:${ss}`;
+        if(left<=0){ el.textContent=' 00:00'; clearInterval(int); }
+      }
+      tick();
+      const int = setInterval(tick, 500);
+    })();
+
+    /* =====================
+       TESTEMUNHOS (reais com avatares)
+    ====================== */
     const TESTS = [
       {n:'Maria Rodrigues', r:'Empreendedora', t:'Dobrei as vendas em 3 semanas com o funil aprendido aqui.', img:'https://i.pravatar.cc/120?img=65'},
       {n:'Lucas Almeida', r:'Analista de MKT', t:'Reduzi o CPC e aumentei o ROAS aplicando os templates.', img:'https://i.pravatar.cc/120?img=12'},
@@ -352,70 +438,76 @@
       {n:'Carla Nunes', r:'Social Media', t:'Copy e landing melhoraram meu CR consideravelmente.', img:'https://i.pravatar.cc/120?img=31'}
     ];
 
-    // Create testimonial card
+    function starRow(){
+      return '<div class="stars" aria-hidden="true">★★★★★</div>'
+    }
+
     function makeTestCard(d){
       const el = document.createElement('article');
       el.className = 'testimonial';
       el.innerHTML = `
-        <div style="display:flex; gap:12px; align-items:flex-start">
+        <div style="display:flex;gap:12px;align-items:flex-start">
           <img class="avatar" src="${d.img}" alt="Foto ${d.n}">
           <div>
             <div class="testi-name">${d.n}</div>
             <div class="testi-role">${d.r}</div>
-            <p style="margin-top:8px">${d.t}</p>
+            <div style="margin-top:6px">${starRow()}</div>
+            <p style="margin-top:6px">${d.t}</p>
           </div>
-        </div>
-      `;
+        </div>`;
       return el;
     }
 
-    // Seed testimonials
     const track = $('#testiTrack');
-    function seedTestimonials(){
-      for(let i=0;i<TESTS.length;i++){
-        const card = makeTestCard(TESTS[i]);
-        track.appendChild(card);
-      }
-    }
+    function seedTestimonials(){ TESTS.forEach(t=>track.appendChild(makeTestCard(t))); }
     seedTestimonials();
 
-    // Rotate testimonials: append new, remove old => feels live
-    setInterval(()=>{
-      const idx = Math.floor(Math.random()*TESTS.length);
-      const card = makeTestCard(TESTS[idx]);
-      track.appendChild(card);
-      if(track.children.length>12) track.removeChild(track.firstElementChild);
-    }, 2600);
+    // Navegação manual
+    $('#prevT').addEventListener('click',()=> track.scrollBy({left:-320,behavior:'smooth'}));
+    $('#nextT').addEventListener('click',()=> track.scrollBy({left: 320,behavior:'smooth'}));
 
-    // Notifications (people buying / leaving feedback) - avatars are real
+    // Rotação automática
+    let auto = setInterval(()=>{ track.appendChild(makeTestCard(TESTS[Math.floor(Math.random()*TESTS.length)]));
+      if(track.children.length>14) track.removeChild(track.firstElementChild);
+    }, 3000);
+    track.addEventListener('mouseenter',()=>clearInterval(auto));
+    track.addEventListener('mouseleave',()=>{auto=setInterval(()=>{ track.appendChild(makeTestCard(TESTS[Math.floor(Math.random()*TESTS.length)])); if(track.children.length>14) track.removeChild(track.firstElementChild);},3000)});
+
+    /* =====================
+       NOTIFICAÇÕES (compras/comentários positivos)
+    ====================== */
     const notifList = $('#notifList');
-    const NAMES = ['Mariana','Carlos','Fernanda','João','Luiza','Eduardo','Beatriz','Thiago','Paula'];
+    const NAMES = ['Mariana','Carlos','Fernanda','João','Luiza','Eduardo','Beatriz','Thiago','Paula','André','Larissa','Hugo'];
     function pushNotif(){
       const who = NAMES[Math.floor(Math.random()*NAMES.length)];
-      const action = Math.random() > 0.45 ? 'comprou o curso' : 'deixou um depoimento';
+      const action = Math.random() > 0.35 ? 'comprou o curso' : 'deixou um depoimento ⭐⭐⭐⭐⭐';
       const avatar = `https://i.pravatar.cc/64?u=${who}`;
       const el = document.createElement('div');
       el.className = 'notif';
       el.innerHTML = `<img src="${avatar}" alt="${who}"><div><strong>${who}</strong><small>${action} • agora</small></div>`;
       notifList.prepend(el);
-      while(notifList.children.length>4) notifList.removeChild(notifList.lastElementChild);
+      while(notifList.children.length>5) notifList.removeChild(notifList.lastElementChild);
       el.style.opacity=0; el.style.transform='translateY(-8px)';
       requestAnimationFrame(()=>{ el.style.transition='all .45s cubic-bezier(.2,.9,.3,1)'; el.style.opacity=1; el.style.transform='translateY(0)'; });
     }
-    for(let i=0;i<3;i++) setTimeout(pushNotif, 900*(i+1));
-    setInterval(()=>{ if(Math.random()>0.45) pushNotif(); }, 4300);
+    for(let i=0;i<3;i++) setTimeout(pushNotif, 800*(i+1));
+    setInterval(()=>{ if(Math.random()>0.4) pushNotif(); }, 4200);
 
-    // Mobile buybar behavior
+    /* =====================
+       BUYBAR MOBILE
+    ====================== */
     const buybar = document.getElementById('buybar');
     function checkBuybar(){
       const show = window.innerWidth <= 980 && window.scrollY > 240;
       buybar.style.display = show ? 'flex' : 'none';
     }
-    addEventListener('scroll',()=>{ checkBuybar(); });
-    addEventListener('resize',()=>{ checkBuybar(); });
+    addEventListener('scroll', checkBuybar);
+    addEventListener('resize', checkBuybar);
     checkBuybar();
 
-    // Live region for accessibility announcements
+    /* =====================
+       LIVE REGION A11Y
+    ====================== */
     const liveRegion = document.createElement('div');
     liveRegion.setAttribute('aria-live','polite');
     liveRegion.style.position='absolute'; liveRegion.style.left='-9999px';
@@ -425,14 +517,13 @@
       liveRegion.textContent = `${TESTS[idx].n} deixou um novo depoimento: ${TESTS[idx].t}`;
     }, 7000);
 
-    // Smooth anchor scrolling
+    // Suave para âncoras internas
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const href = a.getAttribute('href');
         if(href.length>1){ e.preventDefault(); document.querySelector(href).scrollIntoView({behavior:'smooth'}); }
       });
     });
-
   </script>
 </body>
 </html>
