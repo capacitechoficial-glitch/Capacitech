@@ -168,7 +168,7 @@
     .testi:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
     .testi .who{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
     .avatar{width:56px;height:56px;border-radius:12px;object-fit:cover;border:2px solid rgba(0,255,122,0.2);flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--gradient);}
-    .avatar i{font-size:24px;color:#05251b;}
+    .avatar img{width:100%;height:100%;border-radius:12px;object-fit:cover;}
     .testi-content{flex:1;display:flex;flex-direction:column;}
     .testi-stars{color:var(--cta-1);font-size:14px;margin-bottom:10px;}
     .testi-text{color:var(--muted);line-height:1.5;flex:1;margin-bottom:12px;}
@@ -183,6 +183,7 @@
     .notif{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#031612,#02120c);border-left:4px solid var(--cta-1);margin-bottom:10px;transition:all 0.3s ease;}
     .notif:last-child{margin-bottom:0;}
     .notif:hover{transform:translateX(3px);}
+    .notif-avatar{width:44px;height:44px;border-radius:8px;object-fit:cover;}
 
     /* ---------- FAQ / FOOTER ---------- */
     .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
@@ -257,7 +258,17 @@
       .testi-role{text-align:center;}
       .testi-nav{display:flex;}
       .avatar{width:50px;height:50px;}
-      .avatar i{font-size:20px;}
+      .avatar img{width:100%;height:100%;}
+      
+      /* Melhorias de responsividade para mobile */
+      h2.title{font-size:36px;}
+      .hero-card{padding:20px;}
+      .feature{padding:20px;}
+      .section{padding:40px 0;}
+      .section-title{font-size:28px;}
+      .quiz-container{padding:20px;}
+      .quiz-question{font-size:20px;}
+      .comments-section{padding:20px;}
     }
     @media (max-width:580px){
       h2.title{font-size:32px;}
@@ -273,11 +284,33 @@
       /* Ajustes finos para mobile muito pequeno */
       .testi{min-width:78vw;}
       .avatar{width:45px;height:45px;}
-      .avatar i{font-size:18px;}
+      
+      /* Melhorias adicionais de responsividade */
+      .container{padding:0 15px;}
+      .hero{padding:20px 0;}
+      .hero-card{padding:18px;}
+      .feature{padding:18px;}
+      .comments-section{margin:30px 0;}
+      .comments-title{font-size:20px;}
+      .comment-form{gap:12px;}
+      .comment-input, .comment-textarea{padding:10px;}
+      .comment-submit{padding:10px;}
     }
     @media (max-width:380px){
       .testi{min-width:76vw;padding:12px;}
       .testi-text{font-size:14px;}
+      h2.title{font-size:28px;}
+      .price{font-size:36px;}
+      .countdown-unit{min-width:40px;}
+      .countdown-value{font-size:18px;}
+      
+      /* Melhorias para telas muito pequenas */
+      .badge{padding:6px 10px;font-size:12px;}
+      .kicker{font-size:12px;}
+      .lead{font-size:15px;}
+      .micro{font-size:12px;}
+      .progress-container{gap:8px;}
+      .progress-container div{font-size:12px;}
     }
   </style>
 </head>
@@ -549,7 +582,7 @@
         </details>
         <details>
           <summary>Como funciona exatamente a garantia?</summary>
-          <p>Você tem até 7 dias para testar o curso. Se por qualquer motivo não estiver satisfeito, basta enviar um e-mail solicitando o reembolso que processamos rapidamente sem questionamentos.</p>
+          <p>Você tem até 7 dias para testar o curso. If por qualquer motivo não estiver satisfeito, basta enviar um e-mail solicitando o reembolso que processamos rapidamente sem questionamentos.</p>
         </details>
         <details>
           <summary>Preciso ter experiência prévia?</summary>
@@ -561,7 +594,7 @@
         </details>
         <details>
           <summary>O curso é atualizado?</summary>
-          <p>Sim! Estratégias de tráfego e marketing digital mudam constantemente, por isso mantemos o conteúdo sempre atualizado com as melhores práticas do mercado.</p>
+          <p>Sim! Estratégias de tráfego e marketing digital mudam constantemente, por isso mantemos o conteúdo sempre atualizado with as melhores práticas do mercado.</p>
         </details>
         <details>
           <summary>Há suporte para dúvidas?</summary>
@@ -677,7 +710,13 @@
       return femaleNames.includes(firstName) ? 'female' : 'male';
     };
 
-    // Depoimentos com nomes reais e ícones correspondentes
+    // Gerar avatar baseado no nome usando DiceBear API
+    const generateAvatar = (name, gender) => {
+      const style = gender === 'female' ? 'lorelei' : 'lorelei-neutral';
+      return `https://api.dicebear.com/7.x/${style}/svg?seed=${encodeURIComponent(name)}&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf&radius=20`;
+    };
+
+    // Depoimentos com nomes reais e avatares correspondentes
     const TESTS = [
       {n:'Maria Silva', r:'Empreendedora', t:'Dobrei as vendas com o funil pronto. Em 2 semanas já tinha recuperado o investimento!'},
       {n:'João Santos', r:'Analista de Marketing', t:'Reduzi CPC em 35% e aumentei ROAS usando os métodos de teste que aprendi.'},
@@ -757,7 +796,7 @@
     
     // Comentários pré-definidos (usuário não sabe que são compartilhados)
     const predefinedComments = [
-      { name: "Carlos Silva", text: "Site muito informativo! Já comprei o curso e estou ansioso para começar.", date: "2 horas atrás" },
+      { name: "Carlos Silva", text: "Site muito informativo! Já comprei o curso and estou ansioso para começar.", date: "2 horas atrás" },
       { name: "Ana Costa", text: "Adorei o teste de descobrir meu produto ideal. Resultado foi perfeito para mim!", date: "5 horas atrás" },
       { name: "Roberto Alves", text: "Conteúdo de alta qualidade. O mascote é uma adição incrível ao site!", date: "1 dia atrás" },
       { name: "Juliana Martins", text: "Comprei o curso e já implementei as estratégias. Resultados em apenas 1 semana!", date: "2 dias atrás" },
@@ -1055,7 +1094,7 @@
           
           ${observationHTML}
           
-          <p style="color:var(--muted);margin-bottom:20px">Nosso curso inclui modelos prontos exatamente para esse tipo de produto e funil, com passo a passo detalhado.</p>
+          <p style="color:var(--muted);margin-bottom:20px">Nosso curso inclui modelos prontos exatamente para esse tipo de produto and funil, com passo a passo detalhado.</p>
           
           <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" style="font-size:18px;padding:16px 32px;">
             <i class="fas fa-lock"></i> Quero Aprender a Implementar!
@@ -1083,14 +1122,14 @@
 
     function createTesti(t) {
       const gender = getGenderByName(t.n);
-      const avatarIcon = gender === 'female' ? 'fas fa-female' : 'fas fa-male';
+      const avatarUrl = generateAvatar(t.n, gender);
       
       const el = document.createElement('article');
       el.className = 'testi';
       el.innerHTML = `
         <div class="who">
           <div class="avatar">
-            <i class="${avatarIcon}"></i>
+            <img src="${avatarUrl}" alt="${t.n}">
           </div>
           <div>
             <div style="font-weight:800">${t.n}</div>
@@ -1252,6 +1291,8 @@
     
     function pushNotif() {
       const who = names[Math.floor(Math.random() * names.length)];
+      const gender = getGenderByName(who);
+      const avatarUrl = generateAvatar(who, gender);
       const actions = [
         'acabou de se inscrever no curso',
         'deixou uma avaliação ⭐⭐⭐⭐⭐',
@@ -1263,8 +1304,8 @@
       const el = document.createElement('div');
       el.className = 'notif';
       el.innerHTML = `
-        <div style="width:44px;height:44px;border-radius:8px;background:var(--gradient);display:flex;align-items:center;justify-content:center;">
-          <i class="${getGenderByName(who) === 'female' ? 'fas fa-female' : 'fas fa-male'}" style="color:#05251b;font-size:20px;"></i>
+        <div style="width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <img src="${avatarUrl}" alt="${who}" class="notif-avatar">
         </div>
         <div>
           <strong>${who}</strong>
