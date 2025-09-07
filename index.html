@@ -4,331 +4,394 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capacitech · Curso Intensivo de Marketing Digital</title>
-  <meta name="description" content="Curso intensivo: 5 aulas gravadas + eBook + certificado digital. Aumente vendas em 30 dias.">
-  <link rel="icon" href="https://img.icons8.com/fluency/48/artificial-intelligence.png"/>
+  <meta name="description" content="Curso prático com 5 aulas, eBook e modelos testados para gerar resultados reais em semanas. Vagas controladas." />
+  <meta property="og:title" content="Capacitech · Curso Intensivo de Marketing Digital" />
+  <meta property="og:description" content="Aprenda funis, tráfego e copy com modelos práticos. Acesso rápido, garantia e suporte." />
+  <meta property="og:image" content="https://img.icons8.com/fluency/96/artificial-intelligence.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* PALETA: VERDE FUTURISTA - foco em conversão */
+    /* ---------- PALETA: verde futurista (foco conversão) ---------- */
     :root{
-      --bg:#02140f;         /* fundo profundo */
-      --panel:#05221a;      /* cartões */
-      --muted:#bfffe5;      /* textos secundários */
-      --text:#e8fff6;       /* texto principal */
-      --neon:#00ff7a;       /* destaque CTA */
-      --neon-2:#00d17a;     /* gradiente CTA */
-      --accent:#7fffd4;     /* acentos */
-      --glass:rgba(5,35,28,0.5);
+      --bg:#03120f;
+      --panel:#04221a;
+      --muted:#bfffe5;
+      --text:#e9fff6;
+      --cta-1:#00ff7a;
+      --cta-2:#00d07a;
+      --accent:#7fffd4;
+      --glass:rgba(6,30,22,0.5);
       --radius:14px;
-      --container:1120px;
-      --shadow:0 22px 60px rgba(0,0,0,.6);
+      --container:1100px;
+      --shadow:0 26px 70px rgba(0,0,0,.6);
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:'Inter',system-ui,Roboto,Arial;background:linear-gradient(180deg,var(--bg), #01110b);color:var(--text);-webkit-font-smoothing:antialiased}
-    a{color:inherit}
+    html,body{height:100%;margin:0;font-family:'Inter',system-ui,Roboto,Arial;background:linear-gradient(180deg,var(--bg), #02120b);color:var(--text);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
 
-    /* HEADER - CTA fixo e simples */
-    header.site-header{position:sticky;top:0;z-index:120;padding:10px 0;background:linear-gradient(90deg, rgba(0,0,0,.35), rgba(0,0,0,.12));backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,255,122,.05)}
-    .header-grid{display:flex;align-items:center;justify-content:space-between}
+    /* ---------- HEADER ---------- */
+    header{position:sticky;top:0;z-index:120;backdrop-filter:blur(8px);background:linear-gradient(90deg, rgba(0,0,0,.28), rgba(0,0,0,.08));border-bottom:1px solid rgba(0,255,122,.04)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;gap:12px;align-items:center}
-    .brand-logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#003d2b,var(--neon));display:flex;align-items:center;justify-content:center;font-weight:900;color:#02120d}
-    .brand-name{font-weight:900;color:var(--neon);letter-spacing:.3px}
-    nav.nav-actions{display:flex;gap:10px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#003827,var(--cta-1));display:flex;align-items:center;justify-content:center;font-weight:900;color:#02120d}
+    .brand h1{margin:0;font-size:18px;letter-spacing:.2px;color:var(--cta-1)}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    nav{display:flex;gap:10px;align-items:center}
+    .nav-link{padding:8px 12px;border-radius:10px;font-weight:600;color:var(--muted);border:1px solid rgba(0,255,122,.03)}
+    .cta-btn{background:linear-gradient(135deg,var(--cta-1),var(--cta-2));border:none;color:#05251b;padding:12px 18px;border-radius:12px;font-weight:900;box-shadow:0 14px 36px rgba(0,255,122,.06)}
 
-    /* Buttons */
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:800;cursor:pointer;border:1px solid rgba(0,255,122,.08)}
-    .btn-primary{background:linear-gradient(135deg,var(--neon),var(--neon-2));color:#02231a;box-shadow:0 12px 36px rgba(0,255,122,.08);border:none}
-    .btn-ghost{background:transparent;color:var(--text);border:1px dashed rgba(0,255,122,.08)}
-
-    /* HERO - foco conversão */
+    /* ---------- HERO ---------- */
     .hero{padding:36px 0}
-    .hero-grid{display:grid;grid-template-columns:1fr 520px;gap:22px;align-items:stretch}
-    .card{background:linear-gradient(180deg, rgba(1,20,14,.6), rgba(3,18,13,.45));border-radius:16px;padding:28px;border:1px solid rgba(0,255,122,.06);box-shadow:var(--shadow)}
-    .hero-left{display:flex;flex-direction:column;gap:12px}
-    .kicker{display:inline-flex;gap:10px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(0,255,122,.06);font-weight:800;color:var(--neon)}
-    h1.hero-title{font-size:44px;margin:6px 0 6px;line-height:1.02}
-    p.hero-desc{color:var(--muted);font-size:16px}
+    .hero-grid{display:grid;grid-template-columns:1fr 460px;gap:22px;align-items:stretch}
+    .hero-card{background:linear-gradient(180deg, rgba(3,30,22,.6), rgba(2,16,12,.45));border-radius:16px;padding:28px;border:1px solid rgba(0,255,122,.04);box-shadow:var(--shadow)}
+    .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(0,255,122,.06);color:var(--cta-1);font-weight:800}
+    h2.title{font-size:40px;margin:14px 0 8px;line-height:1.02}
+    p.lead{color:var(--muted);margin:0 0 8px;font-size:15px}
+    .benefits{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .badge{background:#022b20;padding:8px 12px;border-radius:999px;font-weight:700;border:1px solid rgba(0,255,122,.03);font-size:13px;color:var(--muted)}
 
-    .trust-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
-    .trust-badge{background:linear-gradient(180deg,#022b1e,#012417);padding:8px 12px;border-radius:10px;font-size:13px;border:1px solid rgba(0,255,122,.05)}
+    .hero-ctas{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+    .micro{font-size:13px;color:var(--muted)}
 
-    .hero-cta{display:flex;gap:12px;margin-top:10px}
-    .hero-cta .btn-primary{padding:14px 18px;font-size:16px}
+    /* ---------- RIGHT / PRICE ---------- */
+    .side{display:flex;flex-direction:column;gap:12px}
+    .panel-visual{background:linear-gradient(180deg, rgba(0,255,122,.02), transparent);border-radius:12px;padding:14px;border:1px solid rgba(0,255,122,.03);min-height:220px;display:flex;align-items:center;justify-content:center}
+    .price-card{background:linear-gradient(180deg,#002818,#02291f);padding:14px;border-radius:12px;border:1px solid rgba(0,255,122,.06);display:flex;justify-content:space-between;align-items:center}
+    .price-left{display:flex;flex-direction:column}
+    .price{font-size:36px;font-weight:900;color:var(--cta-1)}
+    .old{font-size:13px;color:rgba(175,255,215,.35);text-decoration:line-through}
+    .pay-row{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
+    .pill{background:#021a14;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,255,122,.04);font-weight:700}
 
-    /* RIGHT PANEL - ênfase no preço e prova social */
-    .hero-right{display:flex;flex-direction:column;gap:14px;align-items:stretch}
-    .visual{background:linear-gradient(180deg, rgba(0,255,122,.03), rgba(0,210,122,.02));border-radius:12px;padding:14px;display:flex;align-items:center;justify-content:center;min-height:240px;border:1px solid rgba(0,255,122,.04)}
-    .price-card{background:linear-gradient(180deg,#002818,#022a20);padding:16px;border-radius:12px;border:1px solid rgba(0,255,122,.06);display:flex;justify-content:space-between;align-items:center}
-    .price-left{display:flex;flex-direction:column;gap:6px}
-    .big-price{font-size:36px;font-weight:900;color:var(--neon)}
-    .old-price{text-decoration:line-through;color:rgba(175,255,215,.35)}
-    .pill{background:#021a14;padding:6px 10px;border-radius:999px;font-weight:800;border:1px solid rgba(0,255,122,.04)}
+    /* ---------- FEATURES / PROGRAM ---------- */
+    .section{padding:44px 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .feature{background:linear-gradient(180deg,#01281f,#021a14);padding:14px;border-radius:12px;border:1px solid rgba(0,255,122,.03)}
+    .feature h4{margin:0 0 6px}
+    .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 
-    /* BENEFÍCIOS E PROVA SOCIAL */
-    .section{padding:48px 0}
-    h2{font-size:28px;margin-bottom:12px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card-illus{height:150px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(180deg,rgba(0,255,122,.03),transparent);border:1px solid rgba(0,255,122,.03)}
+    /* ---------- SOCIAL PROOF ---------- */
+    .social-wrap{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+    .testi-track{display:flex;gap:12px;overflow:auto;padding-bottom:8px}
+    .testi{min-width:300px;background:linear-gradient(180deg,#042a1f,#022016);padding:12px;border-radius:12px;border:1px solid rgba(0,255,122,.03)}
+    .testi .who{display:flex;gap:12px;align-items:center}
+    .avatar{width:56px;height:56px;border-radius:12px;object-fit:cover}
 
-    /* TESTIMONIALS */
-    .testimonials-wrap{display:grid;grid-template-columns:1fr 320px;gap:18px}
-    .testi-track{display:flex;gap:14px;overflow:auto;padding-bottom:6px}
-    .testimonial{min-width:300px;background:linear-gradient(180deg, rgba(2,28,20,.6), rgba(3,18,14,.45));padding:14px;border-radius:12px;border:1px solid rgba(0,255,122,.04)}
-    .avatar{width:56px;height:56px;border-radius:12px}
-    .stars{color:var(--neon);font-weight:800}
-
-    /* NOTIFICAÇÕES */
     .notif-box{position:sticky;top:100px}
-    .notif{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(180deg,#031612,#02120c);border-left:4px solid var(--neon)}
+    .notif{display:flex;gap:12px;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(180deg,#031612,#02120c);border-left:4px solid var(--cta-1)}
 
-    /* BUYBAR MOBILE */
+    /* ---------- FAQ / FOOTER ---------- */
+    details{background:#031513;border:1px solid rgba(0,255,122,.03);padding:12px;border-radius:10px;margin-bottom:8px}
+    footer{padding:18px 0;border-top:1px solid rgba(0,255,122,.03);margin-top:28px;color:var(--muted)}
+
+    /* ---------- BUYBAR MOBILE ---------- */
     .buybar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg,#022a20,#011712);border:1px solid rgba(0,255,122,.06);box-shadow:0 12px 40px rgba(0,0,0,.6);z-index:999}
 
-    /* RESPONSIVO */
-    @media (max-width:980px){
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:1024px){
+      .hero-grid{grid-template-columns:1fr 420px}
+    }
+    @media (max-width:880px){
       .hero-grid{grid-template-columns:1fr}
-      .hero-right{order:2}
-      .visual{min-height:180px}
+      .side{order:2}
+      .panel-visual{min-height:160px}
       .grid-3{grid-template-columns:1fr}
-      .testimonials-wrap{grid-template-columns:1fr}
+      .social-wrap{grid-template-columns:1fr}
       .notif-box{display:none}
     }
 
-    /* Acessibilidade e micro animações */
+    /* ---------- MICRO ANIM ---------- */
     .pulse{animation:pulse 3s infinite}
-    @keyframes pulse{0%{transform:scale(1);opacity:.95}50%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:.95}}
+    @keyframes pulse{0%{transform:scale(1);opacity:.96}50%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:.96}}
+    .shadow-float{box-shadow:0 30px 70px rgba(0,0,0,.65)}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-grid">
-      <div class="brand">
-        <div class="brand-logo">CT</div>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand" aria-label="Identidade do site">
+        <div class="logo" aria-hidden="true">CT</div>
         <div>
-          <div class="brand-name">Capacitech</div>
-          <div style="font-size:12px;color:var(--muted)">Curso intensivo • Resultado em semanas</div>
+          <h1>Capacitech</h1>
+          <p>Curso intensivo • 5 aulas práticas</p>
         </div>
       </div>
-      <nav class="nav-actions" aria-label="Ações">
-        <a class="btn btn-ghost" href="#benefits">Benefícios</a>
-        <a class="btn btn-ghost" href="#programa">Programa</a>
-        <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Comprar — R$ 39,90</a>
+      <nav aria-label="Navegação principal">
+        <a class="nav-link" href="#beneficios">Benefícios</a>
+        <a class="nav-link" href="#programa">Programa</a>
+        <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Garantir Acesso</a>
       </nav>
     </div>
   </header>
 
+  <!-- HERO -->
   <main>
     <section class="hero container">
       <div class="hero-grid">
-        <div class="card hero-left">
-          <div class="kicker">Promoção limitada • Vagas reduzidas</div>
-          <h1 class="hero-title">Aprenda funis, tráfego e copy que vendem — do zero à primeira venda</h1>
-          <p class="hero-desc">Curso prático com <strong>5 aulas</strong>, <strong>eBook</strong> e <strong>modelos prontos</strong>. Feito para quem precisa ver resultado rápido.</p>
+        <div class="hero-card">
+          <div class="kicker">Aulas + modelos prontos • Turmas controladas</div>
+          <h2 class="title">Domine funil, tráfego e copy que geram vendas reais</h2>
+          <p class="lead">Conteúdo prático, passo a passo — aplicado com modelos testados que aceleram resultados. Estruturado para quem quer escalar com segurança.</p>
 
-          <div class="trust-row" aria-hidden="true">
-            <div class="trust-badge">⭐ 4.9/5 • +1.200 alunos</div>
-            <div class="trust-badge">🔒 Pagamento seguro</div>
-            <div class="trust-badge">✅ Garantia 7 dias</div>
+          <div class="benefits" role="list">
+            <div class="badge">🎯 Roteiros prontos</div>
+            <div class="badge">📘 eBook + templates</div>
+            <div class="badge">👥 Suporte exclusivo</div>
           </div>
 
-          <ul style="margin-top:14px;color:var(--muted);">
-            <li>Roteiros prontos para anúncios</li>
-            <li>Landing page que converte (template)</li>
-            <li>Checklist para escalar com segurança</li>
-          </ul>
-
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Quero garantir por R$ 39,90</a>
-            <a class="btn" href="#garantia" style="border-color:rgba(0,255,122,.06)">Garantia 7 dias</a>
+          <div class="hero-ctas">
+            <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Quero garantir agora</a>
+            <a class="nav-link" href="#beneficios">Ver detalhes</a>
+            <div class="micro" aria-hidden="true">Acesso imediato • Garantia 7 dias</div>
           </div>
 
           <div style="margin-top:16px;display:flex;gap:12px;align-items:center">
-            <div style="flex:1;height:6px;background:linear-gradient(90deg,transparent,var(--neon),transparent);border-radius:6px"></div>
-            <div style="font-size:13px;color:var(--muted)">Vagas limitadas</div>
+            <div style="flex:1;height:6px;background:linear-gradient(90deg,transparent,var(--cta-1),transparent);border-radius:6px"></div>
+            <div style="font-size:13px;color:var(--muted)">Vagas limitadas — seleção por ordem de inscrição</div>
           </div>
         </div>
 
-        <aside class="hero-right">
-          <div class="visual pulse" aria-hidden="true">
-            <!-- Ilustração simples em SVG verde -->
-            <svg width="100%" height="180" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Painel de dados verde">
-              <rect x="0" y="0" width="800" height="300" rx="12" fill="url(#g)"/>
-              <defs>
-                <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#001f14"/><stop offset="1" stop-color="#003925"/></linearGradient>
-              </defs>
-              <g fill="none" stroke="#00ff7a" stroke-width="1.6" stroke-linecap="round" opacity=".6">
-                <path d="M40 220 C140 160 260 240 760 180"/>
-                <path d="M40 170 C160 130 320 200 760 150" opacity=".4"/>
+        <!-- SIDE: VISUAL + PRICE -->
+        <aside class="side">
+          <div class="panel-visual pulse" aria-hidden="true">
+            <!-- visual simples para transmitir "tecnologia/dados" -->
+            <svg width="100%" height="160" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Painel de dados">
+              <rect width="800" height="300" rx="12" fill="#001e17"/>
+              <g stroke="#00ff7a" stroke-opacity=".18" stroke-width="1.6" fill="none">
+                <path d="M40 220 C140 160 260 240 760 180" />
+                <path d="M40 170 C160 130 320 200 760 150" opacity=".5"/>
               </g>
-              <g fill="#002a1f" stroke="#00ff7a" stroke-opacity=".18">
-                <rect x="60" y="42" width="160" height="96" rx="8"/>
+              <g fill="#002a1f" stroke="#00ff7a" stroke-opacity=".06">
+                <rect x="60" y="46" width="160" height="96" rx="8"/>
                 <rect x="280" y="24" width="220" height="120" rx="8"/>
                 <rect x="540" y="96" width="160" height="80" rx="8"/>
               </g>
             </svg>
           </div>
 
-          <div class="price-card" aria-hidden="false">
-            <div style="display:flex;gap:12px;align-items:center;justify-content:space-between">
-              <div class="price-left">
-                <div style="font-size:13px;color:var(--muted)">Oferta especial</div>
-                <div class="big-price">R$ 39,90</div>
-                <div class="old-price">R$ 199,90</div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-                <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Comprar agora</a>
+          <div class="price-card shadow-float" aria-label="Oferta">
+            <div class="price-left">
+              <div style="font-size:13px;color:var(--muted)">Oferta especial (tempo limitado)</div>
+              <div class="price">R$ 39,90</div>
+              <div class="old">R$ 199,90</div>
+              <div class="pay-row">
                 <div class="pill">Acesso imediato</div>
+                <div style="color:var(--muted);font-size:13px">Pagamento seguro</div>
               </div>
             </div>
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+              <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Comprar</a>
+              <div style="font-size:12px;color:var(--muted)">Suporte pós-compra</div>
+            </div>
           </div>
-
         </aside>
       </div>
     </section>
 
-    <section id="benefits" class="section container">
-      <h2>O que você vai aprender</h2>
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios" class="section container">
+      <h3 style="margin:0 0 12px">O que você recebe</h3>
       <div class="grid-3">
-        <div class="card card-illus"><div style="padding:12px"><strong>Tráfego que converte</strong><p style="color:var(--muted)">Estratégias Meta e Google com criativos testados.</p></div></div>
-        <div class="card card-illus"><div style="padding:12px"><strong>Funil de vendas</strong><p style="color:var(--muted)">Ofertas, páginas e sequência que gera lucro.</p></div></div>
-        <div class="card card-illus"><div style="padding:12px"><strong>Escala segura</strong><p style="color:var(--muted)">KPI, otimização e checklist para subir sem riscos.</p></div></div>
+        <div class="feature">
+          <h4>Plano 14 dias para primeira venda</h4>
+          <p style="color:var(--muted)">Sequência com passos diretos para validar oferta e gerar vendas rápidas.</p>
+        </div>
+        <div class="feature">
+          <h4>Templates e checklists</h4>
+          <p style="color:var(--muted)">Scripts de anúncio, páginas e sequência de mensagens editáveis.</p>
+        </div>
+        <div class="feature">
+          <h4>Dados aplicáveis</h4>
+          <p style="color:var(--muted)">Métricas e regras práticas para manter lucro ao escalar.</p>
+        </div>
       </div>
 
       <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px;align-items:start">
-        <div class="card" style="padding:18px">
-          <h3 style="margin-top:0">O pacote completo</h3>
+        <div class="hero-card">
+          <h4 style="margin-top:0">Material de apoio</h4>
           <ul style="color:var(--muted)">
-            <li>📹 5 aulas práticas</li>
-            <li>📘 eBook e templates editáveis</li>
-            <li>👥 Grupo de suporte exclusivo</li>
-            <li>🎯 Plano de 14 dias para primeira venda</li>
-            <li>🔁 Atualizações por 12 meses</li>
+            <li>📘 eBook com roteiro completo</li>
+            <li>🧩 Modelos de criativos e landing</li>
+            <li>🔁 Checklist operacional para escala</li>
+            <li>👥 Grupo para dúvidas e implementação</li>
           </ul>
-          <p style="margin-top:12px;color:var(--muted)"><strong>Dúvidas?</strong> Use o botão de compra e fale com suporte após a confirmação.</p>
+          <p style="color:var(--muted)"><strong>Como isso ajuda você:</strong> diminui testes, acelera decisões e reduz desperdício de verba.</p>
         </div>
 
-        <div class="card" id="garantia">
-          <h4 style="margin:0 0 8px">Garantia</h4>
-          <p style="color:var(--muted);margin:0 0 12px">Teste por 7 dias. Se não ficar satisfeito, devolvemos 100% do valor.</p>
-          <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Testar sem risco</a>
+        <div class="hero-card" id="garantia">
+          <h4 style="margin:0 0 8px">Garantia de 7 dias</h4>
+          <p style="color:var(--muted);margin:0 0 12px">Se não tiver resultado prático nos primeiros 7 dias, devolvemos o valor — sem perguntas.</p>
+          <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Testar sem risco</a>
         </div>
       </div>
     </section>
 
+    <!-- PROGRAMA -->
+    <section id="programa" class="section container">
+      <h3 style="margin:0 0 12px">Conteúdo das aulas</h3>
+      <div class="program-grid">
+        <div class="feature"><strong>Aula 1</strong><p style="color:var(--muted)">Fundamentos, persona e oferta</p></div>
+        <div class="feature"><strong>Aula 2</strong><p style="color:var(--muted)">Tráfego pago: estratégias que funcionam</p></div>
+        <div class="feature"><strong>Aula 3</strong><p style="color:var(--muted)">Landing, copy e gatilhos</p></div>
+        <div class="feature"><strong>Aula 4</strong><p style="color:var(--muted)">Automação e recuperação</p></div>
+        <div class="feature"><strong>Aula 5</strong><p style="color:var(--muted)">Escala, KPIs e checklist</p></div>
+        <div class="feature"><strong>Bônus</strong><p style="color:var(--muted)">Modelos prontos e eBook</p></div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
     <section class="section container">
-      <div class="testimonials-wrap">
+      <div class="social-wrap">
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-            <strong>Depoimentos reais</strong>
-            <div style="color:var(--muted);">Avaliação média <span class="stars">★★★★★</span></div>
+            <strong>Depoimentos</strong>
+            <div style="color:var(--muted)">Avaliação média <span style="color:var(--cta-1);font-weight:900">4,9</span>/5</div>
           </div>
           <div class="testi-track" id="testiTrack" aria-live="polite" aria-atomic="true"></div>
         </div>
 
-        <aside class="notif-box">
-          <div style="font-weight:800;margin-bottom:8px">Atividade ao vivo</div>
+        <aside class="notif-box" aria-hidden="false">
+          <div style="font-weight:800;margin-bottom:8px">Atividade recente</div>
           <div id="notifList"></div>
         </aside>
       </div>
     </section>
 
-    <section class="section container" id="programa">
-      <h2>Programa</h2>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-        <div class="card"><strong>Aula 1</strong><p style="color:var(--muted)">Fundamentos e posicionamento</p></div>
-        <div class="card"><strong>Aula 2</strong><p style="color:var(--muted)">Tráfego Pago</p></div>
-        <div class="card"><strong>Aula 3</strong><p style="color:var(--muted)">Páginas & Copy</p></div>
-        <div class="card"><strong>Aula 4</strong><p style="color:var(--muted)">Automação</p></div>
-        <div class="card"><strong>Aula 5</strong><p style="color:var(--muted)">Escala e otimização</p></div>
-        <div class="card"><strong>Bônus</strong><p style="color:var(--muted)">Modelos, eBook e certificado</p></div>
-      </div>
+    <!-- FAQ -->
+    <section class="section container">
+      <h3 style="margin:0 0 12px">Perguntas frequentes</h3>
+      <details><summary>Quando recebo o acesso?</summary><p style="color:var(--muted)">Imediatamente após a confirmação do pagamento você recebe instruções por e-mail.</p></details>
+      <details><summary>Como funciona a garantia?</summary><p style="color:var(--muted)">Até 7 dias; solicite reembolso por e-mail e processamos rapidamente.</p></details>
+      <details><summary>Preciso ter experiência?</summary><p style="color:var(--muted)">Não. O curso atende iniciantes e quem já anuncia.</p></details>
     </section>
-
   </main>
 
+  <!-- BUYBAR MOBILE -->
   <div class="buybar" id="buybar" style="display:none">
     <div>
-      <div style="font-size:13px;color:var(--muted)">Oferta especial</div>
-      <div style="font-weight:900;color:var(--neon)">R$ 39,90</div>
+      <div style="font-size:13px;color:var(--muted)">Oferta</div>
+      <div style="font-weight:900;color:var(--cta-1)">R$ 39,90</div>
     </div>
-    <div>
-      <a class="btn btn-primary" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Comprar</a>
-    </div>
+    <div><a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Comprar</a></div>
   </div>
 
-  <footer style="padding:18px 20px;margin-top:36px;border-top:1px solid rgba(0,255,122,.04)">
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
       <div>
         <strong>Capacitech</strong>
         <div style="color:var(--muted)">© 2025 • contato: capacitechoficial@gmail.com</div>
       </div>
       <nav style="display:flex;gap:12px">
-        <a href="#benefits" style="color:var(--muted)">Benefícios</a>
-        <a href="#programa" style="color:var(--muted)">Programa</a>
-        <a href="#garantia" style="color:var(--muted)">Garantia</a>
+        <a class="nav-link" href="#beneficios">Benefícios</a>
+        <a class="nav-link" href="#programa">Programa</a>
+        <a class="nav-link" href="#garantia">Garantia</a>
       </nav>
     </div>
   </footer>
 
+  <!-- ---------- SCRIPTS (tudo inline) ---------- -->
   <script>
-    // === Dados de depoimentos (avatares reais para confiança) ===
+    /* ========================
+       Testemunhos e notificações
+       ======================== */
     const TESTS = [
-      {n:'Maria Rodrigues', r:'Empreendedora', t:'Dobrei as vendas em 3 semanas com o funil aprendido aqui.', img:'https://i.pravatar.cc/120?img=65'},
-      {n:'Lucas Almeida', r:'Analista de MKT', t:'Reduzi o CPC e aumentei o ROAS aplicando os templates.', img:'https://i.pravatar.cc/120?img=12'},
-      {n:'Ana Silva', r:'Freelancer', t:'Primeiro cliente fechado em 5 dias. Conteúdo prático!', img:'https://i.pravatar.cc/120?img=47'},
-      {n:'Pedro Santos', r:'E-commerce', t:'Passei a entender CAC e escalei com segurança.', img:'https://i.pravatar.cc/120?img=8'},
-      {n:'Bruna Costa', r:'MEI', t:'Suporte via grupo foi decisivo para implementar.', img:'https://i.pravatar.cc/120?img=55'},
+      {n:'Maria R.', r:'Empreendedora', t:'Dobrei as vendas com o funil pronto.' , img:'https://i.pravatar.cc/120?img=65'},
+      {n:'Lucas A.', r:'Analista', t:'Reduzi CPC e aumentei ROAS em 30%.' , img:'https://i.pravatar.cc/120?img=12'},
+      {n:'Ana S.', r:'Freelancer', t:'Primeiro cliente em 5 dias.' , img:'https://i.pravatar.cc/120?img=47'},
+      {n:'Pedro S.', r:'E-commerce', t:'Escalei sem perder margem.' , img:'https://i.pravatar.cc/120?img=8'}
     ];
 
-    function makeTestCard(d){
-      const el = document.createElement('div');
-      el.className = 'testimonial';
+    function createTesti(t){
+      const el = document.createElement('article');
+      el.className = 'testi';
       el.innerHTML = `
-        <div style="display:flex;gap:12px;align-items:flex-start">
-          <img class="avatar" src="${d.img}" alt="${d.n}">
+        <div class="who">
+          <img class="avatar" src="${t.img}" alt="${t.n}">
           <div>
-            <div style="font-weight:900">${d.n}</div>
-            <div style="color:var(--muted);font-size:13px">${d.r}</div>
-            <div style="margin-top:8px;color:var(--neon);font-weight:800">★★★★★</div>
-            <p style="margin-top:8px;color:var(--muted)">${d.t}</p>
+            <div style="font-weight:800">${t.n}</div>
+            <div style="color:var(--muted);font-size:13px">${t.r}</div>
           </div>
-        </div>`;
+        </div>
+        <div style="margin-top:10px;color:var(--muted);font-size:14px">★★★★★</div>
+        <p style="color:var(--muted);margin-top:8px">${t.t}</p>
+      `;
       return el;
     }
 
     const track = document.getElementById('testiTrack');
-    TESTS.forEach(t=>track.appendChild(makeTestCard(t)));
+    TESTS.forEach(t=>track.appendChild(createTesti(t)));
 
-    // Auto-append testimonials (keeps sensação de movimento)
-    setInterval(()=>{
+    // loop dinamico - mantém movimento sem sobrecarregar
+    setInterval(()=> {
       const idx = Math.floor(Math.random()*TESTS.length);
-      track.appendChild(makeTestCard(TESTS[idx]));
+      track.appendChild(createTesti(TESTS[idx]));
       if(track.children.length>12) track.removeChild(track.firstElementChild);
-      track.scrollTo({left:track.scrollWidth,behavior:'smooth'});
-    }, 3300);
+      track.scrollTo({left: track.scrollWidth, behavior:'smooth'});
+    }, 3600);
 
-    // Notificações live
+    // Notificações ao vivo
+    const names = ['Mariana','Carlos','Fernanda','João','Luiza','Eduardo','Beatriz','Thiago','Paula'];
     const notifList = document.getElementById('notifList');
-    const NAMES = ['Mariana','Carlos','Fernanda','João','Luiza','Eduardo','Beatriz','Thiago'];
     function pushNotif(){
-      const who = NAMES[Math.floor(Math.random()*NAMES.length)];
+      const who = names[Math.floor(Math.random()*names.length)];
       const action = Math.random()>0.45 ? 'comprou o curso' : 'deixou um depoimento ⭐⭐⭐⭐⭐';
-      const avatar = `https://i.pravatar.cc/64?u=${who}`;
-      const el = document.createElement('div'); el.className='notif';
-      el.innerHTML = `<img src="${avatar}" alt="${who}"><div><strong>${who}</strong><small style="color:var(--muted)">${action} • agora</small></div>`;
+      const el = document.createElement('div');
+      el.className = 'notif';
+      el.innerHTML = `<img src="https://i.pravatar.cc/64?u=${who}" alt="${who}" style="width:44px;height:44px;border-radius:8px"><div><strong>${who}</strong><div style="color:var(--muted);font-size:13px">${action} • agora</div></div>`;
       notifList.prepend(el);
       while(notifList.children.length>5) notifList.removeChild(notifList.lastElementChild);
       el.style.opacity=0; el.style.transform='translateY(-8px)';
       requestAnimationFrame(()=>{ el.style.transition='all .45s cubic-bezier(.2,.9,.3,1)'; el.style.opacity=1; el.style.transform='translateY(0)'; });
     }
-    for(let i=0;i<3;i++) setTimeout(pushNotif,700*(i+1));
-    setInterval(()=>{ if(Math.random()>0.4) pushNotif(); },4200);
+    for(let i=0;i<3;i++) setTimeout(pushNotif, 700*(i+1));
+    setInterval(()=> { if(Math.random()>0.4) pushNotif(); }, 4500);
 
-    // Mobile buybar behaviour
+    /* ========================
+       Mobile buybar behavior
+       ======================== */
     const buybar = document.getElementById('buybar');
-    function checkBuybar(){ const show = window.innerWidth<=980 && window.scrollY>200; buybar.style.display = show ? 'flex' : 'none'; }
-    addEventListener('scroll', checkBuybar); addEventListener('resize', checkBuybar); checkBuybar();
+    function checkBuybar(){
+      const show = window.innerWidth <= 880 && window.scrollY > 220;
+      buybar.style.display = show ? 'flex' : 'none';
+    }
+    addEventListener('scroll', checkBuybar);
+    addEventListener('resize', checkBuybar);
+    checkBuybar();
 
+    /* ========================
+       Smooth anchor for internal links
+       ======================== */
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if(target) target.scrollIntoView({behavior:'smooth'});
+        }
+      });
+    });
+
+    /* ========================
+       Accessibility live region for screen readers (announces new depoimentos)
+       ======================== */
+    const live = document.createElement('div');
+    live.setAttribute('aria-live','polite');
+    live.style.position='absolute';
+    live.style.left='-9999px';
+    document.body.appendChild(live);
+    setInterval(()=> {
+      const i = Math.floor(Math.random()*TESTS.length);
+      live.textContent = `${TESTS[i].n} deixou feedback: ${TESTS[i].t}`;
+    }, 8000);
+
+    /* ========================
+       Small performance: defer heavy images if needed (placeholder logic)
+       ======================== */
+    // Instrução: se quiser adicionar imagens grandes, use lazy-loading or CDNs.
   </script>
 </body>
 </html>
