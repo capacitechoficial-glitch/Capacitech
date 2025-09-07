@@ -74,7 +74,7 @@
     /* ---------- RIGHT / PRICE ---------- */
     .side{display:flex;flex-direction:column;gap:12px}
     .panel-visual{background:linear-gradient(180deg, rgba(0,255,122,.02), transparent);border-radius:12px;padding:14px;border:1px solid rgba(0,255,122,.03);min-height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-    .panel-visual::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org2000/svg'%3E%3Cg fill='%2300ff7a' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");}
+    .panel-visual::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ff7a' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");}
     .price-card{background:linear-gradient(180deg,#002818,#02291f);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.06);display:flex;justify-content:space-between;align-items:center;position:relative;}
     .price-card::after{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:var(--gradient);border-radius:14px;z-index:-1;opacity:0.3;}
     .price-left{display:flex;flex-direction:column}
@@ -167,7 +167,8 @@
     .testi{min-width:300px;background:linear-gradient(180deg,#042a1f,#022016);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.03);transition:all 0.3s ease;display:flex;flex-direction:column;}
     .testi:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
     .testi .who{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
-    .avatar{width:56px;height:56px;border-radius:12px;object-fit:cover;border:2px solid rgba(0,255,122,0.2);flex-shrink:0;}
+    .avatar{width:56px;height:56px;border-radius:12px;object-fit:cover;border:2px solid rgba(0,255,122,0.2);flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--gradient);}
+    .avatar i{font-size:24px;color:#05251b;}
     .testi-content{flex:1;display:flex;flex-direction:column;}
     .testi-stars{color:var(--cta-1);font-size:14px;margin-bottom:10px;}
     .testi-text{color:var(--muted);line-height:1.5;flex:1;margin-bottom:12px;}
@@ -255,6 +256,8 @@
       .testi-stars{justify-content:center;display:flex;}
       .testi-role{text-align:center;}
       .testi-nav{display:flex;}
+      .avatar{width:50px;height:50px;}
+      .avatar i{font-size:20px;}
     }
     @media (max-width:580px){
       h2.title{font-size:32px;}
@@ -269,7 +272,8 @@
       
       /* Ajustes finos para mobile muito pequeno */
       .testi{min-width:78vw;}
-      .avatar{width:50px;height:50px;}
+      .avatar{width:45px;height:45px;}
+      .avatar i{font-size:18px;}
     }
     @media (max-width:380px){
       .testi{min-width:76vw;padding:12px;}
@@ -351,8 +355,8 @@
                 <rect x="540" y="96" width="160" height="80" rx="8"/>
               </g>
               <circle cx="200" cy="180" r="8" fill="#00ff7a" opacity=".6" class="float"/>
-              <circle cx="400" cy="120" r="6" fill="#00ff7a" opacity=".4" class="float" style="animation-delay:1s"/>
-              <circle cx="600" cy="210" r="10" fill="#00ff7a" opacity=".3" class="float" style="animation-delay:2s"/>
+              <circle cx="400" cy="120" r="6" fill:#00ff7a" opacity=".4" class="float" style="animation-delay:1s"/>
+              <circle cx="600" cy="210" r="10" fill:#00ff7a" opacity=".3" class="float" style="animation-delay:2s"/>
             </svg>
           </div>
 
@@ -509,7 +513,7 @@
         <div class="feature">
           <div class="feature-icon"><i class="fas fa-star"></i></div>
           <h4>Bônus exclusivos</h4>
-          <p>Modelos prontos, eBook complementar e acesso a atualizações futuras do curso.</p>
+          <p>Modelos prontos, eBook complementar e acesso à atualizações futuras do curso.</p>
         </div>
       </div>
     </section>
@@ -631,7 +635,7 @@
       <div class="footer-grid">
         <div>
           <strong>Capacitech</strong>
-          <div style="color:var(--muted);margin-top:10px;line-height:1.5">Transformando resultados através do marketing digital com métodos testados e aprovados por mais de 1.200 alunos.</div>
+          <div style="color:var(--muted);margin-top:10px;line-height:1.5">Transformando resultados através do marketing digital com métodos testados and aprovados por mais de 1.200 alunos.</div>
         </div>
         <div>
           <strong>Links rápidos</strong>
@@ -666,27 +670,6 @@
     // Lista de nomes femininos e masculinos em português
     const femaleNames = ['Ana', 'Maria', 'Sofia', 'Laura', 'Beatriz', 'Luiza', 'Isabella', 'Manuela', 'Júlia', 'Helena', 'Gabriela', 'Alice', 'Larissa', 'Valentina', 'Clara', 'Mariana', 'Vitória', 'Emanuelly', 'Cecília', 'Lívia'];
     const maleNames = ['João', 'Pedro', 'Gabriel', 'Lucas', 'Matheus', 'Rafael', 'Felipe', 'Daniel', 'Bruno', 'Gustavo', 'Carlos', 'Eduardo', 'Thiago', 'Leonardo', 'André', 'Vinicius', 'Rodrigo', 'Marcos', 'Paulo', 'Diego'];
-    
-    // Fotos reais de pessoas (usando API de avatares com parâmetros de gênero)
-    const getAvatarUrl = (name, gender) => {
-      const baseUrl = 'https://images.unsplash.com/photo-';
-      const femalePhotos = [
-        '1573496359142-b8d87734a5a2', '1552058544-f2b08422138a', '1544005313-94ddf0286df2', 
-        '1494790108377-be9c29b29330', '1509783236416-c324ad9fddf0', '1519764622340',
-        '1534528741770-53994a69daeb', '1508214751196-bcfd4ca60f91', '1519699047748',
-        '1507120879565-326a5a8de0c1', '1516708124097-315a0b81a914', '1545167622-3a6ac7562b5f'
-      ];
-      const malePhotos = [
-        '1507003211169-0a1dd7228f2d', '1530268729831-4b0b9e170218', '1500648767791-00dcc994a43e',
-        '1472099645785-5658abf4ff4e', '1560250097-0b93528c311a', '1552374196-c4e7ffc6e126',
-        '1530268729831-4b0b9e170218', '1506794778202-cad84cf4b5d5', '1513956589380-bad6acb912b2',
-        '1511367461984-fa4c6d2d5b4c', '1508341591423-7fe159d1b6e2', '1519345182560-3f2917c47239'
-      ];
-      
-      const photos = gender === 'female' ? femalePhotos : malePhotos;
-      const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
-      return `${baseUrl}${randomPhoto}?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80`;
-    };
 
     // Determinar gênero pelo nome
     const getGenderByName = (name) => {
@@ -694,7 +677,7 @@
       return femaleNames.includes(firstName) ? 'female' : 'male';
     };
 
-    // Depoimentos com nomes reais e fotos correspondentes
+    // Depoimentos com nomes reais e ícones correspondentes
     const TESTS = [
       {n:'Maria Silva', r:'Empreendedora', t:'Dobrei as vendas com o funil pronto. Em 2 semanas já tinha recuperado o investimento!'},
       {n:'João Santos', r:'Analista de Marketing', t:'Reduzi CPC em 35% e aumentei ROAS usando os métodos de teste que aprendi.'},
@@ -706,13 +689,7 @@
       {n:'Gabriel Oliveira', r:'Marketeiro', t:'As aulas práticas me deram confiança para testar novas abordagens com segurança.'},
       {n:'Beatriz Souza', r:'Empresária', t:'O suporte foi fundamental para tirar minhas dúvidas durante a implementação.'},
       {n:'Rafael Lima', r:'Gestor de Tráfego', t:'Mesmo com experiência, aprendi técnicas novas que otimizaram meus resultados.'}
-    ].map(testimonial => {
-      const gender = getGenderByName(testimonial.n);
-      return {
-        ...testimonial,
-        img: getAvatarUrl(testimonial.n, gender)
-      };
-    });
+    ];
 
     /* ========================
        Mascote Interativo
@@ -762,7 +739,7 @@
             break;
             
           case 'duvidas':
-            mascoteMessage.textContent = "Claro! As dúvidas mais comuns são sobre garantia (7 dias), acesso imediato após a compra e suporte personalizado. Precisa de algo mais específico?";
+            mascoteMessage.textContent = "Claro! As dúvidas mais comuns são sobre garantia (7 dias), acesso imediato após a compra and suporte personalizado. Precisa de algo mais específico?";
             break;
             
           case 'conteudo':
@@ -785,31 +762,22 @@
       { name: "Roberto Alves", text: "Conteúdo de alta qualidade. O mascote é uma adição incrível ao site!", date: "1 dia atrás" },
       { name: "Juliana Martins", text: "Comprei o curso e já implementei as estratégias. Resultados em apenas 1 semana!", date: "2 dias atrás" },
       { name: "Fernando Lima", text: "Atendimento excepcional e material muito além das expectativas. Recomendo!", date: "3 dias atrás" }
-    ].map(comment => {
-      const gender = getGenderByName(comment.name);
-      return {
-        ...comment,
-        img: getAvatarUrl(comment.name, gender)
-      };
-    });
+    ];
 
     // Carregar comentários pré-definidos
     function loadPredefinedComments() {
       predefinedComments.forEach(comment => {
-        addCommentToDOM(comment.name, comment.text, comment.date, comment.img);
+        addCommentToDOM(comment.name, comment.text, comment.date);
       });
     }
 
     // Adicionar comentário ao DOM
-    function addCommentToDOM(name, text, date, imgUrl) {
+    function addCommentToDOM(name, text, date) {
       const commentEl = document.createElement('div');
       commentEl.className = 'comment-item';
       commentEl.innerHTML = `
         <div class="comment-header">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <img src="${imgUrl}" alt="${name}" style="width:40px;height:40px;border-radius:8px;object-fit:cover;">
-            <span class="comment-author">${name}</span>
-          </div>
+          <span class="comment-author">${name}</span>
           <span class="comment-date">${date}</span>
         </div>
         <div class="comment-text">${text}</div>
@@ -828,11 +796,8 @@
       const text = textInput.value.trim();
       
       if (name && text) {
-        const gender = getGenderByName(name);
-        const imgUrl = getAvatarUrl(name, gender);
-        
         // Para o usuário, parece que apenas seu comentário foi adicionado
-        addCommentToDOM(name, text, "Agora mesmo", imgUrl);
+        addCommentToDOM(name, text, "Agora mesmo");
         
         // Limpar o formulário
         nameInput.value = '';
@@ -843,10 +808,7 @@
         thankYouMsg.className = 'comment-item';
         thankYouMsg.innerHTML = `
           <div class="comment-header">
-            <div style="display:flex;align-items:center;gap:10px;">
-              <img src="${getAvatarUrl('Capacitech', 'male')}" alt="Capacitech" style="width:40px;height:40px;border-radius:8px;object-fit:cover;">
-              <span class="comment-author">Capacitech</span>
-            </div>
+            <span class="comment-author">Capacitech</span>
             <span class="comment-date">Agora mesmo</span>
           </div>
           <div class="comment-text">Obrigado pelo seu comentário, ${name}! Sua opinião é muito importante para nós.</div>
@@ -937,7 +899,7 @@
         investment: "R$ 0 (foco em networking)",
         profit: "R$ 1.000-2.000/mês",
         time: "3-5 semanas",
-        observation: "Usando plataformas de freelance và portfólio"
+        observation: "Usando plataformas de freelance e portfólio"
       },
       
       // Recomendações originais (mantidas para referência)
@@ -1120,11 +1082,16 @@
     let currentTestimonial = 0;
 
     function createTesti(t) {
+      const gender = getGenderByName(t.n);
+      const avatarIcon = gender === 'female' ? 'fas fa-female' : 'fas fa-male';
+      
       const el = document.createElement('article');
       el.className = 'testi';
       el.innerHTML = `
         <div class="who">
-          <img class="avatar" src="${t.img}" alt="${t.n}" loading="lazy">
+          <div class="avatar">
+            <i class="${avatarIcon}"></i>
+          </div>
           <div>
             <div style="font-weight:800">${t.n}</div>
             <div style="color:var(--muted);font-size:13px">${t.r}</div>
@@ -1292,13 +1259,13 @@
         'implementou o método com sucesso'
       ];
       const action = actions[Math.floor(Math.random() * actions.length)];
-      const gender = getGenderByName(who);
-      const imgUrl = getAvatarUrl(who, gender);
       
       const el = document.createElement('div');
       el.className = 'notif';
       el.innerHTML = `
-        <img src="${imgUrl}" alt="${who}" style="width:44px;height:44px;border-radius:8px">
+        <div style="width:44px;height:44px;border-radius:8px;background:var(--gradient);display:flex;align-items:center;justify-content:center;">
+          <i class="${getGenderByName(who) === 'female' ? 'fas fa-female' : 'fas fa-male'}" style="color:#05251b;font-size:20px;"></i>
+        </div>
         <div>
           <strong>${who}</strong>
           <div style="color:var(--muted);font-size:13px">${action} • agora</div>
