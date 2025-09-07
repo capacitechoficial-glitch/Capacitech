@@ -9,6 +9,7 @@
   <meta property="og:description" content="Aprenda funis, tráfego e copy com modelos práticos. Acesso rápido, garantia e suporte." />
   <meta property="og:image" content="https://img.icons8.com/fluency/96/artificial-intelligence.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* ---------- PALETA: verde futurista (foco conversão) ---------- */
     :root{
@@ -23,6 +24,7 @@
       --radius:14px;
       --container:1100px;
       --shadow:0 26px 70px rgba(0,0,0,.6);
+      --gradient: linear-gradient(135deg, var(--cta-1), var(--cta-2));
     }
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:'Inter',system-ui,Roboto,Arial;background:linear-gradient(180deg,var(--bg), #02120b);color:var(--text);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
@@ -31,96 +33,178 @@
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
 
     /* ---------- HEADER ---------- */
-    header{position:sticky;top:0;z-index:120;backdrop-filter:blur(8px);background:linear-gradient(90deg, rgba(0,0,0,.28), rgba(0,0,0,.08));border-bottom:1px solid rgba(0,255,122,.04)}
+    header{position:sticky;top:0;z-index:120;backdrop-filter:blur(8px);background:linear-gradient(90deg, rgba(0,0,0,.28), rgba(0,0,0,.08));border-bottom:1px solid rgba(0,255,122,.04);transition: all 0.3s ease;}
+    header.scrolled{background:rgba(3,18,14,0.95);box-shadow:0 5px 20px rgba(0,0,0,0.2);}
     .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#003827,var(--cta-1));display:flex;align-items:center;justify-content:center;font-weight:900;color:#02120d}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#003827,var(--cta-1));display:flex;align-items:center;justify-content:center;font-weight:900;color:#02120d;font-size:20px;}
     .brand h1{margin:0;font-size:18px;letter-spacing:.2px;color:var(--cta-1)}
     .brand p{margin:0;font-size:12px;color:var(--muted)}
     nav{display:flex;gap:10px;align-items:center}
-    .nav-link{padding:8px 12px;border-radius:10px;font-weight:600;color:var(--muted);border:1px solid rgba(0,255,122,.03)}
-    .cta-btn{background:linear-gradient(135deg,var(--cta-1),var(--cta-2));border:none;color:#05251b;padding:12px 18px;border-radius:12px;font-weight:900;box-shadow:0 14px 36px rgba(0,255,122,.06)}
+    .nav-link{padding:8px 12px;border-radius:10px;font-weight:600;color:var(--muted);border:1px solid rgba(0,255,122,.03);transition: all 0.3s ease;}
+    .nav-link:hover{background:rgba(0,255,122,0.1);}
+    .cta-btn{background:var(--gradient);border:none;color:#05251b;padding:12px 24px;border-radius:12px;font-weight:900;box-shadow:0 14px 36px rgba(0,255,122,.06);transition: all 0.3s ease;cursor:pointer;display:inline-block;text-align:center;}
+    .cta-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,255,122,.15);}
+    .cta-btn:active{transform:translateY(0);}
+
+    /* Mobile menu */
+    .mobile-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;}
+    .mobile-toggle span{width:25px;height:3px;background:var(--cta-1);border-radius:3px;transition:all 0.3s ease;}
 
     /* ---------- HERO ---------- */
-    .hero{padding:36px 0}
+    .hero{padding:36px 0;position:relative;}
     .hero-grid{display:grid;grid-template-columns:1fr 460px;gap:22px;align-items:stretch}
-    .hero-card{background:linear-gradient(180deg, rgba(3,30,22,.6), rgba(2,16,12,.45));border-radius:16px;padding:28px;border:1px solid rgba(0,255,122,.04);box-shadow:var(--shadow)}
-    .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(0,255,122,.06);color:var(--cta-1);font-weight:800}
-    h2.title{font-size:40px;margin:14px 0 8px;line-height:1.02}
-    p.lead{color:var(--muted);margin:0 0 8px;font-size:15px}
+    .hero-card{background:linear-gradient(180deg, rgba(3,30,22,.6), rgba(2,16,12,.45));border-radius:16px;padding:28px;border:1px solid rgba(0,255,122,.04);box-shadow:var(--shadow);position:relative;}
+    .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, var(--cta-1), transparent);}
+    .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:999px;background:rgba(0,255,122,.06);color:var(--cta-1);font-weight:800;font-size:14px;}
+    h2.title{font-size:42px;margin:14px 0 8px;line-height:1.02;background:linear-gradient(90deg, var(--text), var(--cta-1));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+    p.lead{color:var(--muted);margin:0 0 8px;font-size:16px;line-height:1.5;}
     .benefits{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .badge{background:#022b20;padding:8px 12px;border-radius:999px;font-weight:700;border:1px solid rgba(0,255,122,.03);font-size:13px;color:var(--muted)}
+    .badge{background:#022b20;padding:8px 14px;border-radius:999px;font-weight:700;border:1px solid rgba(0,255,122,.03);font-size:13px;color:var(--muted);display:flex;align-items:center;gap:5px;}
 
-    .hero-ctas{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
-    .micro{font-size:13px;color:var(--muted)}
+    .hero-ctas{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;align-items:center;}
+    .micro{font-size:13px;color:var(--muted);}
+
+    /* Progress bar */
+    .progress-container{display:flex;align-items:center;gap:12px;margin-top:20px;}
+    .progress-bar{flex:1;height:6px;background:rgba(0,255,122,0.1);border-radius:6px;overflow:hidden;}
+    .progress-fill{height:100%;width:82%;background:var(--gradient);border-radius:6px;position:relative;}
+    .progress-fill::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);animation:shimmer 2s infinite;}
 
     /* ---------- RIGHT / PRICE ---------- */
     .side{display:flex;flex-direction:column;gap:12px}
-    .panel-visual{background:linear-gradient(180deg, rgba(0,255,122,.02), transparent);border-radius:12px;padding:14px;border:1px solid rgba(0,255,122,.03);min-height:220px;display:flex;align-items:center;justify-content:center}
-    .price-card{background:linear-gradient(180deg,#002818,#02291f);padding:14px;border-radius:12px;border:1px solid rgba(0,255,122,.06);display:flex;justify-content:space-between;align-items:center}
+    .panel-visual{background:linear-gradient(180deg, rgba(0,255,122,.02), transparent);border-radius:12px;padding:14px;border:1px solid rgba(0,255,122,.03);min-height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .panel-visual::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ff7a' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");}
+    .price-card{background:linear-gradient(180deg,#002818,#02291f);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.06);display:flex;justify-content:space-between;align-items:center;position:relative;}
+    .price-card::after{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:var(--gradient);border-radius:14px;z-index:-1;opacity:0.3;}
     .price-left{display:flex;flex-direction:column}
-    .price{font-size:36px;font-weight:900;color:var(--cta-1)}
-    .old{font-size:13px;color:rgba(175,255,215,.35);text-decoration:line-through}
+    .price{font-size:42px;font-weight:900;color:var(--cta-1);line-height:1;}
+    .old{font-size:16px;color:rgba(175,255,215,.35);text-decoration:line-through;margin-top:5px;}
     .pay-row{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
-    .pill{background:#021a14;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,255,122,.04);font-weight:700}
+    .pill{background:#021a14;padding:6px 12px;border-radius:999px;border:1px solid rgba(0,255,122,.04);font-weight:700;font-size:13px;}
+
+    /* Countdown timer */
+    .countdown{background:rgba(0,0,0,0.3);border-radius:10px;padding:12px;text-align:center;margin-top:10px;}
+    .countdown-title{font-size:13px;color:var(--muted);margin-bottom:8px;}
+    .countdown-timer{display:flex;justify-content:center;gap:8px;}
+    .countdown-unit{background:rgba(0,0,0,0.4);padding:8px;border-radius:8px;min-width:45px;}
+    .countdown-value{font-size:20px;font-weight:800;color:var(--cta-1);}
+    .countdown-label{font-size:10px;color:var(--muted);}
 
     /* ---------- FEATURES / PROGRAM ---------- */
-    .section{padding:44px 0}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .feature{background:linear-gradient(180deg,#01281f,#021a14);padding:14px;border-radius:12px;border:1px solid rgba(0,255,122,.03)}
-    .feature h4{margin:0 0 6px}
-    .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .section{padding:60px 0;position:relative;}
+    .section-title{font-size:32px;margin:0 0 30px;text-align:center;position:relative;}
+    .section-title::after{content:'';display:block;width:60px;height:3px;background:var(--gradient);margin:10px auto;border-radius:3px;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .feature{background:linear-gradient(180deg,#01281f,#021a14);padding:24px;border-radius:12px;border:1px solid rgba(0,255,122,.03);transition:all 0.3s ease;position:relative;}
+    .feature:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,0.3);border-color:rgba(0,255,122,0.1);}
+    .feature h4{margin:0 0 10px;font-size:18px;color:var(--cta-1);}
+    .feature p{color:var(--muted);margin:0;line-height:1.5;}
+    .feature-icon{font-size:24px;margin-bottom:15px;color:var(--cta-1);}
+    .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
 
     /* ---------- SOCIAL PROOF ---------- */
-    .social-wrap{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
-    .testi-track{display:flex;gap:12px;overflow:auto;padding-bottom:8px}
-    .testi{min-width:300px;background:linear-gradient(180deg,#042a1f,#022016);padding:12px;border-radius:12px;border:1px solid rgba(0,255,122,.03)}
+    .social-wrap{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+    .testi-track{display:flex;gap:16px;overflow:auto;padding-bottom:15px;scrollbar-width:thin;}
+    .testi-track::-webkit-scrollbar{height:6px;}
+    .testi-track::-webkit-scrollbar-track{background:rgba(0,255,122,0.05);border-radius:10px;}
+    .testi-track::-webkit-scrollbar-thumb{background:var(--cta-1);border-radius:10px;}
+    .testi{min-width:300px;background:linear-gradient(180deg,#042a1f,#022016);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.03);transition:all 0.3s ease;}
+    .testi:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
     .testi .who{display:flex;gap:12px;align-items:center}
-    .avatar{width:56px;height:56px;border-radius:12px;object-fit:cover}
+    .avatar{width:56px;height:56px;border-radius:12px;object-fit:cover;border:2px solid rgba(0,255,122,0.2);}
 
-    .notif-box{position:sticky;top:100px}
-    .notif{display:flex;gap:12px;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(180deg,#031612,#02120c);border-left:4px solid var(--cta-1)}
+    .notif-box{position:sticky;top:100px;background:var(--panel);border-radius:12px;padding:20px;border:1px solid rgba(0,255,122,.03);}
+    .notif{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#031612,#02120c);border-left:4px solid var(--cta-1);margin-bottom:10px;transition:all 0.3s ease;}
+    .notif:last-child{margin-bottom:0;}
+    .notif:hover{transform:translateX(3px);}
 
     /* ---------- FAQ / FOOTER ---------- */
-    details{background:#031513;border:1px solid rgba(0,255,122,.03);padding:12px;border-radius:10px;margin-bottom:8px}
-    footer{padding:18px 0;border-top:1px solid rgba(0,255,122,.03);margin-top:28px;color:var(--muted)}
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+    details{background:#031513;border:1px solid rgba(0,255,122,.03);padding:15px;border-radius:10px;margin-bottom:10px;transition:all 0.3s ease;}
+    details[open]{border-color:rgba(0,255,122,0.2);}
+    summary{font-weight:700;cursor:pointer;position:relative;padding-right:30px;color:var(--text);}
+    summary::marker{display:none;content:'';}
+    summary::after{content:'+';position:absolute;right:0;top:0;font-weight:400;transition:all 0.3s ease;}
+    details[open] summary::after{transform:rotate(45deg);}
+    details p{color:var(--muted);margin:10px 0 0;line-height:1.5;}
+
+    footer{padding:30px 0;border-top:1px solid rgba(0,255,122,.03);margin-top:28px;color:var(--muted);background:var(--panel);}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;}
+
+    /* ---------- MODAL ---------- */
+    .modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:all 0.3s ease;}
+    .modal.active{opacity:1;visibility:visible;}
+    .modal-content{background:var(--panel);border-radius:16px;padding:30px;max-width:500px;width:90%;border:1px solid rgba(0,255,122,.1);position:relative;transform:translateY(20px);transition:all 0.3s ease;}
+    .modal.active .modal-content{transform:translateY(0);}
+    .modal-close{position:absolute;top:15px;right:15px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;}
+    .modal-title{font-size:24px;margin:0 0 15px;color:var(--cta-1);}
 
     /* ---------- BUYBAR MOBILE ---------- */
-    .buybar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg,#022a20,#011712);border:1px solid rgba(0,255,122,.06);box-shadow:0 12px 40px rgba(0,0,0,.6);z-index:999}
+    .buybar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-radius:12px;background:linear-gradient(180deg,#022a20,#011712);border:1px solid rgba(0,255,122,.06);box-shadow:0 12px 40px rgba(0,0,0,.6);z-index:999;transform:translateY(100px);transition:all 0.4s ease;}
+    .buybar.visible{transform:translateY(0);}
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes pulse{0%{transform:scale(1);opacity:.96}50%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:.96}}
+    @keyframes shimmer{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+    @keyframes float{0%{transform:translateY(0px);}50%{transform:translateY(-10px);}100%{transform:translateY(0px);}}
+
+    .pulse{animation:pulse 3s infinite}
+    .shadow-float{box-shadow:0 30px 70px rgba(0,0,0,.65)}
+    .float{animation:float 5s ease-in-out infinite;}
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width:1024px){
-      .hero-grid{grid-template-columns:1fr 420px}
+      .hero-grid{grid-template-columns:1fr 400px}
+      .grid-3{grid-template-columns:repeat(2,1fr);}
     }
     @media (max-width:880px){
+      .header-inner nav{display:none;}
+      .mobile-toggle{display:flex;}
+      .header-inner nav.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--panel);padding:20px;border-top:1px solid rgba(0,255,122,.1);box-shadow:0 10px 30px rgba(0,0,0,0.2);}
+      .header-inner nav.active .nav-link{margin-bottom:10px;}
+      
       .hero-grid{grid-template-columns:1fr}
       .side{order:2}
-      .panel-visual{min-height:160px}
-      .grid-3{grid-template-columns:1fr}
+      .panel-visual{min-height:200px}
+      
       .social-wrap{grid-template-columns:1fr}
       .notif-box{display:none}
+      
+      .faq-grid{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr;text-align:center;gap:20px;}
+      
+      .grid-3{grid-template-columns:1fr;}
     }
-
-    /* ---------- MICRO ANIM ---------- */
-    .pulse{animation:pulse 3s infinite}
-    @keyframes pulse{0%{transform:scale(1);opacity:.96}50%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:.96}}
-    .shadow-float{box-shadow:0 30px 70px rgba(0,0,0,.65)}
+    @media (max-width:580px){
+      h2.title{font-size:32px;}
+      .hero-ctas{flex-direction:column;align-items:stretch;}
+      .hero-ctas .cta-btn{text-align:center;}
+      .price-card{flex-direction:column;gap:15px;text-align:center;}
+      .pay-row{justify-content:center;}
+    }
   </style>
 </head>
 <body>
   <!-- HEADER -->
-  <header>
+  <header id="header">
     <div class="container header-inner">
       <div class="brand" aria-label="Identidade do site">
-        <div class="logo" aria-hidden="true">CT</div>
+        <div class="logo" aria-hidden="true"><i class="fas fa-bolt"></i></div>
         <div>
           <h1>Capacitech</h1>
           <p>Curso intensivo • 5 aulas práticas</p>
         </div>
       </div>
+      <button class="mobile-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav aria-label="Navegação principal">
         <a class="nav-link" href="#beneficios">Benefícios</a>
         <a class="nav-link" href="#programa">Programa</a>
+        <a class="nav-link" href="#depoimentos">Depoimentos</a>
         <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Garantir Acesso</a>
       </nav>
     </div>
@@ -131,32 +215,38 @@
     <section class="hero container">
       <div class="hero-grid">
         <div class="hero-card">
-          <div class="kicker">Aulas + modelos prontos • Turmas controladas</div>
+          <div class="kicker"><i class="fas fa-rocket"></i> Aulas + modelos prontos • Turmas controladas</div>
           <h2 class="title">Domine funil, tráfego e copy que geram vendas reais</h2>
-          <p class="lead">Conteúdo prático, passo a passo — aplicado com modelos testados que aceleram resultados. Estruturado para quem quer escalar com segurança.</p>
+          <p class="lead">Conteúdo prático, passo a passo — aplicado com modelos testados que aceleram resultados. Estruturado para quem quer escalar com segurança e previsibilidade.</p>
 
           <div class="benefits" role="list">
-            <div class="badge">🎯 Roteiros prontos</div>
-            <div class="badge">📘 eBook + templates</div>
-            <div class="badge">👥 Suporte exclusivo</div>
+            <div class="badge"><i class="fas fa-target"></i> Roteiros prontos</div>
+            <div class="badge"><i class="fas fa-book"></i> eBook + templates</div>
+            <div class="badge"><i class="fas fa-users"></i> Suporte exclusivo</div>
+            <div class="badge"><i class="fas fa-chart-line"></i> Métricas que importam</div>
           </div>
 
           <div class="hero-ctas">
-            <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Quero garantir agora</a>
-            <a class="nav-link" href="#beneficios">Ver detalhes</a>
-            <div class="micro" aria-hidden="true">Acesso imediato • Garantia 7 dias</div>
+            <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener" id="cta-main">
+              <i class="fas fa-lock"></i> Quero garantir agora
+            </a>
+            <a class="nav-link" href="#garantia">
+              <i class="fas fa-shield-alt"></i> Ver garantia
+            </a>
+            <div class="micro" aria-hidden="true">Acesso imediato • Garantia 7 dias • Suporte</div>
           </div>
 
-          <div style="margin-top:16px;display:flex;gap:12px;align-items:center">
-            <div style="flex:1;height:6px;background:linear-gradient(90deg,transparent,var(--cta-1),transparent);border-radius:6px"></div>
-            <div style="font-size:13px;color:var(--muted)">Vagas limitadas — seleção por ordem de inscrição</div>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <div style="font-size:13px;color:var(--muted)"><span id="remaining">18</span> vagas restantes</div>
           </div>
         </div>
 
         <!-- SIDE: VISUAL + PRICE -->
         <aside class="side">
           <div class="panel-visual pulse" aria-hidden="true">
-            <!-- visual simples para transmitir "tecnologia/dados" -->
             <svg width="100%" height="160" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Painel de dados">
               <rect width="800" height="300" rx="12" fill="#001e17"/>
               <g stroke="#00ff7a" stroke-opacity=".18" stroke-width="1.6" fill="none">
@@ -168,22 +258,43 @@
                 <rect x="280" y="24" width="220" height="120" rx="8"/>
                 <rect x="540" y="96" width="160" height="80" rx="8"/>
               </g>
+              <circle cx="200" cy="180" r="8" fill="#00ff7a" opacity=".6" class="float"/>
+              <circle cx="400" cy="120" r="6" fill="#00ff7a" opacity=".4" class="float" style="animation-delay:1s"/>
+              <circle cx="600" cy="210" r="10" fill="#00ff7a" opacity=".3" class="float" style="animation-delay:2s"/>
             </svg>
           </div>
 
           <div class="price-card shadow-float" aria-label="Oferta">
             <div class="price-left">
-              <div style="font-size:13px;color:var(--muted)">Oferta especial (tempo limitado)</div>
+              <div style="font-size:13px;color:var(--muted)">Oferta especial por tempo limitado</div>
               <div class="price">R$ 39,90</div>
-              <div class="old">R$ 199,90</div>
+              <div class="old">de R$ 199,90 por apenas</div>
               <div class="pay-row">
-                <div class="pill">Acesso imediato</div>
-                <div style="color:var(--muted);font-size:13px">Pagamento seguro</div>
+                <div class="pill"><i class="fas fa-bolt"></i> Acesso imediato</div>
+                <div class="pill"><i class="fas fa-lock"></i> Pagamento seguro</div>
               </div>
             </div>
             <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-              <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Comprar</a>
-              <div style="font-size:12px;color:var(--muted)">Suporte pós-compra</div>
+              <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Comprar Agora</a>
+              <div style="font-size:12px;color:var(--muted)">7 dias de garantia</div>
+            </div>
+          </div>
+
+          <div class="countdown">
+            <div class="countdown-title">Esta oferta expira em:</div>
+            <div class="countdown-timer">
+              <div class="countdown-unit">
+                <div class="countdown-value" id="hours">06</div>
+                <div class="countdown-label">horas</div>
+              </div>
+              <div class="countdown-unit">
+                <div class="countdown-value" id="minutes">42</div>
+                <div class="countdown-label">minutos</div>
+              </div>
+              <div class="countdown-unit">
+                <div class="countdown-value" id="seconds">18</div>
+                <div class="countdown-label">segundos</div>
+              </div>
             </div>
           </div>
         </aside>
@@ -192,37 +303,41 @@
 
     <!-- BENEFÍCIOS -->
     <section id="beneficios" class="section container">
-      <h3 style="margin:0 0 12px">O que você recebe</h3>
+      <h3 class="section-title">O que você recebe</h3>
       <div class="grid-3">
         <div class="feature">
+          <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
           <h4>Plano 14 dias para primeira venda</h4>
-          <p style="color:var(--muted)">Sequência com passos diretos para validar oferta e gerar vendas rápidas.</p>
+          <p>Sequência com passos diretos para validar oferta e gerar vendas rápidas mesmo começando do zero.</p>
         </div>
         <div class="feature">
+          <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
           <h4>Templates e checklists</h4>
-          <p style="color:var(--muted)">Scripts de anúncio, páginas e sequência de mensagens editáveis.</p>
+          <p>Scripts de anúncio, páginas e sequência de mensagens editáveis para usar imediatamente.</p>
         </div>
         <div class="feature">
+          <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
           <h4>Dados aplicáveis</h4>
-          <p style="color:var(--muted)">Métricas e regras práticas para manter lucro ao escalar.</p>
+          <p>Métricas e regras práticas para manter lucro ao escalar e tomar decisões baseadas em resultados.</p>
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px;align-items:start">
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:36px;align-items:start">
         <div class="hero-card">
-          <h4 style="margin-top:0">Material de apoio</h4>
-          <ul style="color:var(--muted)">
-            <li>📘 eBook com roteiro completo</li>
-            <li>🧩 Modelos de criativos e landing</li>
-            <li>🔁 Checklist operacional para escala</li>
-            <li>👥 Grupo para dúvidas e implementação</li>
+          <h4 style="margin-top:0"><i class="fas fa-gift"></i> Material de apoio</h4>
+          <ul style="color:var(--muted);padding-left:20px;">
+            <li>📘 eBook com roteiro completo passo a passo</li>
+            <li>🧩 Modelos de criativos e landing pages</li>
+            <li>🔁 Checklist operacional para escala segura</li>
+            <li>👥 Grupo exclusivo para dúvidas e implementação</li>
+            <li>🎥 Gravações das aulas para assistir quando quiser</li>
           </ul>
-          <p style="color:var(--muted)"><strong>Como isso ajuda você:</strong> diminui testes, acelera decisões e reduz desperdício de verba.</p>
+          <p style="color:var(--muted)"><strong>Como isso ajuda você:</strong> diminui testes, acelera decisões e reduz desperdício de verba com estratégias comprovadas.</p>
         </div>
 
         <div class="hero-card" id="garantia">
-          <h4 style="margin:0 0 8px">Garantia de 7 dias</h4>
-          <p style="color:var(--muted);margin:0 0 12px">Se não tiver resultado prático nos primeiros 7 dias, devolvemos o valor — sem perguntas.</p>
+          <h4 style="margin:0 0 8px"><i class="fas fa-shield-alt"></i> Garantia de 7 dias</h4>
+          <p style="color:var(--muted);margin:0 0 12px">Se não tiver resultado prático nos primeiros 7 dias, devolvemos 100% do valor investido — sem perguntas ou complicações.</p>
           <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Testar sem risco</a>
         </div>
       </div>
@@ -230,30 +345,55 @@
 
     <!-- PROGRAMA -->
     <section id="programa" class="section container">
-      <h3 style="margin:0 0 12px">Conteúdo das aulas</h3>
-      <div class="program-grid">
-        <div class="feature"><strong>Aula 1</strong><p style="color:var(--muted)">Fundamentos, persona e oferta</p></div>
-        <div class="feature"><strong>Aula 2</strong><p style="color:var(--muted)">Tráfego pago: estratégias que funcionam</p></div>
-        <div class="feature"><strong>Aula 3</strong><p style="color:var(--muted)">Landing, copy e gatilhos</p></div>
-        <div class="feature"><strong>Aula 4</strong><p style="color:var(--muted)">Automação e recuperação</p></div>
-        <div class="feature"><strong>Aula 5</strong><p style="color:var(--muted)">Escala, KPIs e checklist</p></div>
-        <div class="feature"><strong>Bônus</strong><p style="color:var(--muted)">Modelos prontos e eBook</p></div>
+      <h3 class="section-title">Conteúdo das aulas</h3>
+      <div class="grid-3">
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-search"></i></div>
+          <h4>Aula 1: Fundamentos</h4>
+          <p>Persona, oferta irresistível e estrutura de funis que convertem no mercado atual.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+          <h4>Aula 2: Tráfego pago</h4>
+          <p>Estratégias que funcionam no Meta Ads, configurações e orçamento inteligente.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-pencil-alt"></i></div>
+          <h4>Aula 3: Copy e gatilhos</h4>
+          <p>Landing pages que convertem, copywriting persuasivo e elementos de confiança.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+          <h4>Aula 4: Automação</h4>
+          <p>Sistemas de recuperação de carrinho abandonado e leads frios com retargeting.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h4>Aula 5: Escala e KPIs</h4>
+          <p>Métricas essenciais, análise de dados e checklist para escalar com segurança.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-star"></i></div>
+          <h4>Bônus exclusivos</h4>
+          <p>Modelos prontos, eBook complementar e acesso a atualizações futuras do curso.</p>
+        </div>
       </div>
     </section>
 
     <!-- SOCIAL PROOF -->
-    <section class="section container">
+    <section id="depoimentos" class="section container">
+      <h3 class="section-title">Quem já fez recomenda</h3>
       <div class="social-wrap">
         <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-            <strong>Depoimentos</strong>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px">
+            <strong>Depoimentos reais</strong>
             <div style="color:var(--muted)">Avaliação média <span style="color:var(--cta-1);font-weight:900">4,9</span>/5</div>
           </div>
           <div class="testi-track" id="testiTrack" aria-live="polite" aria-atomic="true"></div>
         </div>
 
-        <aside class="notif-box" aria-hidden="false">
-          <div style="font-weight:800;margin-bottom:8px">Atividade recente</div>
+        <aside class="notif-box">
+          <div style="font-weight:800;margin-bottom:15px;color:var(--cta-1)"><i class="fas fa-bell"></i> Atividade recente</div>
           <div id="notifList"></div>
         </aside>
       </div>
@@ -261,50 +401,205 @@
 
     <!-- FAQ -->
     <section class="section container">
-      <h3 style="margin:0 0 12px">Perguntas frequentes</h3>
-      <details><summary>Quando recebo o acesso?</summary><p style="color:var(--muted)">Imediatamente após a confirmação do pagamento você recebe instruções por e-mail.</p></details>
-      <details><summary>Como funciona a garantia?</summary><p style="color:var(--muted)">Até 7 dias; solicite reembolso por e-mail e processamos rapidamente.</p></details>
-      <details><summary>Preciso ter experiência?</summary><p style="color:var(--muted)">Não. O curso atende iniciantes e quem já anuncia.</p></details>
+      <h3 class="section-title">Perguntas frequentes</h3>
+      <div class="faq-grid">
+        <details>
+          <summary>Quando recebo o acesso ao curso?</summary>
+          <p>Imediatamente após a confirmação do pagamento você recebe um e-mail com todas as instruções de acesso à área de membros.</p>
+        </details>
+        <details>
+          <summary>Como funciona exatamente a garantia?</summary>
+          <p>Você tem até 7 dias para testar o curso. Se por qualquer motivo não estiver satisfeito, basta enviar um e-mail solicitando o reembolso que processamos rapidamente sem questionamentos.</p>
+        </details>
+        <details>
+          <summary>Preciso ter experiência prévia?</summary>
+          <p>Não. O curso foi estruturado para atender tanto iniciantes quanto quem já tem experiência mas quer resultados mais consistentes e escaláveis.</p>
+        </details>
+        <details>
+          <summary>Por quanto tempo tenho acesso?</summary>
+          <p>O acesso é vitalício! Você pode assistir às aulas quantas vezes quiser e ainda recebe atualizações futuras do conteúdo sem custo adicional.</p>
+        </details>
+        <details>
+          <summary>O curso é atualizado?</summary>
+          <p>Sim! Estratégias de tráfego e marketing digital mudam constantemente, por isso mantemos o conteúdo sempre atualizado com as melhores práticas do mercado.</p>
+        </details>
+        <details>
+          <summary>Há suporte para dúvidas?</summary>
+          <p>Sim! Além do grupo exclusivo para alunos, você pode enviar dúvidas diretamente para nossa equipe que responderá em até 24h úteis.</p>
+        </details>
+      </div>
     </section>
   </main>
 
+  <!-- CTA FINAL -->
+  <section class="section container" style="text-align:center;padding-top:0">
+    <div class="hero-card">
+      <h3 class="section-title" style="margin-bottom:20px">Pronto para transformar seus resultados?</h3>
+      <p class="lead" style="max-width:600px;margin:0 auto 30px">Junte-se a mais de 1.200 alunos que já implementaram o método Capacitech e estão gerando resultados consistentes</p>
+      
+      <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-bottom:30px">
+        <div class="badge"><i class="fas fa-user-graduate"></i> 1.200+ alunos</div>
+        <div class="badge"><i class="fas fa-star"></i> 94% de satisfação</div>
+        <div class="badge"><i class="fas fa-check-circle"></i> 7 dias de garantia</div>
+      </div>
+      
+      <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener" style="margin:0 auto;font-size:18px;padding:16px 32px;">
+        <i class="fas fa-lock"></i> Garantir Acesso com Desconto
+      </a>
+      
+      <div class="countdown" style="max-width:400px;margin:30px auto 0">
+        <div class="countdown-title">Oferta especial termina em:</div>
+        <div class="countdown-timer">
+          <div class="countdown-unit">
+            <div class="countdown-value" id="hours2">06</div>
+            <div class="countdown-label">horas</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-value" id="minutes2">42</div>
+            <div class="countdown-label">minutos</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-value" id="seconds2">18</div>
+            <div class="countdown-label">segundos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BUYBAR MOBILE -->
-  <div class="buybar" id="buybar" style="display:none">
+  <div class="buybar" id="buybar">
     <div>
-      <div style="font-size:13px;color:var(--muted)">Oferta</div>
+      <div style="font-size:13px;color:var(--muted)">Oferta especial</div>
       <div style="font-weight:900;color:var(--cta-1)">R$ 39,90</div>
     </div>
-    <div><a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Comprar</a></div>
+    <div><a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Comprar Agora</a></div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="exitModal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar">&times;</button>
+      <h3 class="modal-title">Espere! Oferta especial</h3>
+      <p style="color:var(--muted);margin-bottom:20px">Você está deixando para trás uma oportunidade única de acesso ao curso com <strong>80% de desconto</strong>. Esta oferta é exclusiva e por tempo limitado.</p>
+      <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" style="width:100%;text-align:center;">
+        <i class="fas fa-bolt"></i> Quero garantir meu acesso!
+      </a>
+      <p style="text-align:center;margin-top:15px;font-size:13px;color:var(--muted)">7 dias de garantia • Acesso imediato</p>
+    </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div>
-        <strong>Capacitech</strong>
-        <div style="color:var(--muted)">© 2025 • contato: capacitechoficial@gmail.com</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>Capacitech</strong>
+          <div style="color:var(--muted);margin-top:10px;line-height:1.5">Transformando resultados através do marketing digital com métodos testados e aprovados por mais de 1.200 alunos.</div>
+        </div>
+        <div>
+          <strong>Links rápidos</strong>
+          <nav style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+            <a class="nav-link" href="#beneficios">Benefícios</a>
+            <a class="nav-link" href="#programa">Programa</a>
+            <a class="nav-link" href="#depoimentos">Depoimentos</a>
+            <a class="nav-link" href="#garantia">Garantia</a>
+          </nav>
+        </div>
+        <div>
+          <strong>Contato</strong>
+          <div style="color:var(--muted);margin-top:10px;line-height:1.5">
+            <div><i class="fas fa-envelope"></i> capacitechoficial@gmail.com</div>
+            <div style="margin-top:8px"><i class="fas fa-shield-alt"></i> Pagamento 100% seguro</div>
+          </div>
+        </div>
       </div>
-      <nav style="display:flex;gap:12px">
-        <a class="nav-link" href="#beneficios">Benefícios</a>
-        <a class="nav-link" href="#programa">Programa</a>
-        <a class="nav-link" href="#garantia">Garantia</a>
-      </nav>
+      <div style="border-top:1px solid rgba(0,255,122,.03);margin-top:30px;padding-top:20px;text-align:center;color:var(--muted);font-size:13px">
+        © 2025 Capacitech • Todos os direitos reservados
+      </div>
     </div>
   </footer>
 
   <!-- ---------- SCRIPTS (tudo inline) ---------- -->
   <script>
     /* ========================
-       Testemunhos e notificações
+       Configurações iniciais
        ======================== */
     const TESTS = [
-      {n:'Maria R.', r:'Empreendedora', t:'Dobrei as vendas com o funil pronto.' , img:'https://i.pravatar.cc/120?img=65'},
-      {n:'Lucas A.', r:'Analista', t:'Reduzi CPC e aumentei ROAS em 30%.' , img:'https://i.pravatar.cc/120?img=12'},
-      {n:'Ana S.', r:'Freelancer', t:'Primeiro cliente em 5 dias.' , img:'https://i.pravatar.cc/120?img=47'},
-      {n:'Pedro S.', r:'E-commerce', t:'Escalei sem perder margem.' , img:'https://i.pravatar.cc/120?img=8'}
+      {n:'Maria R.', r:'Empreendedora', t:'Dobrei as vendas com o funil pronto. Em 2 semanas já tinha recuperado o investimento!' , img:'https://i.pravatar.cc/120?img=65'},
+      {n:'Lucas A.', r:'Analista de Marketing', t:'Reduzi CPC em 35% e aumentei ROAS usando os métodos de teste que aprendi.' , img:'https://i.pravatar.cc/120?img=12'},
+      {n:'Ana S.', r:'Freelancer', t:'Consegui meu primeiro cliente em 5 dias. O suporte me ajudou a ajustar a abordagem.' , img:'https://i.pravatar.cc/120?img=47'},
+      {n:'Pedro S.', r:'E-commerce', t:'Escalei de 3 para 12 vendas/dia sem perder margem. As métricas fazem total diferença!' , img:'https://i.pravatar.cc/120?img=8'},
+      {n:'Camila T.', r:'Consultora', t:'Finalmente entendi como montar um funil que converte. Os templates são incríveis!' , img:'https://i.pravatar.cc/120?img=33'},
+      {n:'Ricardo L.', r:'Agencia', t:'Implementei para 3 clientes e todos tiveram resultados na primeira semana. Valeu cada centavo.' , img:'https://i.pravatar.cc/120?img=44'}
     ];
 
-    function createTesti(t){
+    /* ========================
+       Elementos DOM
+       ======================== */
+    const header = document.getElementById('header');
+    const buybar = document.getElementById('buybar');
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const nav = document.querySelector('nav');
+    const exitModal = document.getElementById('exitModal');
+    const modalClose = document.querySelector('.modal-close');
+    const ctaMain = document.getElementById('cta-main');
+
+    /* ========================
+       Menu mobile
+       ======================== */
+    mobileToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      mobileToggle.classList.toggle('active');
+    });
+
+    /* ========================
+       Header scroll behavior
+       ======================== */
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      checkBuybar();
+    });
+
+    /* ========================
+       Mobile buybar behavior
+       ======================== */
+    function checkBuybar(){
+      const show = window.innerWidth <= 880 && window.scrollY > 400;
+      buybar.classList.toggle('visible', show);
+    }
+    window.addEventListener('resize', checkBuybar);
+    checkBuybar();
+
+    /* ========================
+       Smooth anchor for internal links
+       ======================== */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href.length > 1) {
+          e.preventDefault();
+          nav.classList.remove('active');
+          const target = document.querySelector(href);
+          if (target) {
+            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({top: offsetTop, behavior: 'smooth'});
+          }
+        }
+      });
+    });
+
+    /* ========================
+       Testemunhos
+       ======================== */
+    const track = document.getElementById('testiTrack');
+    
+    function createTesti(t) {
       const el = document.createElement('article');
       el.className = 'testi';
       el.innerHTML = `
@@ -315,86 +610,164 @@
             <div style="color:var(--muted);font-size:13px">${t.r}</div>
           </div>
         </div>
-        <div style="margin-top:10px;color:var(--muted);font-size:14px">★★★★★</div>
+        <div style="margin-top:10px;color:var(--cta-1);font-size:14px">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
         <p style="color:var(--muted);margin-top:8px">${t.t}</p>
       `;
       return el;
     }
 
-    const track = document.getElementById('testiTrack');
-    TESTS.forEach(t=>track.appendChild(createTesti(t)));
+    // Adiciona os primeiros testemunhos
+    TESTS.slice(0, 3).forEach(t => track.appendChild(createTesti(t)));
 
-    // loop dinamico - mantém movimento sem sobrecarregar
-    setInterval(()=> {
-      const idx = Math.floor(Math.random()*TESTS.length);
-      track.appendChild(createTesti(TESTS[idx]));
-      if(track.children.length>12) track.removeChild(track.firstElementChild);
-      track.scrollTo({left: track.scrollWidth, behavior:'smooth'});
-    }, 3600);
+    // Animação de testemunhos
+    let testiIndex = 3;
+    setInterval(() => {
+      if (testiIndex >= TESTS.length) testiIndex = 0;
+      track.appendChild(createTesti(TESTS[testiIndex]));
+      if (track.children.length > 4) track.removeChild(track.firstElementChild);
+      track.scrollTo({left: track.scrollWidth, behavior: 'smooth'});
+      testiIndex++;
+    }, 4000);
 
-    // Notificações ao vivo
+    /* ========================
+       Notificações ao vivo
+       ======================== */
     const names = ['Mariana','Carlos','Fernanda','João','Luiza','Eduardo','Beatriz','Thiago','Paula'];
     const notifList = document.getElementById('notifList');
-    function pushNotif(){
-      const who = names[Math.floor(Math.random()*names.length)];
-      const action = Math.random()>0.45 ? 'comprou o curso' : 'deixou um depoimento ⭐⭐⭐⭐⭐';
+    
+    function pushNotif() {
+      const who = names[Math.floor(Math.random() * names.length)];
+      const actions = [
+        'acabou de se inscrever no curso',
+        'deixou uma avaliação ⭐⭐⭐⭐⭐',
+        'acessou a área de membros',
+        'implementou o método com sucesso'
+      ];
+      const action = actions[Math.floor(Math.random() * actions.length)];
+      
       const el = document.createElement('div');
       el.className = 'notif';
-      el.innerHTML = `<img src="https://i.pravatar.cc/64?u=${who}" alt="${who}" style="width:44px;height:44px;border-radius:8px"><div><strong>${who}</strong><div style="color:var(--muted);font-size:13px">${action} • agora</div></div>`;
+      el.innerHTML = `
+        <img src="https://i.pravatar.cc/64?u=${who}" alt="${who}" style="width:44px;height:44px;border-radius:8px">
+        <div>
+          <strong>${who}</strong>
+          <div style="color:var(--muted);font-size:13px">${action} • agora</div>
+        </div>
+      `;
+      
       notifList.prepend(el);
-      while(notifList.children.length>5) notifList.removeChild(notifList.lastElementChild);
-      el.style.opacity=0; el.style.transform='translateY(-8px)';
-      requestAnimationFrame(()=>{ el.style.transition='all .45s cubic-bezier(.2,.9,.3,1)'; el.style.opacity=1; el.style.transform='translateY(0)'; });
+      while (notifList.children.length > 5) notifList.removeChild(notifList.lastElementChild);
+      
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-8px)';
+      requestAnimationFrame(() => {
+        el.style.transition = 'all .45s cubic-bezier(.2,.9,.3,1)';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
     }
-    for(let i=0;i<3;i++) setTimeout(pushNotif, 700*(i+1));
-    setInterval(()=> { if(Math.random()>0.4) pushNotif(); }, 4500);
+
+    // Inicia com algumas notificações
+    for (let i = 0; i < 3; i++) setTimeout(pushNotif, 700 * (i + 1));
+    setInterval(pushNotif, 4500);
 
     /* ========================
-       Mobile buybar behavior
+       Contador regressivo
        ======================== */
-    const buybar = document.getElementById('buybar');
-    function checkBuybar(){
-      const show = window.innerWidth <= 880 && window.scrollY > 220;
-      buybar.style.display = show ? 'flex' : 'none';
+    function updateCountdown() {
+      // Define a data de expiração (24 horas a partir de agora)
+      const now = new Date();
+      const expireDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+      
+      const diff = expireDate - now;
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      
+      document.getElementById('hours2').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes2').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds2').textContent = seconds.toString().padStart(2, '0');
     }
-    addEventListener('scroll', checkBuybar);
-    addEventListener('resize', checkBuybar);
-    checkBuybar();
+    
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
     /* ========================
-       Smooth anchor for internal links
+       Vagas restantes (dinâmico)
        ======================== */
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const href = a.getAttribute('href');
-        if(href.length>1){
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if(target) target.scrollIntoView({behavior:'smooth'});
-        }
+    function updateRemaining() {
+      const remainingEl = document.getElementById('remaining');
+      let remaining = parseInt(remainingEl.textContent);
+      if (remaining > 1 && Math.random() > 0.7) {
+        remaining--;
+        remainingEl.textContent = remaining;
+        
+        // Atualiza a barra de progresso
+        const progressFill = document.querySelector('.progress-fill');
+        const percentage = (100 - (remaining / 25 * 100)) + '%';
+        progressFill.style.width = percentage;
+      }
+    }
+    
+    setInterval(updateRemaining, 30000);
+
+    /* ========================
+       Modal de saída
+       ======================== */
+    let mouseMoving = false;
+    let mouseY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+      if (e.clientY < mouseY && e.clientY < 50 && mouseMoving) {
+        exitModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      mouseY = e.clientY;
+      mouseMoving = true;
+    });
+    
+    modalClose.addEventListener('click', () => {
+      exitModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    /* ========================
+       Analytics de clique
+       ======================== */
+    document.querySelectorAll('.cta-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Simulação de tracking - em produção, integrar com Google Analytics ou Facebook Pixel
+        console.log('CTA clicked:', btn.textContent.trim());
       });
     });
 
     /* ========================
-       Accessibility live region for screen readers (announces new depoimentos)
+       Melhoria de acessibilidade
        ======================== */
-    const live = document.createElement('div');
-    live.setAttribute('aria-live','polite');
-    live.style.position='absolute';
-    live.style.left='-9999px';
-    document.body.appendChild(live);
-    setInterval(()=> {
-      const i = Math.floor(Math.random()*TESTS.length);
-      live.textContent = `${TESTS[i].n} deixou feedback: ${TESTS[i].t}`;
-    }, 8000);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && exitModal.classList.contains('active')) {
+        exitModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
 
-    /* ========================
-       Small performance: defer heavy images if needed (placeholder logic)
-       ======================== */
-    // Instrução: se quiser adicionar imagens grandes, use lazy-loading or CDNs.
+    // Foco visível para elementos interativos
+    document.addEventListener('focusin', (e) => {
+      if (e.target.matches('a, button, input, summary')) {
+        e.target.style.outline = `2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--cta-1')}`;
+        e.target.style.outlineOffset = '2px';
+      }
+    });
+
+    document.addEventListener('focusout', (e) => {
+      e.target.style.outline = 'none';
+    });
   </script>
 </body>
 </html>
-
-
-
