@@ -1,1666 +1,2493 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Capacitech · Curso Intensivo de Marketing Digital</title>
-  <meta name="description" content="Curso prático com 5 aulas, eBook e modelos testados para gerar resultados reais em semanas. Vagas controladas." />
-  <meta property="og:title" content="Capacitech · Curso Intensivo de Marketing Digital" />
-  <meta property="og:description" content="Aprenda funis, tráfego e copy com modelos práticos. Acesso rápido, garantia e suporte." />
-  <meta property="og:image" content="https://img.icons8.com/fluency/96/artificial-intelligence.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* ---------- PALETA: verde futurista (foco conversão) ---------- */
-    :root{
-      --bg:#03120f;
-      --panel:#04221a;
-      --muted:#bfffe5;
-      --text:#e9fff6;
-      --cta-1:#00ff7a;
-      --cta-2:#00d07a;
-      --accent:#7fffd4;
-      --glass:rgba(6,30,22,0.5);
-      --radius:14px;
-      --container:1100px;
-      --shadow:0 26px 70px rgba(0,0,0,.6);
-      --gradient: linear-gradient(135deg, var(--cta-1), var(--cta-2));
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:'Inter',system-ui,Roboto,Arial;background:linear-gradient(180deg,var(--bg), #02120b);color:var(--text);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
-
-    /* ---------- HEADER ---------- */
-    header{position:sticky;top:0;z-index:120;backdrop-filter:blur(8px);background:linear-gradient(90deg, rgba(0,0,0,.28), rgba(0,0,0,.08));border-bottom:1px solid rgba(0,255,122,.04);transition: all 0.3s ease;}
-    header.scrolled{background:rgba(3,18,14,0.95);box-shadow:0 5px 20px rgba(0,0,0,0.2);}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#003827,var(--cta-1));display:flex;align-items:center;justify-content:center;font-weight:900;color:#02120d;font-size:20px;}
-    .brand h1{margin:0;font-size:18px;letter-spacing:.2px;color:var(--cta-1)}
-    .brand p{margin:0;font-size:12px;color:var(--muted)}
-    nav{display:flex;gap:10px;align-items:center}
-    .nav-link{padding:8px 12px;border-radius:10px;font-weight:600;color:var(--muted);border:1px solid rgba(0,255,122,.03);transition: all 0.3s ease;}
-    .nav-link:hover{background:rgba(0,255,122,0.1);}
-    .cta-btn{background:var(--gradient);border:none;color:#05251b;padding:12px 24px;border-radius:12px;font-weight:900;box-shadow:0 14px 36px rgba(0,255,122,.06);transition: all 0.3s ease;cursor:pointer;display:inline-block;text-align:center;}
-    .cta-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,255,122,.15);}
-    .cta-btn:active{transform:translateY(0);}
-
-    /* Mobile menu */
-    .mobile-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;}
-    .mobile-toggle span{width:25px;height:3px;background:var(--cta-1);border-radius:3px;transition:all 0.3s ease;}
-
-    /* ---------- HERO ---------- */
-    .hero{padding:36px 0;position:relative;}
-    .hero-grid{display:grid;grid-template-columns:1fr 460px;gap:22px;align-items:stretch}
-    .hero-card{background:linear-gradient(180deg, rgba(3,30,22,.6), rgba(2,16,12,.45));border-radius:16px;padding:28px;border:1px solid rgba(0,255,122,.04);box-shadow:var(--shadow);position:relative;}
-    .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, var(--cta-1), transparent);}
-    .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:999px;background:rgba(0,255,122,.06);color:var(--cta-1);font-weight:800;font-size:14px;}
-    h2.title{font-size:42px;margin:14px 0 8px;line-height:1.02;background:linear-gradient(90deg, var(--text), var(--cta-1));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-    p.lead{color:var(--muted);margin:0 0 8px;font-size:16px;line-height:1.5;}
-    .benefits{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .badge{background:#022b20;padding:8px 14px;border-radius:999px;font-weight:700;border:1px solid rgba(0,255,122,.03);font-size:13px;color:var(--muted);display:flex;align-items:center;gap:5px;}
-
-    .hero-ctas{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;align-items:center;}
-    .micro{font-size:13px;color:var(--muted);}
-
-    /* Progress bar */
-    .progress-container{display:flex;align-items:center;gap:12px;margin-top:20px;}
-    .progress-bar{flex:1;height:6px;background:rgba(0,255,122,0.1);border-radius:6px;overflow:hidden;}
-    .progress-fill{height:100%;width:82%;background:var(--gradient);border-radius:6px;position:relative;}
-    .progress-fill::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);animation:shimmer 2s infinite;}
-
-    /* ---------- RIGHT / PRICE ---------- */
-    .side{display:flex;flex-direction:column;gap:12px}
-    .panel-visual{background:linear-gradient(180deg, rgba(0,255,122,.02), transparent);border-radius:12px;padding:14px;border:1px solid rgba(0,255,122,.03);min-height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-    .panel-visual::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ff7a' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");}
-    .price-card{background:linear-gradient(180deg,#002818,#02291f);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.06);display:flex;justify-content:space-between;align-items:center;position:relative;}
-    .price-card::after{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:var(--gradient);border-radius:14px;z-index:-1;opacity:0.3;}
-    .price-left{display:flex;flex-direction:column}
-    .price{font-size:42px;font-weight:900;color:var(--cta-1);line-height:1;}
-    .old{font-size:16px;color:rgba(175,255,215,.35);text-decoration:line-through;margin-top:5px;}
-    .pay-row{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
-    .pill{background:#021a14;padding:6px 12px;border-radius:999px;border:1px solid rgba(0,255,122,.04);font-weight:700;font-size:13px;}
-
-    /* Countdown timer */
-    .countdown{background:rgba(0,0,0,0.3);border-radius:10px;padding:12px;text-align:center;margin-top:10px;}
-    .countdown-title{font-size:13px;color:var(--muted);margin-bottom:8px;}
-    .countdown-timer{display:flex;justify-content:center;gap:8px;}
-    .countdown-unit{background:rgba(0,0,0,0.4);padding:8px;border-radius:8px;min-width:45px;}
-    .countdown-value{font-size:20px;font-weight:800;color:var(--cta-1);}
-    .countdown-label{font-size:10px;color:var(--muted);}
-
-    /* ---------- MASCOTE ---------- */
-    .mascote-container{position:fixed;bottom:20px;right:20px;z-index:100;}
-    .mascote{width:60px;height:60px;background:var(--gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.2);transition:all 0.3s ease;}
-    .mascote:hover{transform:scale(1.1);}
-    .mascote i{font-size:28px;color:#05251b;}
-    .mascote-chat{position:absolute;bottom:70px;right:0;width:250px;background:var(--panel);border:1px solid rgba(0,255,122,.1);border-radius:12px;padding:15px;box-shadow:0 10px 25px rgba(0,0,0,0.2);opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s ease;}
-    .mascote-chat.active{opacity:1;visibility:visible;transform:translateY(0);}
-    .mascote-message{color:var(--text);margin-bottom:10px;font-size:14px;}
-    .mascote-options{display:flex;flex-direction:column;gap:8px;}
-    .mascote-option{background:rgba(0,255,122,0.1);border:none;color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer;text-align:left;font-size:13px;transition:all 0.3s ease;}
-    .mascote-option:hover{background:rgba(0,255,122,0.2);}
-    .mascote-close{position:absolute;top:5px;right:5px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:12px;}
-
-    /* ---------- COMENTÁRIOS ---------- */
-    .comments-section{background:linear-gradient(180deg, rgba(3,30,22,.6), rgba(2,16,12,.45));border-radius:16px;padding:28px;border:1px solid rgba(0,255,122,.04);box-shadow:var(--shadow);margin:40px 0;}
-    .comments-title{font-size:24px;margin:0 0 20px;color:var(--cta-1);text-align:center;}
-    .comment-form{display:flex;flex-direction:column;gap:15px;margin-bottom:30px;}
-    .comment-input, .comment-textarea{background:rgba(0,0,0,0.2);border:1px solid rgba(0,255,122,.1);border-radius:8px;padding:12px;color:var(--text);font-family:inherit;}
-    .comment-textarea{min-height:100px;resize:vertical;}
-    .comment-submit{background:var(--gradient);border:none;color:#05251b;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;transition:all 0.3s ease;align-self:flex-end;}
-    .comment-submit:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,255,122,0.2);}
-    .comments-list{max-height:300px;overflow-y:auto;padding-right:10px;}
-    .comment-item{background:rgba(0,0,0,0.2);border-radius:8px;padding:15px;margin-bottom:15px;border-left:3px solid var(--cta-1);}
-    .comment-header{display:flex;justify-content:space-between;margin-bottom:8px;}
-    .comment-author{font-weight:700;color:var(--cta-1);}
-    .comment-date{color:var(--muted);font-size:12px;}
-    .comment-text{color:var(--text);line-height:1.5;}
-
-    /* ---------- TESTE INTERATIVO ---------- */
-    .quiz-container{background:linear-gradient(180deg, rgba(3,30,22,.6), rgba(2,16,12,.45));border-radius:16px;padding:30px;border:1px solid rgba(0,255,122,.04);box-shadow:var(--shadow);margin:40px 0;}
-    .quiz-progress{height:8px;background:rgba(0,255,122,0.1);border-radius:4px;margin-bottom:30px;overflow:hidden;}
-    .quiz-progress-fill{height:100%;background:var(--gradient);border-radius:4px;width:0%;transition:width 0.5s ease;}
-    .quiz-question{font-size:24px;font-weight:700;margin-bottom:25px;color:var(--text);}
-    .quiz-options{display:grid;grid-template-columns:repeat(2, 1fr);gap:15px;}
-    .quiz-option{background:linear-gradient(180deg,#01281f,#021a14);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.03);cursor:pointer;transition:all 0.3s ease;text-align:center;}
-    .quiz-option:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,0.2);border-color:rgba(0,255,122,0.2);}
-    .quiz-option.selected{background:linear-gradient(180deg,#003827,#002818);border-color:var(--cta-1);box-shadow:0 0 0 2px rgba(0,255,122,0.3);}
-    .quiz-option i{font-size:32px;margin-bottom:15px;color:var(--cta-1);display:block;}
-    .quiz-navigation{display:flex;justify-content:space-between;margin-top:30px;}
-    .quiz-btn{background:var(--gradient);border:none;color:#05251b;padding:12px 25px;border-radius:12px;font-weight:700;cursor:pointer;transition:all 0.3s ease;}
-    .quiz-btn:disabled{background:rgba(0,255,122,0.2);color:rgba(5,37,27,0.5);cursor:not-allowed;}
-    .quiz-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,255,122,0.2);}
-
-    .quiz-result{text-align:center;padding:30px;}
-    .result-icon{font-size:60px;color:var(--cta-1);margin-bottom:20px;}
-    .result-title{font-size:28px;font-weight:800;margin-bottom:15px;color:var(--cta-1);}
-    .result-subtitle{font-size:18px;color:var(--muted);margin-bottom:30px;}
-    .result-details{background:rgba(0,0,0,0.2);border-radius:12px;padding:20px;margin-bottom:30px;}
-    .result-item{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(0,255,122,0.1);}
-    .result-item:last-child{border-bottom:none;}
-    .result-label{color:var(--muted);}
-    .result-value{color:var(--cta-1);font-weight:700;}
-
-    /* ---------- FEATURES / PROGRAM ---------- */
-    .section{padding:60px 0;position:relative;}
-    .section-title{font-size:32px;margin:0 0 30px;text-align:center;position:relative;}
-    .section-title::after{content:'';display:block;width:60px;height:3px;background:var(--gradient);margin:10px auto;border-radius:3px;}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-    .feature{background:linear-gradient(180deg,#01281f,#021a14);padding:24px;border-radius:12px;border:1px solid rgba(0,255,122,.03);transition:all 0.3s ease;position:relative;}
-    .feature:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,0.3);border-color:rgba(0,255,122,0.1);}
-    .feature h4{margin:0 0 10px;font-size:18px;color:var(--cta-1);}
-    .feature p{color:var(--muted);margin:0;line-height:1.5;}
-    .feature-icon{font-size:24px;margin-bottom:15px;color:var(--cta-1);}
-    .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
-
-    /* ---------- SOCIAL PROOF - DEPOIMENTOS MELHORADOS ---------- */
-    .social-wrap{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
-    .testi-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px;}
-    .testi-container{position:relative;}
-    .testi-track{display:flex;gap:16px;overflow:auto;padding:10px 5px 25px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;}
-    .testi-track::-webkit-scrollbar{height:6px;}
-    .testi-track::-webkit-scrollbar-track{background:rgba(0,255,122,0.05);border-radius:10px;}
-    .testi-track::-webkit-scrollbar-thumb{background:var(--cta-1);border-radius:10px;}
-    .testi{min-width:300px;background:linear-gradient(180deg,#042a1f,#022016);padding:20px;border-radius:12px;border:1px solid rgba(0,255,122,.03);transition:all 0.3s ease;display:flex;flex-direction:column;}
-    .testi:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
-    .testi .who{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
-    .avatar{width:56px;height:56px;border-radius:12px;object-fit:cover;border:2px solid rgba(0,255,122,0.2);flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--gradient);}
-    .avatar i{font-size:24px;color:#05251b;}
-    .testi-content{flex:1;display:flex;flex-direction:column;}
-    .testi-stars{color:var(--cta-1);font-size:14px;margin-bottom:10px;}
-    .testi-text{color:var(--muted);line-height:1.5;flex:1;margin-bottom:12px;}
-    .testi-role{color:var(--cta-1);font-size:13px;font-weight:600;margin-top:auto;}
-    
-    /* Navegação para depoimentos em mobile */
-    .testi-nav{display:none;justify-content:center;gap:10px;margin-top:15px;}
-    .testi-dot{width:10px;height:10px;border-radius:50%;background:rgba(0,255,122,0.3);cursor:pointer;transition:all 0.3s ease;}
-    .testi-dot.active{background:var(--cta-1);transform:scale(1.2);}
-
-    .notif-box{position:sticky;top:100px;background:var(--panel);border-radius:12px;padding:20px;border:1px solid rgba(0,255,122,.03);}
-    .notif{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#031612,#02120c);border-left:4px solid var(--cta-1);margin-bottom:10px;transition:all 0.3s ease;}
-    .notif:last-child{margin-bottom:0;}
-    .notif:hover{transform:translateX(3px);}
-
-    /* ---------- FAQ / FOOTER ---------- */
-    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
-    details{background:#031513;border:1px solid rgba(0,255,122,.03);padding:15px;border-radius:10px;margin-bottom:10px;transition:all 0.3s ease;}
-    details[open]{border-color:rgba(0,255,122,0.2);}
-    summary{font-weight:700;cursor:pointer;position:relative;padding-right:30px;color:var(--text);}
-    summary::marker{display:none;content:'';}
-    summary::after{content:'+';position:absolute;right:0;top:0;font-weight:400;transition:all 0.3s ease;}
-    details[open] summary::after{transform:rotate(45deg);}
-    details p{color:var(--muted);margin:10px 0 0;line-height:1.5;}
-
-    footer{padding:30px 0;border-top:1px solid rgba(0,255,122,.03);margin-top:28px;color:var(--muted);background:var(--panel);}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;}
-
-    /* ---------- MODAL ---------- */
-    .modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:all 0.3s ease;}
-    .modal.active{opacity:1;visibility:visible;}
-    .modal-content{background:var(--panel);border-radius:16px;padding:30px;max-width:500px;width:90%;border:1px solid rgba(0,255,122,.1);position:relative;transform:translateY(20px);transition:all 0.3s ease;}
-    .modal.active .modal-content{transform:translateY(0);}
-    .modal-close{position:absolute;top:15px;right:15px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;}
-
-    /* ---------- BUYBAR MOBILE ---------- */
-    .buybar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-radius:12px;background:linear-gradient(180deg,#022a20,#011712);border:1px solid rgba(0,255,122,.06);box-shadow:0 12px 40px rgba(0,0,0,.6);z-index:999;transform:translateY(100px);transition:all 0.4s ease;}
-    .buybar.visible{transform:translateY(0);}
-
-    /* ---------- ANIMATIONS ---------- */
-    @keyframes pulse{0%{transform:scale(1);opacity:.96}50%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:.96}}
-    @keyframes shimmer{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
-    @keyframes float{0%{transform:translateY(0px);}50%{transform:translateY(-10px);}100%{transform:translateY(0px);}}
-    @keyframes bounce{0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-20px);} 60% {transform: translateY(-10px);}}
-
-    .pulse{animation:pulse 3s infinite}
-    .shadow-float{box-shadow:0 30px 70px rgba(0,0,0,.65)}
-    .float{animation:float 5s ease-in-out infinite;}
-    .bounce{animation:bounce 2s infinite;}
-
-    /* ========== RESPONSIVIDADE MELHORADA ========== */
-    @media (max-width:1024px){
-      .hero-grid{grid-template-columns:1fr 400px}
-      .grid-3{grid-template-columns:repeat(2,1fr);}
-      .quiz-options{grid-template-columns:1fr;}
-      .footer-grid{grid-template-columns:1fr 1fr;}
-      .testi{min-width:280px;}
-    }
-    
-    @media (max-width:880px){
-      .header-inner nav{display:none;}
-      .mobile-toggle{display:flex;}
-      .header-inner nav.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--panel);padding:20px;border-top:1px solid rgba(0,255,122,.1);box-shadow:0 10px 30px rgba(0,0,0,0.2);}
-      .header-inner nav.active .nav-link{margin-bottom:10px;}
-      
-      .hero-grid{grid-template-columns:1fr}
-      .side{order:2}
-      .panel-visual{min-height:200px}
-      
-      .social-wrap{grid-template-columns:1fr}
-      .notif-box{display:none}
-      
-      .faq-grid{grid-template-columns:1fr;}
-      .footer-grid{grid-template-columns:1fr;text-align:center;gap:20px;}
-      
-      .grid-3{grid-template-columns:1fr;}
-      .mascote-container{bottom:70px;}
-      .mascote-chat{width:220px;}
-      .testi-header{flex-direction:column;align-items:flex-start;}
-      
-      /* Melhorias para depoimentos em mobile */
-      .testi-track{gap:12px;padding:10px 5px 20px;}
-      .testi{min-width:85vw;padding:15px;}
-      .testi .who{flex-direction:column;text-align:center;gap:8px;}
-      .testi-stars{justify-content:center;display:flex;}
-      .testi-role{text-align:center;}
-      .testi-nav{display:flex;}
-      .avatar{width:50px;height:50px;}
-      .avatar i{font-size:20px;}
-    }
-    
-    @media (max-width:580px){
-      h2.title{font-size:32px;}
-      .hero-ctas{flex-direction:column;align-items:stretch;}
-      .hero-ctas .cta-btn{text-align:center;}
-      .price-card{flex-direction:column;gap:15px;text-align:center;}
-      .pay-row{justify-content:center;}
-      .quiz-options{grid-template-columns:1fr;}
-      .mascote-chat{width:200px;right:-20px;}
-      .testi{min-width:82vw;}
-      .footer-grid{grid-template-columns:1fr;}
-      
-      /* Ajustes finos para mobile muito pequeno */
-      .testi{min-width:78vw;}
-      .avatar{width:45px;height:45px;}
-      .avatar i{font-size:18px;}
-    }
-    
-    @media (max-width:380px){
-      .testi{min-width:76vw;padding:12px;}
-      .testi-text{font-size:14px;}
-    }
-
-    /* ========== MELHORIAS ESPECÍFICAS PARA MOBILE ========== */
-    @media (max-width: 768px) {
-      /* Ajustes gerais de espaçamento */
-      .container {
-        padding: 0 15px;
-      }
-      
-      .hero {
-        padding: 25px 0;
-      }
-      
-      .section {
-        padding: 40px 0;
-      }
-      
-      .hero-card, .comments-section, .quiz-container {
-        padding: 20px;
-      }
-      
-      /* Melhorias de tipografia para mobile */
-      h2.title {
-        font-size: 28px;
-        line-height: 1.1;
-      }
-      
-      .section-title {
-        font-size: 26px;
-      }
-      
-      p.lead {
-        font-size: 15px;
-      }
-      
-      /* Ajustes no menu mobile */
-      .mobile-toggle {
-        padding: 6px;
-      }
-      
-      .header-inner nav.active {
-        padding: 15px;
-      }
-      
-      .header-inner nav.active .nav-link {
-        padding: 10px 0;
-        text-align: center;
-      }
-      
-      /* Melhorias no formulário de comentários */
-      .comment-form {
-        gap: 12px;
-      }
-      
-      .comment-input, .comment-textarea {
-        padding: 10px;
-      }
-      
-      /* Ajustes no quiz para mobile */
-      .quiz-question {
-        font-size: 20px;
-        margin-bottom: 20px;
-      }
-      
-      .quiz-option {
-        padding: 15px;
-        min-height: auto;
-      }
-      
-      .quiz-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-      }
-      
-      /* Ajustes nos recursos */
-      .feature {
-        padding: 20px;
-      }
-      
-      .feature h4 {
-        font-size: 16px;
-      }
-      
-      .feature p {
-        font-size: 14px;
-      }
-      
-      /* Ajustes no FAQ */
-      details {
-        padding: 12px;
-      }
-      
-      summary {
-        font-size: 15px;
-      }
-      
-      details p {
-        font-size: 14px;
-      }
-      
-      /* Footer mobile */
-      .footer-grid {
-        gap: 25px;
-      }
-      
-      /* Buybar mobile melhorada */
-      .buybar {
-        padding: 12px 15px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-      }
-      
-      /* Countdown mobile */
-      .countdown-unit {
-        min-width: 40px;
-        padding: 6px;
-      }
-      
-      .countdown-value {
-        font-size: 18px;
-      }
-      
-      /* Progress bar mobile */
-      .progress-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      
-      .progress-bar {
-        width: 100%;
-      }
-      
-      /* Badges em coluna no mobile */
-      .benefits {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .badge {
-        width: 100%;
-        justify-content: center;
-      }
-      
-      /* Botões CTA em coluna */
-      .hero-ctas {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .hero-ctas .cta-btn, .hero-ctas .nav-link {
-        width: 100%;
-        text-align: center;
-      }
-      
-      /* Ajustes no price card para mobile */
-      .price-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-      }
-      
-      .pay-row {
-        justify-content: center;
-      }
-      
-      /* Melhorias no mascote para mobile */
-      .mascote-container {
-        bottom: 80px;
-        right: 15px;
-      }
-      
-      .mascote {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .mascote i {
-        font-size: 24px;
-      }
-      
-      .mascote-chat {
-        width: 85vw;
-        max-width: 280px;
-        right: 0;
-      }
-    }
-
-    /* Melhorias para telas muito pequenas (iPhone SE etc) */
-    @media (max-width: 320px) {
-      h2.title {
-        font-size: 24px;
-      }
-      
-      .section-title {
-        font-size: 22px;
-      }
-      
-      .hero-card, .comments-section, .quiz-container {
-        padding: 15px;
-      }
-      
-      .feature {
-        padding: 15px;
-      }
-      
-      .countdown-unit {
-        min-width: 35px;
-      }
-      
-      .countdown-value {
-        font-size: 16px;
-      }
-    }
-
-    /* Melhorias de acessibilidade para mobile */
-    @media (max-width: 768px) {
-      /* Aumentar área de toque para botões */
-      .cta-btn, .nav-link, .quiz-option, .mascote-option {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      /* Melhorar contraste para leitura em ambientes claros */
-      .hero-card, .comments-section, .quiz-container, .feature {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-      }
-      
-      /* Melhorar legibilidade do texto */
-      p, li, .comment-text, .testi-text {
-        line-height: 1.6;
-      }
-      
-      /* Remover hover effects em dispositivos touch */
-      @media (hover: none) {
-        .feature:hover, .testi:hover, .notif:hover, .quiz-option:hover {
-          transform: none;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacitech Premium | Curso Exclusivo de Marketing Digital</title>
+    <meta name="description" content="Curso premium com 5 aulas avançadas, eBook exclusivo e modelos VIP para resultados extraordinários. Vagas extremamente limitadas.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #051810;
+            --bg-panel: #07261d;
+            --bg-card: #083428;
+            --text-primary: #ffffff;
+            --text-secondary: #c6ffdf;
+            --accent-primary: #00ff95;
+            --accent-secondary: #00d483;
+            --accent-glow: #00ff95;
+            --diamond-gradient: linear-gradient(135deg, #00ff95, #00d483, #00b46c);
+            --diamond-light: rgba(0, 255, 149, 0.1);
+            --diamond-medium: rgba(0, 255, 149, 0.2);
+            --diamond-dark: rgba(0, 212, 131, 0.3);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-lg: 0 25px 50px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --container-max: 1200px;
+            --transition: all 0.3s ease;
         }
-        
-        .cta-btn:hover, .nav-link:hover, .quiz-btn:hover:not(:disabled) {
-          transform: none;
-          box-shadow: 0 14px 36px rgba(0,255,122,.06);
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      }
-    }
-  </style>
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 255, 149, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 85% 30%, rgba(0, 255, 149, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 50% 80%, rgba(0, 255, 149, 0.04) 0%, transparent 20%);
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 149, 0.03) 0%, transparent 15%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 149, 0.02) 0%, transparent 15%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Scroll personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-panel);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--diamond-gradient);
+            border-radius: 4px;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Premium */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(7, 38, 29, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--diamond-medium);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: var(--diamond-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(0, 255, 149, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        .logo i {
+            font-size: 24px;
+            color: var(--text-primary);
+            z-index: 2;
+        }
+
+        .brand-text h1 {
+            font-size: 24px;
+            font-weight: 800;
+            background: var(--diamond-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .brand-text p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Navegação */
+        nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-link {
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--diamond-light);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link:hover::before {
+            left: 0;
+        }
+
+        .cta-btn {
+            background: var(--diamond-gradient);
+            color: var(--text-primary);
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 255, 149, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 255, 149, 0.4);
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Menu Mobile */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent-primary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 1px solid var(--diamond-medium);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--diamond-gradient);
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: var(--diamond-light);
+            border-radius: 100px;
+            color: var(--accent-primary);
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 20px;
+            border: 1px solid var(--diamond-medium);
+        }
+
+        h2.title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lead {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--diamond-light);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid var(--diamond-medium);
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .progress-container {
+            margin-top: 25px;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--diamond-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 78%;
+            background: var(--diamond-gradient);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .visual-container {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            position: relative;
+        }
+
+        .main-visual {
+            width: 100%;
+            height: 100%;
+            background: var(--diamond-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .main-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+        }
+
+        .floating-element {
+            position: absolute;
+            background: var(--bg-card);
+            border: 1px solid var(--diamond-medium);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: -20px;
+            right: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            left: -30px;
+            animation-delay: 1s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            bottom: -20px;
+            right: 30px;
+            animation-delay: 2s;
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--diamond-medium);
+            box-shadow: var(--shadow-lg);
+            margin-top: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--diamond-gradient);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .price-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-tag {
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--accent-primary);
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(0, 255, 149, 0.5);
+        }
+
+        .old-price {
+            font-size: 18px;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            margin-bottom: 15px;
+        }
+
+        .price-features {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .price-feature {
+            padding: 8px 15px;
+            background: var(--diamond-light);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border: 1px solid var(--diamond-medium);
+        }
+
+        .countdown {
+            background: var(--bg-panel);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid var(--diamond-medium);
+        }
+
+        .countdown-title {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 60px;
+        }
+
+        .countdown-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-primary);
+            background: var(--diamond-light);
+            border-radius: var(--radius-md);
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid var(--diamond-medium);
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        /* Mascote Interativo */
+        .mascote-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .mascote {
+            width: 70px;
+            height: 70px;
+            background: var(--diamond-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        .mascote:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .mascote i {
+            font-size: 30px;
+            color: var(--text-primary);
+        }
+
+        .mascote-chat {
+            position: absolute;
+            bottom: 85px;
+            right: 0;
+            width: 300px;
+            background: var(--bg-card);
+            border: 1px solid var(--diamond-medium);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .mascote-chat.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mascote-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .mascote-name {
+            font-weight: 700;
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mascote-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 18px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .mascote-close:hover {
+            background: var(--diamond-light);
+            color: var(--text-primary);
+        }
+
+        .mascote-message {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            line-height: 1.5;
+            background: var(--diamond-light);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid var(--diamond-medium);
+        }
+
+        .mascote-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mascote-option {
+            background: var(--diamond-light);
+            border: 1px solid var(--diamond-medium);
+            color: var(--text-primary);
+            padding: 12px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 14px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mascote-option:hover {
+            background: var(--diamond-medium);
+        }
+
+        /* Quiz Interativo */
+        .quiz-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .quiz-container {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 1px solid var(--diamond-medium);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--diamond-gradient);
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .quiz-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .quiz-progress-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .quiz-progress-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .quiz-progress {
+            height: 10px;
+            background: var(--diamond-light);
+            border-radius: 5px;
+            flex: 1;
+            margin: 0 20px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            background: var(--diamond-gradient);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .quiz-content {
+            position: relative;
+        }
+
+        .quiz-question {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .quiz-option {
+            background: var(--bg-panel);
+            border: 2px solid var(--diamond-medium);
+            border-radius: 15px;
+            padding: 25px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+        }
+
+        .quiz-option:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 25px rgba(0, 255, 149, 0.2);
+        }
+
+        .quiz-option.selected {
+            background: var(--diamond-light);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 255, 149, 0.3);
+            transform: scale(1.02);
+        }
+
+        .quiz-option i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--accent-primary);
+        }
+
+        .quiz-option-text {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .quiz-btn {
+            background: var(--diamond-gradient);
+            color: var(--text-primary);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 255, 149, 0.3);
+        }
+
+        .quiz-btn:disabled {
+            background: var(--diamond-light);
+            color: var(--text-secondary);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .quiz-btn:not(:disabled):hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 255, 149, 0.4);
+        }
+
+        .quiz-result {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .result-icon {
+            font-size: 80px;
+            color: var(--accent-primary);
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        .result-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .result-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .result-details {
+            background: var(--bg-panel);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid var(--diamond-medium);
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--diamond-medium);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .result-value {
+            color: var(--accent-primary);
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .result-note {
+            background: var(--diamond-light);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--accent-primary);
+        }
+
+        .result-note-text {
+            color: var(--text-primary);
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Seção de Recursos */
+        .features-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: var(--diamond-gradient);
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--diamond-medium);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--diamond-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 25px;
+            color: var(--accent-primary);
+            display: inline-flex;
+            width: 70px;
+            height: 70px;
+            background: var(--diamond-light);
+            border-radius: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent-primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .feature-link:hover {
+            gap: 15px;
+        }
+
+        /* Garantia Section */
+        .guarantee-section {
+            padding: 100px 0;
+            background: var(--bg-panel);
+            position: relative;
+        }
+
+        .guarantee-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            border: 1px solid var(--diamond-medium);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .guarantee-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--diamond-gradient);
+        }
+
+        .guarantee-icon {
+            font-size: 60px;
+            color: var(--accent-primary);
+            margin-bottom: 30px;
+        }
+
+        .guarantee-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .guarantee-text {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Programa Section */
+        .program-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .program-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--diamond-medium);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .program-number {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 60px;
+            height: 60px;
+            background: var(--diamond-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .program-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--accent-primary);
+        }
+
+        .program-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .program-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background: var(--bg-panel);
+            position: relative;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            border: 1px solid var(--diamond-medium);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent-primary);
+        }
+
+        .faq-question {
+            padding: 25px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--accent-primary);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0 40px;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--diamond-medium);
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-primary);
+            gap: 15px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-secondary);
+        }
+
+        .contact-item i {
+            color: var(--accent-primary);
+            font-size: 18px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--diamond-medium);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Buybar Mobile */
+        .buybar {
+            position: fixed;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--diamond-medium);
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transform: translateY(150px);
+            transition: var(--transition);
+        }
+
+        .buybar.visible {
+            transform: translateY(0);
+        }
+
+        .buybar-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent-primary);
+        }
+
+        .buybar-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(5, 24, 16, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid var(--diamond-medium);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: var(--diamond-light);
+            color: var(--text-primary);
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--accent-primary);
+            text-align: center;
+        }
+
+        .modal-text {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Animações */
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 5px 20px rgba(0, 255, 149, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 5px 30px rgba(0, 255, 149, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 5px 20px rgba(0, 255, 149, 0.3); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                gap: 30px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner nav {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .header-inner nav.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-panel);
+                padding: 20px;
+                border-top: 1px solid var(--diamond-medium);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            h2.title {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .quiz-title {
+                font-size: 28px;
+            }
+            
+            .hero-ctas {
+                flex-direction: column;
+            }
+            
+            .mascote-container {
+                bottom: 100px;
+                right: 20px;
+            }
+            
+            .mascote-chat {
+                width: 280px;
+                right: -50px;
+            }
+            
+            .buybar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero-card {
+                padding: 25px;
+            }
+            
+            h2.title {
+                font-size: 28px;
+            }
+            
+            .lead {
+                font-size: 16px;
+            }
+            
+            .badge {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .countdown-timer {
+                gap: 5px;
+            }
+            
+            .countdown-unit {
+                min-width: 50px;
+            }
+            
+            .countdown-value {
+                font-size: 22px;
+            }
+            
+            .quiz-container {
+                padding: 25px;
+            }
+            
+            .quiz-title {
+                font-size: 24px;
+            }
+            
+            .quiz-subtitle {
+                font-size: 16px;
+            }
+            
+            .feature-card {
+                padding: 25px;
+            }
+            
+            .guarantee-card {
+                padding: 30px;
+            }
+            
+            .guarantee-title {
+                font-size: 28px;
+            }
+            
+            .mascote-chat {
+                width: 250px;
+                right: -30px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header id="header">
-    <div class="container header-inner">
-      <div class="brand" aria-label="Identidade do site">
-        <div class="logo" aria-hidden="true"><i class="fas fa-bolt"></i></div>
-        <div>
-          <h1>Capacitech</h1>
-          <p>Curso intensivo • 5 aulas práticas</p>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="brand">
+                    <div class="logo">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>Capacitech</h1>
+                        <p>Curso Premium • 5 Aulas Exclusivas</p>
+                    </div>
+                </div>
+                <button class="mobile-toggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav aria-label="Navegação principal">
+                    <a class="nav-link" href="#features"><i class="fas fa-star"></i> Vantagens</a>
+                    <a class="nav-link" href="#program"><i class="fas fa-book-open"></i> Conteúdo</a>
+                    <a class="nav-link" href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+                    <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">
+                        <i class="fas fa-lock"></i> Acesso VIP
+                    </a>
+                </nav>
+            </div>
         </div>
-      </div>
-      <button class="mobile-toggle" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav aria-label="Navegação principal">
-        <a class="nav-link" href="#beneficios">Benefícios</a>
-        <a class="nav-link" href="#programa">Programa</a>
-        <a class="nav-link" href="#depoimentos">Depoimentos</a>
-        <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Garantir Acesso</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero container">
-      <div class="hero-grid">
-        <div class="hero-card">
-          <div class="kicker"><i class="fas fa-rocket"></i> Aulas + modelos prontos • Turmas controladas</div>
-          <h2 class="title">Domine funil, tráfego e copy que geram vendas reais</h2>
-          <p class="lead">Conteúdo prático, passo a passo — aplicado com modelos testados que aceleram resultados. Estruturado para quem quer escalar com segurança e previsibilidade.</p>
-
-          <div class="benefits" role="list">
-            <div class="badge"><i class="fas fa-target"></i> Roteiros prontos</div>
-            <div class="badge"><i class="fas fa-book"></i> eBook + templates</div>
-            <div class="badge"><i class="fas fa-users"></i> Suporte exclusivo</div>
-            <div class="badge"><i class="fas fa-chart-line"></i> Métricas que importam</div>
-          </div>
-
-          <div class="hero-ctas">
-            <a class="cta-btn" href="#quiz" id="cta-main">
-              <i class="fas fa-play-circle"></i> Descobrir meu produto ideal
-            </a>
-            <a class="nav-link" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">
-              <i class="fas fa-lock"></i> Comprar agora
-            </a>
-            <div class="micro" aria-hidden="true">Acesso imediato • Garantia 7 dias • Suporte</div>
-          </div>
-
-          <div class="progress-container">
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-card">
+                        <div class="kicker">
+                            <i class="fas fa-crown"></i> Experiência Premium • Vagas Limitadas
+                        </div>
+                        <h2 class="title">Domine o Marketing Digital com Estratégias Exclusivas</h2>
+                        <p class="lead">Conteúdo avançado, métodos comprovados e suporte VIP para resultados extraordinários. Transforme seu potencial em lucro com nosso sistema exclusivo.</p>
+                        
+                        <div class="benefits">
+                            <div class="badge"><i class="fas fa-gem"></i> Métodos Exclusivos</div>
+                            <div class="badge"><i class="fas fa-headset"></i> Suporte VIP</div>
+                            <div class="badge"><i class="fas fa-chart-line"></i> Resultados Comprovados</div>
+                            <div class="badge"><i class="fas fa-rocket"></i> Implementação Rápida</div>
+                        </div>
+                        
+                        <div class="hero-ctas">
+                            <a class="cta-btn" href="#quiz">
+                                <i class="fas fa-play-circle"></i> Descobrir Meu Potencial
+                            </a>
+                            <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener" style="background: transparent; border: 2px solid var(--accent-primary); color: var(--accent-primary);">
+                                <i class="fas fa-lock"></i> Garantir Acesso VIP
+                            </a>
+                        </div>
+                        
+                        <div class="progress-container">
+                            <div class="progress-text">
+                                <span>Vagas disponíveis</span>
+                                <span><strong id="remaining">12</strong> restantes</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="visual-container">
+                        <div class="main-visual">
+                            <i class="fas fa-gem" style="font-size: 80px; color: rgba(255, 255, 255, 0.9);"></i>
+                        </div>
+                        <div class="floating-element">
+                            <i class="fas fa-chart-pie" style="font-size: 24px; color: var(--accent-primary);"></i>
+                        </div>
+                        <div class="floating-element">
+                            <i class="fas fa-bullseye" style="font-size: 20px; color: var(--accent-primary);"></i>
+                        </div>
+                        <div class="floating-element">
+                            <i class="fas fa-wallet" style="font-size: 22px; color: var(--accent-primary);"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="price-card">
+                        <div class="price-content">
+                            <div class="price-tag">R$ 497,00</div>
+                            <div class="old-price">de R$ 1.497,00</div>
+                            
+                            <div class="price-features">
+                                <div class="price-feature"><i class="fas fa-check"></i> Acesso Imediato</div>
+                                <div class="price-feature"><i class="fas fa-check"></i> 7 Dias de Garantia</div>
+                                <div class="price-feature"><i class="fas fa-check"></i> Suporte VIP</div>
+                            </div>
+                            
+                            <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener" style="width: 100%; text-align: center;">
+                                <i class="fas fa-gem"></i> Garantir Agora
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="countdown">
+                        <div class="countdown-title">Oferta exclusiva termina em:</div>
+                        <div class="countdown-timer">
+                            <div class="countdown-unit">
+                                <div class="countdown-value" id="hours">06</div>
+                                <div class="countdown-label">horas</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-value" id="minutes">42</div>
+                                <div class="countdown-label">minutos</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-value" id="seconds">18</div>
+                                <div class="countdown-label">segundos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div style="font-size:13px;color:var(--muted)"><span id="remaining">18</span> vagas restantes</div>
-          </div>
         </div>
-
-        <!-- SIDE: VISUAL + PRICE -->
-        <aside class="side">
-          <div class="panel-visual pulse" aria-hidden="true">
-            <svg width="100%" height="160" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Painel de dados">
-              <rect width="800" height="300" rx="12" fill="#001e17"/>
-              <g stroke="#00ff7a" stroke-opacity=".18" stroke-width="1.6" fill="none">
-                <path d="M40 220 C140 160 260 240 760 180" />
-                <path d="M40 170 C160 130 320 200 760 150" opacity=".5"/>
-              </g>
-              <g fill="#002a1f" stroke="#00ff7a" stroke-opacity=".06">
-                <rect x="60" y="46" width="160" height="96" rx="8"/>
-                <rect x="280" y="24" width="220" height="120" rx="8"/>
-                <rect x="540" y="96" width="160" height="80" rx="8"/>
-              </g>
-              <circle cx="200" cy="180" r="8" fill="#00ff7a" opacity=".6" class="float"/>
-              <circle cx="400" cy="120" r="6" fill:#00ff7a" opacity=".4" class="float" style="animation-delay:1s"/>
-              <circle cx="600" cy="210" r="10" fill:#00ff7a" opacity=".3" class="float" style="animation-delay:2s"/>
-            </svg>
-          </div>
-
-          <div class="price-card shadow-float" aria-label="Oferta">
-            <div class="price-left">
-              <div style="font-size:13px;color:var(--muted)">Oferta especial por tempo limitado</div>
-              <div class="price">R$ 39,90</div>
-              <div class="old">de R$ 199,90 por apenas</div>
-              <div class="pay-row">
-                <div class="pill"><i class="fas fa-bolt"></i> Acesso imediato</div>
-                <div class="pill"><i class="fas fa-lock"></i> Pagamento seguro</div>
-              </div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-              <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Comprar Agora</a>
-              <div style="font-size:12px;color:var(--muted)">7 dias de garantia</div>
-            </div>
-          </div>
-
-          <div class="countdown">
-            <div class="countdown-title">Esta oferta expira em:</div>
-            <div class="countdown-timer">
-              <div class="countdown-unit">
-                <div class="countdown-value" id="hours">06</div>
-                <div class="countdown-label">horas</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-value" id="minutes">42</div>
-                <div class="countdown-label">minutos</div>
-              </div>
-              <div class="countdown-unit">
-                <div class="countdown-value" id="seconds">18</div>
-                <div class="countdown-label">segundos</div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
     </section>
 
-    <!-- MASCOTE -->
+    <!-- Mascote Interativo -->
     <div class="mascote-container">
-      <div class="mascote bounce" id="mascoteButton">
-        <i class="fas fa-robot"></i>
-      </div>
-      <div class="mascote-chat" id="mascoteChat">
-        <button class="mascote-close" id="mascoteClose">&times;</button>
-        <div class="mascote-message" id="mascoteMessage">Olá! Sou o Capy, seu assistente virtual. Como posso ajudar você hoje?</div>
-        <div class="mascote-options">
-          <button class="mascote-option" data-option="comprar">Quero comprar o curso</button>
-          <button class="mascote-option" data-option="duvidas">Tire minhas dúvidas</button>
-          <button class="mascote-option" data-option="conteudo">Fale sobre o conteúdo</button>
+        <div class="mascote" id="mascoteButton">
+            <i class="fas fa-robot"></i>
         </div>
-      </div>
+        <div class="mascote-chat" id="mascoteChat">
+            <div class="mascote-header">
+                <div class="mascote-name">
+                    <i class="fas fa-robot"></i> Capy, seu Assistente
+                </div>
+                <button class="mascote-close" id="mascoteClose">&times;</button>
+            </div>
+            <div class="mascote-message" id="mascoteMessage">
+                Olá! Sou o Capy, seu assistente virtual. Estou aqui para te ajudar a ter sucesso com marketing digital. Como posso ajudar você hoje?
+            </div>
+            <div class="mascote-options">
+                <button class="mascote-option" data-option="comprar">
+                    <i class="fas fa-shopping-cart"></i> Quero garantir meu acesso VIP
+                </button>
+                <button class="mascote-option" data-option="duvidas">
+                    <i class="fas fa-question-circle"></i> Tire minhas dúvidas sobre o curso
+                </button>
+                <button class="mascote-option" data-option="conteudo">
+                    <i class="fas fa-book-open"></i> Conte mais sobre o conteúdo
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- TESTE INTERATIVO -->
-    <section id="quiz" class="container">
-      <div class="quiz-container">
-        <div class="quiz-progress">
-          <div class="quiz-progress-fill" id="quizProgress"></div>
+    <!-- Quiz Interativo -->
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h2 class="quiz-title">Descubra Seu Potencial de Lucro</h2>
+                    <p class="quiz-subtitle">Responda algumas perguntas rápidas para receber uma análise personalizada do seu potencial e uma estratégia customizada</p>
+                </div>
+                
+                <div class="quiz-progress-container">
+                    <div class="quiz-progress-text">Progresso:</div>
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-fill" id="quizProgress"></div>
+                    </div>
+                    <div class="quiz-progress-text"><span id="currentQuestion">1</span>/5</div>
+                </div>
+                
+                <div id="quizContent">
+                    <!-- O conteúdo do quiz será inserido aqui via JavaScript -->
+                </div>
+            </div>
         </div>
-        
-        <div id="quizContent">
-          <!-- O conteúdo do quiz será inserido aqui via JavaScript -->
-        </div>
-      </div>
     </section>
 
-    <!-- COMENTÁRIOS -->
-    <section class="container comments-section" id="comentarios">
-      <h3 class="comments-title">Deixe seu comentário</h3>
-      <form class="comment-form" id="commentForm">
-        <input type="text" class="comment-input" placeholder="Seu nome" id="commentName" required>
-        <textarea class="comment-textarea" placeholder="Seu comentário sobre o site..." id="commentText" required></textarea>
-        <button type="submit" class="comment-submit">Enviar Comentário</button>
-      </form>
-      <div class="comments-list" id="commentsList">
-        <!-- Comentários serão carregados aqui -->
-      </div>
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Vantagens Exclusivas</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="feature-title">Conteúdo Premium</h3>
+                    <p class="feature-description">Acesso a estratégias avançadas não disponíveis em nenhum outro lugar, com métodos comprovados para multiplicar seus resultados.</p>
+                    <a href="#" class="feature-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">Suporte VIP</h3>
+                    <p class="feature-description">Acesso direto a especialistas para tirar dúvidas e receber orientações personalizadas para sua situação específica.</p>
+                    <a href="#" class="feature-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="feature-title">Implementação Rápida</h3>
+                    <p class="feature-description">Metodologia passo a passo para colocar tudo em prática rapidamente, mesmo que você esteja começando do zero.</p>
+                    <a href="#" class="feature-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Resultados Comprovados</h3>
+                    <p class="feature-description">Estratégias testadas e aprovadas por mais de 1.500 alunos que transformaram seus resultados usando nosso método.</p>
+                    <a href="#" class="feature-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Atualizações Constantes</h3>
+                    <p class="feature-description">Acesso vitalício a todas as atualizações futuras do curso, garantindo que você sempre tenha as estratégias mais atuais.</p>
+                    <a href="#" class="feature-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Comunidade Exclusiva</h3>
+                    <p class="feature-description">Network com outros profissionais ambiciosos e troca de experiências valiosas para acelerar ainda mais seus resultados.</p>
+                    <a href="#" class="feature-link">
+                        <span>Saiba mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- BENEFÍCIOS -->
-    <section id="beneficios" class="section container">
-      <h3 class="section-title">O que você recebe</h3>
-      <div class="grid-3">
-        <div class="feature">
-          <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
-          <h4>Plano 14 dias para primeira venda</h4>
-          <p>Sequência com passos diretos para validar oferta e gerar vendas rápidas mesmo começando do zero.</p>
+    <!-- Guarantee Section -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2 class="guarantee-title">Garantia Incondicional de 7 Dias</h2>
+                <p class="guarantee-text">Experimente o curso completo por 7 dias. Se por qualquer motivo você não ficar completamente satisfeito, devolvemos 100% do seu investimento sem questionamentos. Zero riscos para você.</p>
+                <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">
+                    <i class="fas fa-lock"></i> Experimentar Sem Riscos
+                </a>
+            </div>
         </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
-          <h4>Templates e checklists</h4>
-          <p>Scripts de anúncio, páginas e sequência de mensagens editáveis para usar imediatamente.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
-          <h4>Dados aplicáveis</h4>
-          <p>Métricas e regras práticas para manter lucro ao escalar e tomar decisões baseadas em resultados.</p>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:36px;align-items:start">
-        <div class="hero-card">
-          <h4 style="margin-top:0"><i class="fas fa-gift"></i> Material de apoio</h4>
-          <ul style="color:var(--muted);padding-left:20px;">
-            <li>📘 eBook com roteiro completo passo a passo</li>
-            <li>🧩 Modelos de criativos e landing pages</li>
-            <li>🔁 Checklist operacional para escala segura</li>
-            <li>👥 Grupo exclusivo para dúvidas e implementação</li>
-            <li>🎥 Gravações das aulas para assistir quando quiser</li>
-          </ul>
-          <p style="color:var(--muted)"><strong>Como isso ajuda você:</strong> diminui testes, acelera decisões e reduz desperdício de verba com estratégias comprovadas.</p>
-        </div>
-
-        <div class="hero-card" id="garantia">
-          <h4 style="margin:0 0 8px"><i class="fas fa-shield-alt"></i> Garantia de 7 dias</h4>
-          <p style="color:var(--muted);margin:0 0 12px">Se não tiver resultado prático nos primeiros 7 dias, devolvemos 100% do valor investido — sem perguntas ou complicações.</p>
-          <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">Testar sem risco</a>
-        </div>
-      </div>
     </section>
 
-    <!-- PROGRAMA -->
-    <section id="programa" class="section container">
-      <h3 class="section-title">Conteúdo das aulas</h3>
-      <div class="grid-3">
-        <div class="feature">
-          <div class="feature-icon"><i class="fas fa-search"></i></div>
-          <h4>Aula 1: Fundamentos</h4>
-          <p>Persona, oferta irresistível e estrutura de funis que convertem no mercado atual.</p>
+    <!-- Program Section -->
+    <section id="program" class="program-section">
+        <div class="container">
+            <h2 class="section-title">Conteúdo Exclusivo</h2>
+            
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-number">1</div>
+                    <div class="program-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="program-title">Fundamentos Avançados</h3>
+                    <p class="program-description">Domine os pilares essenciais do marketing digital moderno, desde a identificação de oportunidades até a construção de uma base sólida para escalabilidade.</p>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-number">2</div>
+                    <div class="program-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="program-title">Tráfego de Alto Desempenho</h3>
+                    <p class="program-description">Estratégias avançadas de aquisição de tráfego qualificado com o máximo de ROI, incluindo métodos pouco explorados que geram resultados extraordinários.</p>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-number">3</div>
+                    <div class="program-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3 class="program-title">Copywriting Persuassivo</h3>
+                    <p class="program-description">Técnicas de copywriting que convertem visitantes em clientes, com fórmulas comprovadas para criar mensagens irresistíveis que vendem sozinhas.</p>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-number">4</div>
+                    <div class="program-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="program-title">Automação Inteligente</h3>
+                    <p class="program-description">Sistemas automatizados para nutrir leads, recuperar vendas perdidas e maximizar o valor do tempo investido, gerando resultados enquanto você dorme.</p>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-number">5</div>
+                    <div class="program-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="program-title">Escalabilidade e Análise</h3>
+                    <p class="program-description">Métodos para escalar resultados com segurança, análise de dados avançada e tomada de decisões baseada em métricas que realmente importam.</p>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-number">6</div>
+                    <div class="program-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="program-title">Bônus Exclusivos</h3>
+                    <p class="program-description">Acesso a materiais complementares, templates prontos para uso imediato e ferramentas exclusivas para acelerar ainda mais seus resultados.</p>
+                </div>
+            </div>
         </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
-          <h4>Aula 2: Tráfego pago</h4>
-          <p>Estratégias que funcionam no Meta Ads, configurações e orçamento inteligente.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="fas fa-pencil-alt"></i></div>
-          <h4>Aula 3: Copy e gatilhos</h4>
-          <p>Landing pages que convertem, copywriting persuasivo e elementos de confiança.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="fas fa-cogs"></i></div>
-          <h4>Aula 4: Automação</h4>
-          <p>Sistemas de recuperação de carrinho abandonado e leads frios com retargeting.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-          <h4>Aula 5: Escala e KPIs</h4>
-          <p>Métricas essenciais, análise de dados e checklist para escalar com segurança.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><i class="fas fa-star"></i></div>
-          <h4>Bônus exclusivos</h4>
-          <p>Modelos prontos, eBook complementar e acesso à atualizações futuras do curso.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- SOCIAL PROOF - DEPOIMENTOS MELHORADOS -->
-    <section id="depoimentos" class="section container">
-      <div class="social-wrap">
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quando recebo o acesso ao curso?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O acesso é imediato! Após a confirmação do pagamento, você recebe um e-mail com todas as instruções para acessar a área de membros e começar imediatamente.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funciona a garantia?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Você tem 7 dias para testar o curso completo. Se não ficar satisfeito por qualquer motivo, basta enviar um e-mail solicitando o reembolso. Processamos em até 48h sem questionamentos.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Preciso ter experiência prévia?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não! O curso foi desenvolvido para funcionar tanto para iniciantes quanto para quem já tem experiência. As aulas são progressivas e acompanham desde o básico até o avançado.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Por quanto tempo tenho acesso?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O acesso é vitalício! Você pode assistir às aulas quantas vezes quiser e ainda recebe todas as atualizações futuras do conteúdo sem custo adicional.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>O curso é atualizado?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Estratégias de marketing digital evoluem constantemente. Mantemos o conteúdo sempre atualizado com as melhores práticas e novidades do mercado.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funciona o suporte?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oferecemos suporte prioritário para alunos. Você pode enviar dúvidas diretamente para nossa equipe que responderá em até 24h úteis através de nosso sistema exclusivo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Capacitech</h3>
+                    <p class="footer-description">Transformando ambições em resultados através do marketing digital de alto desempenho. Junte-se a mais de 1.500 alunos que já implementaram nosso método.</p>
+                    <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener">
+                        <i class="fas fa-gem"></i> Acesso VIP
+                    </a>
+                </div>
+                
+                <div class="footer-links-container">
+                    <h4 class="footer-heading">Links Rápidos</h4>
+                    <div class="footer-links">
+                        <a href="#features" class="footer-link"><i class="fas fa-star"></i> Vantagens</a>
+                        <a href="#program" class="footer-link"><i class="fas fa-book-open"></i> Conteúdo</a>
+                        <a href="#faq" class="footer-link"><i class="fas fa-question-circle"></i> FAQ</a>
+                        <a href="#" class="footer-link"><i class="fas fa-shield-alt"></i> Garantia</a>
+                        <a href="#" class="footer-link"><i class="fas fa-lock"></i> Política de Privacidade</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact-container">
+                    <h4 class="footer-heading">Contato</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@capacitech.com.br</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Segunda a Sexta, 9h às 18h</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Pagamento 100% Seguro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 Capacitech. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Buybar Mobile -->
+    <div class="buybar" id="buybar">
         <div>
-          <div class="testi-header">
-            <h3 class="section-title" style="margin:0">Quem já fez recomenda</h3>
-            <div style="color:var(--muted)">Avaliação média <span style="color:var(--cta-1);font-weight:900">4,9</span>/5</div>
-          </div>
-          <div class="testi-container">
-            <div class="testi-track" id="testiTrack" aria-live="polite" aria-atomic="true"></div>
-            <div class="testi-nav" id="testiNav"></div>
-          </div>
-        </div>
-
-        <aside class="notif-box">
-          <div style="font-weight:800;margin-bottom:15px;color:var(--cta-1)"><i class="fas fa-bell"></i> Atividade recente</div>
-          <div id="notifList"></div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section container">
-      <h3 class="section-title">Perguntas frequentes</h3>
-      <div class="faq-grid">
-        <details>
-          <summary>Quando recebo o acesso ao curso?</summary>
-          <p>Imediatamente após a confirmação do pagamento você recebe um e-mail com todas as instruções de acesso à área de membros.</p>
-        </details>
-        <details>
-          <summary>Como funciona exatamente a garantia?</summary>
-          <p>Você tem até 7 dias para testar o curso. Se por qualquer motivo não estiver satisfeito, basta enviar um e-mail solicitando o reembolso que processamos rapidamente sem questionamentos.</p>
-        </details>
-        <details>
-          <summary>Preciso ter experiência prévia?</summary>
-          <p>Não. O curso foi estruturado para atender tanto iniciantes quanto quem já tem experiência mas quer resultados mais consistentes e escaláveis.</p>
-        </details>
-        <details>
-          <summary>Por quanto tempo tenho acesso?</summary>
-          <p>O acesso é vitalício! Você pode assistir às aulas quantas vezes quiser e ainda recebe atualizações futuras do conteúdo sem custo adicional.</p>
-        </details>
-        <details>
-          <summary>O curso é atualizado?</summary>
-          <p>Sim! Estratégias de tráfego e marketing digital mudam constantly, por isso mantemos o conteúdo sempre atualizado com as melhores práticas do mercado.</p>
-        </details>
-        <details>
-          <summary>Há suporte para dúvidas?</summary>
-          <p>Sim! Além do grupo exclusivo para alunos, você pode enviar dúvidas diretamente para nossa equipe que responderá em até 24h úteis.</p>
-        </details>
-      </div>
-    </section>
-  </main>
-
-  <!-- CTA FINAL -->
-  <section class="section container" style="text-align:center;padding-top:0">
-    <div class="hero-card">
-      <h3 class="section-title" style="margin-bottom:20px">Pronto para transformar seus resultados?</h3>
-      <p class="lead" style="max-width:600px;margin:0 auto 30px">Junte-se a mais de 1.200 alunos que já implementaram o método Capacitech e estão gerando resultados consistentes</p>
-      
-      <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-bottom:30px">
-        <div class="badge"><i class="fas fa-user-graduate"></i> 1.200+ alunos</div>
-        <div class="badge"><i class="fas fa-star"></i> 94% de satisfação</div>
-        <div class="badge"><i class="fas fa-check-circle"></i> 7 dias de garantia</div>
-      </div>
-      
-      <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" rel="noopener" style="margin:0 auto;font-size:18px;padding:16px 32px;">
-        <i class="fas fa-lock"></i> Garantir Acesso com Desconto
-      </a>
-      
-      <div class="countdown" style="max-width:400px;margin:30px auto 0">
-        <div class="countdown-title">Oferta especial termina em:</div>
-        <div class="countdown-timer">
-          <div class="countdown-unit">
-            <div class="countdown-value" id="hours2">06</div>
-            <div class="countdown-label">horas</div>
-          </div>
-          <div class="countdown-unit">
-            <div class="countdown-value" id="minutes2">42</div>
-            <div class="countdown-label">minutos</div>
-          </div>
-          <div class="countdown-unit">
-            <div class="countdown-value" id="seconds2">18</div>
-            <div class="countdown-label">segundos</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BUYBAR MOBILE -->
-  <div class="buybar" id="buybar">
-    <div>
-      <div style="font-size:13px;color:var(--muted)">Oferta especial</div>
-      <div style="font-weight:900;color:var(--cta-1)">R$ 39,90</div>
-    </div>
-    <div><a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">Comprar Agora</a></div>
-  </div>
-
-  <!-- MODAL -->
-  <div class="modal" id="exitModal">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Fechar">&times;</button>
-      <h3 class="modal-title">Espere! Oferta especial</h3>
-      <p style="color:var(--muted);margin-bottom:20px">Você está deixando para trás uma oportunidade única de acesso ao curso com <strong>80% de desconto</strong>. Esta oferta é exclusiva e por tempo limitado.</p>
-      <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" style="width:100%;text-align:center;">
-        <i class="fas fa-bolt"></i> Quero garantir meu acesso!
-      </a>
-      <p style="text-align:center;margin-top:15px;font-size:13px;color:var(--muted)">7 dias de garantia • Acesso imediato</p>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <strong>Capacitech</strong>
-          <div style="color:var(--muted);margin-top:10px;line-height:1.5">Transformando resultados através do marketing digital com métodos testados and aprovados por mais de 1.200 alunos.</div>
+            <div class="buybar-text">Oferta exclusiva</div>
+            <div class="buybar-price">R$ 497,00</div>
         </div>
         <div>
-          <strong>Links rápidos</strong>
-          <nav style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
-            <a class="nav-link" href="#beneficios">Benefícios</a>
-            <a class="nav-link" href="#programa">Programa</a>
-            <a class="nav-link" href="#depoimentos">Depoimentos</a>
-            <a class="nav-link" href="#garantia">Garantia</a>
-            <a class="nav-link" href="#comentarios">Comentários</a>
-          </nav>
+            <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">
+                <i class="fas fa-gem"></i> Garantir Agora
+            </a>
         </div>
-        <div>
-          <strong>Contato</strong>
-          <div style="color:var(--muted);margin-top:10px;line-height:1.5">
-            <div><i class="fas fa-envelope"></i> capacitechoficial@gmail.com</div>
-            <div style="margin-top:8px"><i class="fas fa-shield-alt"></i> Pagamento 100% seguro</div>
-          </div>
-        </div>
-      </div>
-      <div style="border-top:1px solid rgba(0,255,122,.03);margin-top:30px;padding-top:20px;text-align:center;color:var(--muted);font-size:13px">
-        © 2025 Capacitech • Todos os direitos reservados
-      </div>
     </div>
-  </footer>
 
-  <!-- ---------- SCRIPTS (tudo inline) ---------- -->
-  <script>
-    /* ========================
-       Configurações iniciais
-       ======================== */
-    
-    // Lista de nomes femininos e masculinos em português
-    const femaleNames = ['Ana', 'Maria', 'Sofia', 'Laura', 'Beatriz', 'Luiza', 'Isabella', 'Manuela', 'Júlia', 'Helena', 'Gabriela', 'Alice', 'Larissa', 'Valentina', 'Clara', 'Mariana', 'Vitória', 'Emanuelly', 'Cecília', 'Lívia'];
-    const maleNames = ['João', 'Pedro', 'Gabriel', 'Lucas', 'Matheus', 'Rafael', 'Felipe', 'Daniel', 'Bruno', 'Gustavo', 'Carlos', 'Eduardo', 'Thiago', 'Leonardo', 'André', 'Vinicius', 'Rodrigo', 'Marcos', 'Paulo', 'Diego'];
+    <!-- Modal -->
+    <div class="modal" id="exitModal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar">&times;</button>
+            <h3 class="modal-title">Espere! Oferta Exclusiva</h3>
+            <p class="modal-text">Você está deixando para trás uma oportunidade única de acesso ao curso com condições especiais. Esta oferta é exclusiva e por tempo limitado.</p>
+            <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" style="width: 100%; text-align: center;">
+                <i class="fas fa-gem"></i> Quero Garantir Meu Acesso!
+            </a>
+            <p style="text-align: center; margin-top: 20px; font-size: 14px; color: var(--text-secondary);">7 dias de garantia • Acesso imediato • Suporte VIP</p>
+        </div>
+    </div>
 
-    // Determinar gênero pelo nome
-    const getGenderByName = (name) => {
-      const firstName = name.split(' ')[0];
-      return femaleNames.includes(firstName) ? 'female' : 'male';
-    };
-
-    // Depoimentos com nomes reais e ícones correspondentes
-    const TESTS = [
-      {n:'Maria Silva', r:'Empreendedora', t:'Dobrei as vendas com o funil pronto. Em 2 semanas já tinha recuperado o investimento!'},
-      {n:'João Santos', r:'Analista de Marketing', t:'Reduzi CPC em 35% e aumentei ROAS usando os métodos de teste que aprendi.'},
-      {n:'Ana Costa', r:'Freelancer', t:'Consegui meu primeiro cliente em 5 dias. O suporte me ajudou a ajustar a abordagem.'},
-      {n:'Pedro Almeida', r:'E-commerce', t:'Escalei de 3 para 12 vendas/dia sem perder margem. As métricas fazem total diferença!'},
-      {n:'Sofia Rodrigues', r:'Consultora', t:'Finalmente entendi como montar um funil que converte. Os templates são incríveis!'},
-      {n:'Lucas Pereira', r:'Agencia', t:'Implementei para 3 clientes e todos tiveram resultados na primeira semana. Valeu cada centavo.'},
-      {n:'Laura Mendes', r:'Digital Influencer', t:'Aumentei meu faturamento em 300% aplicando as estratégias do curso. Recomendo!'},
-      {n:'Gabriel Oliveira', r:'Marketeiro', t:'As aulas práticas me deram confiança para testar novas abordagens com segurança.'},
-      {n:'Beatriz Souza', r:'Empresária', t:'O suporte foi fundamental para tirar minhas dúvidas durante a implementação.'},
-      {n:'Rafael Lima', r:'Gestor de Tráfego', t:'Mesmo com experiência, aprendi técnicas novas que otimizaram meus resultados.'}
-    ];
-
-    /* ========================
-       Mascote Interativo
-       ======================== */
-    const mascoteButton = document.getElementById('mascoteButton');
-    const mascoteChat = document.getElementById('mascoteChat');
-    const mascoteMessage = document.getElementById('mascoteMessage');
-    const mascoteClose = document.getElementById('mascoteClose');
-    const mascoteOptions = document.querySelectorAll('.mascote-option');
-
-    let mascoteActive = false;
-
-    // Abrir/fechar chat do mascote
-    mascoteButton.addEventListener('click', () => {
-      mascoteActive = !mascoteActive;
-      mascoteChat.classList.toggle('active', mascoteActive);
-      
-      if (mascoteActive) {
-        mascoteMessage.textContent = "Olá! Sou o Capy, seu assistente virtual. Como posso ajudar você hoje?";
-      }
-    });
-
-    mascoteClose.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mascoteActive = false;
-      mascoteChat.classList.remove('active');
-    });
-
-    // Opções do mascote
-    mascoteOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        const optionType = option.getAttribute('data-option');
-        
-        switch(optionType) {
-          case 'comprar':
-            mascoteMessage.textContent = "Ótima decisão! O curso está com 80% de desconto por tempo limitado. Clique no botão abaixo para garantir seu acesso!";
-            // Adicionar botão de compra
-            if (!document.querySelector('.mascote-purchase')) {
-              const purchaseBtn = document.createElement('button');
-              purchaseBtn.className = 'mascote-option mascote-purchase';
-              purchaseBtn.innerHTML = '<i class="fas fa-shopping-cart"></i> Comprar Agora';
-              purchaseBtn.addEventListener('click', () => {
-                window.open('https://pay.cakto.com.br/37zt5mx_541282', '_blank');
-              });
-              mascoteChat.querySelector('.mascote-options').appendChild(purchaseBtn);
+    <script>
+        // Configurações iniciais
+        const quizData = [
+            {
+                question: "Qual é o seu nível de experiência com marketing digital?",
+                options: [
+                    { text: "Iniciante - Estou começando agora", value: "beginner", icon: "fas fa-seedling" },
+                    { text: "Intermediário - Já tentei algumas coisas", value: "intermediate", icon: "fas fa-leaf" },
+                    { text: "Avançado - Tenho experiência mas quero melhorar", value: "advanced", icon: "fas fa-tree" },
+                    { text: "Expert - Busco otimização e escalabilidade", value: "expert", icon: "fas fa-rocket" }
+                ]
+            },
+            {
+                question: "Quanto você pode investir inicialmente em tráfego pago?",
+                options: [
+                    { text: "Até R$ 500 por mês", value: "low", icon: "fas fa-wallet" },
+                    { text: "Entre R$ 500 e R$ 1.500 por mês", value: "medium", icon: "fas fa-money-bill-wave" },
+                    { text: "Entre R$ 1.500 e R$ 3.000 por mês", value: "high", icon: "fas fa-chart-line" },
+                    { text: "Acima de R$ 3.000 por mês", value: "premium", icon: "fas fa-gem" }
+                ]
+            },
+            {
+                question: "Com qual tipo de produto você mais se identifica?",
+                options: [
+                    { text: "Produtos físicos (e-commerce)", value: "physical", icon: "fas fa-box-open" },
+                    { text: "Serviços profissionais", value: "services", icon: "fas fa-handshake" },
+                    { text: "Cursos e infoprodutos", value: "digital", icon: "fas fa-laptop" },
+                    { text: "Software e apps", value: "software", icon: "fas fa-mobile-alt" }
+                ]
+            },
+            {
+                question: "Qual é o seu principal objetivo?",
+                options: [
+                    { text: "Gerar renda extra", value: "extra_income", icon: "fas fa-piggy-bank" },
+                    { text: "Criar um negócio sustentável", value: "sustainable", icon: "fas fa-building" },
+                    { text: "Escalar um negócio existente", value: "scale", icon: "fas fa-expand" },
+                    { text: "Aprender uma nova habilidade", value: "learn", icon: "fas fa-graduation-cap" }
+                ]
+            },
+            {
+                question: "Quanto tempo você pode dedicar por semana?",
+                options: [
+                    { text: "Até 5 horas", value: "5h", icon: "fas fa-clock" },
+                    { text: "De 5 a 10 horas", value: "10h", icon: "fas fa-hourglass-half" },
+                    { text: "De 10 a 20 horas", value: "20h", icon: "fas fa-business-time" },
+                    { text: "Mais de 20 horas", value: "20h+", icon: "fas fa-calendar" }
+                ]
             }
-            break;
-            
-          case 'duvidas':
-            mascoteMessage.textContent = "Claro! As dúvidas mais comuns são sobre garantia (7 dias), acesso imediato após a compra and suporte personalizado. Precisa de algo mais específico?";
-            break;
-            
-          case 'conteudo':
-            mascoteMessage.textContent = "O curso tem 5 aulas práticas + bônus: 1) Fundamentos, 2) Tráfego, 3) Copy, 4) Automação, 5) Escala. Inclui templates prontos e eBook!";
-            break;
+        ];
+
+        const productRecommendations = {
+            beginner_low_physical: {
+                product: "Produtos de Nicho Específico",
+                funnel: "Funil de Vendas Direto (1-2 etapas)",
+                investment: "R$ 300-500/mês",
+                profit: "R$ 1.500-3.000/mês",
+                time: "2-3 semanas"
+            },
+            beginner_medium_digital: {
+                product: "Curso Online de Habilidade Específica",
+                funnel: "Funil de Captura + Venda",
+                investment: "R$ 600-900/mês",
+                profit: "R$ 3.000-5.000/mês",
+                time: "3-4 semanas"
+            },
+            intermediate_high_services: {
+                product: "Consultoria ou Mentoria",
+                funnel: "Funil de Autoridade + Venda de Alto Ticket",
+                investment: "R$ 1.200-2.000/mês",
+                profit: "R$ 6.000-9.000/mês",
+                time: "4-5 semanas"
+            },
+            advanced_premium_software: {
+                product: "Software SaaS (Assinatura Mensal)",
+                funnel: "Funil de Trial Gratuito + Upsell",
+                investment: "R$ 3.000-5.000/mês",
+                profit: "R$ 12.000-18.000/mês",
+                time: "6-8 semanas"
+            },
+            default: {
+                product: "Infoproduto de Alto Valor",
+                funnel: "Funil de Vendas de 3 Etapas (Lead, Nurture, Venda)",
+                investment: "R$ 800-1.200/mês",
+                profit: "R$ 4.000-7.000/mês",
+                time: "3-5 semanas"
+            }
+        };
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            initQuiz();
+            initMascote();
+            initFAQ();
+            initCountdown();
+            initNavigation();
+            initBuyBar();
+        });
+
+        // Sistema do Quiz
+        let currentQuestion = 0;
+        let userAnswers = [];
+
+        function initQuiz() {
+            showQuestion(0);
         }
-      });
-    });
 
-    /* ========================
-       Sistema de Comentários
-       ======================== */
-    const commentForm = document.getElementById('commentForm');
-    const commentsList = document.getElementById('commentsList');
-    
-    // Comentários pré-definidos (usuário não sabe que são compartilhados)
-    const predefinedComments = [
-      { name: "Carlos Silva", text: "Site muito informativo! Já comprei o curso e estou ansioso para começar.", date: "2 horas atrás" },
-      { name: "Ana Costa", text: "Adorei o teste de descobrir meu produto ideal. Resultado foi perfeito para mim!", date: "5 horas atrás" },
-      { name: "Roberto Alves", text: "Conteúdo de alta qualidade. O mascote é uma adição incrível ao site!", date: "1 dia atrás" },
-      { name: "Juliana Martins", text: "Comprei o curso e já implementei as estratégias. Resultados em apenas 1 semana!", date: "2 dias atrás" },
-      { name: "Fernando Lima", text: "Atendimento excepcional e material muito além das expectativas. Recomendo!", date: "3 dias atrás" }
-    ];
-
-    // Carregar comentários pré-definidos
-    function loadPredefinedComments() {
-      predefinedComments.forEach(comment => {
-        addCommentToDOM(comment.name, comment.text, comment.date);
-      });
-    }
-
-    // Adicionar comentário ao DOM
-    function addCommentToDOM(name, text, date) {
-      const commentEl = document.createElement('div');
-      commentEl.className = 'comment-item';
-      commentEl.innerHTML = `
-        <div class="comment-header">
-          <span class="comment-author">${name}</span>
-          <span class="comment-date">${date}</span>
-        </div>
-        <div class="comment-text">${text}</div>
-      `;
-      commentsList.appendChild(commentEl);
-    }
-
-    // Manipular envio de comentários
-    commentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const nameInput = document.getElementById('commentName');
-      const textInput = document.getElementById('commentText');
-      
-      const name = nameInput.value.trim();
-      const text = textInput.value.trim();
-      
-      if (name && text) {
-        // Para o usuário, parece que apenas seu comentário foi adicionado
-        addCommentToDOM(name, text, "Agora mesmo");
-        
-        // Limpar o formulário
-        nameInput.value = '';
-        textInput.value = '';
-        
-        // Mostrar mensagem de agradecimento (apenas para este usuário)
-        const thankYouMsg = document.createElement('div');
-        thankYouMsg.className = 'comment-item';
-        thankYouMsg.innerHTML = `
-          <div class="comment-header">
-            <span class="comment-author">Capacitech</span>
-            <span class="comment-date">Agora mesmo</span>
-          </div>
-          <div class="comment-text">Obrigado pelo seu comentário, ${name}! Sua opinião é muito importante para nós.</div>
-        `;
-        commentsList.appendChild(thankYouMsg);
-        
-        // Rolagem para o novo comentário
-        commentsList.scrollTop = commentsList.scrollHeight;
-      }
-    });
-
-    // Carregar comentários quando a página for carregada
-    window.addEventListener('DOMContentLoaded', loadPredefinedComments);
-
-    /* ========================
-       Quiz Interativo (ATUALIZADO)
-       ======================== */
-    const quizData = [
-      {
-        question: "Qual é o seu nível de experiência com marketing digital?",
-        options: [
-          { text: "Iniciante - Estou começando agora", value: "beginner", icon: "fas fa-seedling" },
-          { text: "Intermediário - Já tentei algumas coisas", value: "intermediate", icon: "fas fa-leaf" },
-          { text: "Avançado - Tenho experiência mas quero melhorar", value: "advanced", icon: "fas fa-tree" },
-          { text: "Expert - Busco otimização e escalabilidade", value: "expert", icon: "fas fa-rocket" }
-        ]
-      },
-      {
-        question: "Quanto você pode investir inicialmente em tráfego pago?",
-        options: [
-          { text: "Não quero investir dinheiro", value: "none", icon: "fas fa-hand-holding-heart" },
-          { text: "Até R$ 500 por mês", value: "low", icon: "fas fa-wallet" },
-          { text: "Entre R$ 500 e R$ 1.500 por mês", value: "medium", icon: "fas fa-money-bill-wave" },
-          { text: "Entre R$ 1.500 e R$ 3.000 por mês", value: "high", icon: "fas fa-chart-line" },
-          { text: "Acima de R$ 3.000 por mês", value: "premium", icon: "fas fa-gem" }
-        ]
-      },
-      {
-        question: "Com qual tipo de produto você mais se identifica?",
-        options: [
-          { text: "Produtos físicos (e-commerce)", value: "physical", icon: "fas fa-box-open" },
-          { text: "Serviços profissionais", value: "services", icon: "fas fa-handshake" },
-          { text: "Cursos e infoprodutos", value: "digital", icon: "fas fa-laptop" },
-          { text: "Software e apps", value: "software", icon: "fas fa-mobile-alt" }
-        ]
-      },
-      {
-        question: "Qual é o seu principal objetivo?",
-        options: [
-          { text: "Gerar renda extra", value: "extra_income", icon: "fas fa-piggy-bank" },
-          { text: "Criar um negócio sustentável", value: "sustainable", icon: "fas fa-building" },
-          { text: "Escalar um negócio existente", value: "scale", icon: "fas fa-expand" },
-          { text: "Aprender uma nova habilidade", value: "learn", icon: "fas fa-graduation-cap" }
-        ]
-      },
-      {
-        question: "Quanto tempo você pode dedicar por semana?",
-        options: [
-          { text: "Até 5 horas", value: "5h", icon: "fas fa-clock" },
-          { text: "De 5 a 10 horas", value: "10h", icon: "fas fa-hourglass-half" },
-          { text: "De 10 a 20 horas", value: "20h", icon: "fas fa-business-time" },
-          { text: "Mais de 20 horas", value: "20h+", icon: "fas fa-calendar" }
-        ]
-      }
-    ];
-
-    const productRecommendations = {
-      // Recomendações para quem não quer investir
-      beginner_none_physical: {
-        product: "Produtos de baixo custo (como canecas personalizadas)",
-        funnel: "Funil de Vendas Orgânico (sem tráfego pago)",
-        investment: "R$ 0 (foco em tráfego orgânico)",
-        profit: "R$ 500-1.000/mês",
-        time: "4-6 semanas",
-        observation: "Usando estratégias orgânicas e parcerias"
-      },
-      beginner_none_digital: {
-        product: "E-book ou conteúdo digital de nicho",
-        funnel: "Funil de Conteúdo Gratuito + Venda",
-        investment: "R$ 0 (foco em conteúdo orgânico)",
-        profit: "R$ 800-1.500/mês",
-        time: "5-7 semanas",
-        observation: "Usando redes sociais e marketing de conteúdo"
-      },
-      beginner_none_services: {
-        product: "Serviços freelancer (design, copywriting)",
-        funnel: "Funil de Portfólio + Prospecção Ativa",
-        investment: "R$ 0 (foco em networking)",
-        profit: "R$ 1.000-2.000/mês",
-        time: "3-5 semanas",
-        observation: "Usando plataformas de freelance and portfólio"
-      },
-      
-      // Recomendações originais (mantidas para referência)
-      beginner_low_physical: {
-        product: "Produtos de Nicho Específico (como acessórios pet premium)",
-        funnel: "Funil de Vendas Direto (1-2 etapas)",
-        investment: "R$ 300-500/mês",
-        profit: "R$ 1.000-2.000/mês",
-        time: "2-3 semanas"
-      },
-      beginner_medium_digital: {
-        product: "Curso Online de Habilidade Específica",
-        funnel: "Funil de Captura + Venda",
-        investment: "R$ 600-900/mês",
-        profit: "R$ 2.500-4.000/mês",
-        time: "3-4 semanas"
-      },
-      intermediate_high_services: {
-        product: "Consultoria ou Mentoria Individual",
-        funnel: "Funil de Autoridade + Venda de Alto Ticket",
-        investment: "R$ 1.200-2.000/mês",
-        profit: "R$ 5.000-8.000/mês",
-        time: "4-5 semanas"
-      },
-      advanced_premium_software: {
-        product: "Software SaaS (Assinatura Mensal)",
-        funnel: "Funil de Trial Gratuito + Upsell",
-        investment: "R$ 3.000-5.000/mês",
-        profit: "R$ 10.000-15.000/mês",
-        time: "6-8 semanas"
-      },
-      // Fallback recommendation
-      default: {
-        product: "Infoproduto de Alto Valor (Curso Premium)",
-        funnel: "Funil de Vendas de 3 Etapas (Lead, Nurture, Venda)",
-        investment: "R$ 800-1.200/mês",
-        profit: "R$ 3.000-5.000/mês",
-        time: "3-5 semanas"
-      }
-    };
-
-    let currentQuestion = 0;
-    let userAnswers = [];
-
-    function initQuiz() {
-      showQuestion(0);
-    }
-
-    function showQuestion(index) {
-      const quizContent = document.getElementById('quizContent');
-      const progressFill = document.getElementById('quizProgress');
-      const progress = ((index + 1) / quizData.length) * 100;
-      
-      progressFill.style.width = `${progress}%`;
-      
-      if (index < quizData.length) {
-        const question = quizData[index];
-        let optionsHTML = '';
-        
-        question.options.forEach((option, i) => {
-          optionsHTML += `
-            <div class="quiz-option" onclick="selectOption(${i})">
-              <i class="${option.icon}"></i>
-              <div>${option.text}</div>
-            </div>
-          `;
-        });
-        
-        quizContent.innerHTML = `
-          <div class="quiz-question">${question.question}</div>
-          <div class="quiz-options">
-            ${optionsHTML}
-          </div>
-          <div class="quiz-navigation">
-            ${index > 0 ? `<button class="quiz-btn" onclick="prevQuestion()">Anterior</button>` : `<div></div>`}
-            <button class="quiz-btn" id="nextBtn" onclick="nextQuestion()" disabled>Próxima</button>
-          </div>
-        `;
-      } else {
-        showResults();
-      }
-    }
-
-    function selectOption(optionIndex) {
-      const options = document.querySelectorAll('.quiz-option');
-      options.forEach(option => option.classList.remove('selected'));
-      options[optionIndex].classList.add('selected');
-      
-      document.getElementById('nextBtn').disabled = false;
-      userAnswers[currentQuestion] = quizData[currentQuestion].options[optionIndex].value;
-    }
-
-    function nextQuestion() {
-      if (currentQuestion < quizData.length - 1) {
-        currentQuestion++;
-        showQuestion(currentQuestion);
-      } else {
-        showResults();
-      }
-    }
-
-    function prevQuestion() {
-      if (currentQuestion > 0) {
-        currentQuestion--;
-        showQuestion(currentQuestion);
-      }
-    }
-
-    function showResults() {
-      // Determinar a recomendação com base nas respostas
-      const experience = userAnswers[0];
-      const budget = userAnswers[1];
-      const productType = userAnswers[2];
-      
-      let recommendationKey = `${experience}_${budget}_${productType}`;
-      let recommendation = productRecommendations[recommendationKey] || productRecommendations.default;
-      
-      const quizContent = document.getElementById('quizContent');
-      
-      let observationHTML = '';
-      if (recommendation.observation) {
-        observationHTML = `<p style="color:var(--muted);font-style:italic;margin-top:10px;">${recommendation.observation}</p>`;
-      }
-      
-      quizContent.innerHTML = `
-        <div class="quiz-result">
-          <div class="result-icon"><i class="fas fa-trophy"></i></div>
-          <div class="result-title">Parabéns! Seu perfil foi analisado</div>
-          <div class="result-subtitle">Com base nas suas respostas, encontramos o produto e estratégia ideais para você</div>
-          
-          <div class="result-details">
-            <div class="result-item">
-              <span class="result-label">Produto Recomendado:</span>
-              <span class="result-value">${recommendation.product}</span>
-            </div>
-            <div class="result-item">
-              <span class="result-label">Tipo de Funil:</span>
-              <span class="result-value">${recommendation.funnel}</span>
-            </div>
-            <div class="result-item">
-              <span class="result-label">Investimento em Tráfego:</span>
-              <span class="result-value">${recommendation.investment}</span>
-            </div>
-            <div class="result-item">
-              <span class="result-label">Projeção de Lucro Mensal:</span>
-              <span class="result-value">${recommendation.profit}</span>
-            </div>
-            <div class="result-item">
-              <span class="result-label">Tempo para Primeiros Resultados:</span>
-              <span class="result-value">${recommendation.time}</span>
-            </div>
-          </div>
-          
-          ${observationHTML}
-          
-          <p style="color:var(--muted);margin-bottom:20px">Nosso curso inclui modelos prontos exatamente para esse tipo de produto and funil, com passo a passo detalhado.</p>
-          
-          <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" style="font-size:18px;padding:16px 32px;">
-            <i class="fas fa-lock"></i> Quero Aprender a Implementar!
-          </a>
-          
-          <p style="margin-top:15px;"><a href="javascript:restartQuiz()" style="color:var(--cta-1);">Refazer o teste</a></p>
-        </div>
-      `;
-      
-      document.getElementById('quizProgress').style.width = '100%';
-    }
-
-    function restartQuiz() {
-      currentQuestion = 0;
-      userAnswers = [];
-      showQuestion(0);
-    }
-
-    /* ========================
-       DEPOIMENTOS MELHORADOS PARA MOBILE
-       ======================== */
-    const track = document.getElementById('testiTrack');
-    const testiNav = document.getElementById('testiNav');
-    let currentTestimonial = 0;
-
-    function createTesti(t) {
-      const gender = getGenderByName(t.n);
-      const avatarIcon = gender === 'female' ? 'fas fa-female' : 'fas fa-male';
-      
-      const el = document.createElement('article');
-      el.className = 'testi';
-      el.innerHTML = `
-        <div class="who">
-          <div class="avatar">
-            <i class="${avatarIcon}"></i>
-          </div>
-          <div>
-            <div style="font-weight:800">${t.n}</div>
-            <div style="color:var(--muted);font-size:13px">${t.r}</div>
-          </div>
-        </div>
-        <div class="testi-content">
-          <div class="testi-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="testi-text">${t.t}</p>
-          <div class="testi-role">Aluno Capacitech</div>
-        </div>
-      `;
-      return el;
-    }
-
-    // Adicionar depoimentos
-    TESTS.forEach(t => track.appendChild(createTesti(t)));
-
-    // Criar navegação por pontos
-    function createTestiNavigation() {
-      testiNav.innerHTML = '';
-      TESTS.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.className = 'testi-dot';
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => {
-          scrollToTestimonial(index);
-        });
-        testiNav.appendChild(dot);
-      });
-    }
-
-    // Rolagem suave para depoimento específico
-    function scrollToTestimonial(index) {
-      const testiWidth = track.querySelector('.testi').offsetWidth + 16; // width + gap
-      track.scrollTo({
-        left: index * testiWidth,
-        behavior: 'smooth'
-      });
-      updateActiveDot(index);
-      currentTestimonial = index;
-    }
-
-    // Atualizar dot ativo
-    function updateActiveDot(index) {
-      const dots = testiNav.querySelectorAll('.testi-dot');
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-    }
-
-    // Detectar mudanças na rolagem para atualizar navegação
-    track.addEventListener('scroll', () => {
-      const testiWidth = track.querySelector('.testi').offsetWidth + 16;
-      const newIndex = Math.round(track.scrollLeft / testiWidth);
-      
-      if (newIndex !== currentTestimonial) {
-        currentTestimonial = newIndex;
-        updateActiveDot(newIndex);
-      }
-    });
-
-    // Navegação por swipe em dispositivos móveis
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    track.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
-    track.addEventListener('touchend', e => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    });
-
-    function handleSwipe() {
-      const minSwipeDistance = 50;
-      
-      if (touchEndX < touchStartX && touchStartX - touchEndX > minSwipeDistance) {
-        // Swipe left - próximo depoimento
-        const nextIndex = Math.min(currentTestimonial + 1, TESTS.length - 1);
-        scrollToTestimonial(nextIndex);
-      } 
-      
-      if (touchEndX > touchStartX && touchEndX - touchStartX > minSwipeDistance) {
-        // Swipe right - depoimento anterior
-        const prevIndex = Math.max(currentTestimonial - 1, 0);
-        scrollToTestimonial(prevIndex);
-      }
-    }
-
-    /* ========================
-       Elementos DOM
-       ======================== */
-    const header = document.getElementById('header');
-    const buybar = document.getElementById('buybar');
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const nav = document.querySelector('nav');
-    const exitModal = document.getElementById('exitModal');
-    const modalClose = document.querySelector('.modal-close');
-    const ctaMain = document.getElementById('cta-main');
-
-    /* ========================
-       Menu mobile
-       ======================== */
-    mobileToggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      mobileToggle.classList.toggle('active');
-    });
-
-    /* ========================
-       Header scroll behavior
-       ======================== */
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      
-      checkBuybar();
-    });
-
-    /* ========================
-       Mobile buybar behavior
-       ======================== */
-    function checkBuybar(){
-      const show = window.innerWidth <= 880 && window.scrollY > 400;
-      buybar.classList.toggle('visible', show);
-    }
-    window.addEventListener('resize', checkBuybar);
-    checkBuybar();
-
-    /* ========================
-       Smooth anchor for internal links
-       ======================== */
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const href = a.getAttribute('href');
-        if (href.length > 1 && href !== '#quiz') {
-          e.preventDefault();
-          nav.classList.remove('active');
-          const target = document.querySelector(href);
-          if (target) {
-            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 80;
-            window.scrollTo({top: offsetTop, behavior: 'smooth'});
-          }
+        function showQuestion(index) {
+            const quizContent = document.getElementById('quizContent');
+            const progressFill = document.getElementById('quizProgress');
+            const progress = ((index + 1) / quizData.length) * 100;
+            
+            progressFill.style.width = `${progress}%`;
+            document.getElementById('currentQuestion').textContent = index + 1;
+            
+            if (index < quizData.length) {
+                const question = quizData[index];
+                let optionsHTML = '';
+                
+                question.options.forEach((option, i) => {
+                    optionsHTML += `
+                        <div class="quiz-option" onclick="selectOption(${i})">
+                            <i class="${option.icon}"></i>
+                            <div class="quiz-option-text">${option.text}</div>
+                        </div>
+                    `;
+                });
+                
+                quizContent.innerHTML = `
+                    <div class="quiz-question">${question.question}</div>
+                    <div class="quiz-options">
+                        ${optionsHTML}
+                    </div>
+                    <div class="quiz-navigation">
+                        ${index > 0 ? `<button class="quiz-btn" onclick="prevQuestion()"><i class="fas fa-arrow-left"></i> Anterior</button>` : `<div></div>`}
+                        <button class="quiz-btn" id="nextBtn" onclick="nextQuestion()" disabled>
+                            ${index === quizData.length - 1 ? 'Ver Resultado <i class="fas fa-arrow-right"></i>' : 'Próxima <i class="fas fa-arrow-right"></i>'}
+                        </button>
+                    </div>
+                `;
+            } else {
+                showResults();
+            }
         }
-      });
-    });
 
-    /* ========================
-       Notificações ao vivo
-       ======================== */
-    const names = ['Mariana','Carlos','Fernanda','João','Luiza','Eduardo','Beatriz','Thiago','Paula'];
-    const notifList = document.getElementById('notifList');
-    
-    function pushNotif() {
-      const who = names[Math.floor(Math.random() * names.length)];
-      const actions = [
-        'acabou de se inscrever no curso',
-        'deixou uma avaliação ⭐⭐⭐⭐⭐',
-        'acessou a área de membros',
-        'implementou o método com sucesso'
-      ];
-      const action = actions[Math.floor(Math.random() * actions.length)];
-      
-      const el = document.createElement('div');
-      el.className = 'notif';
-      el.innerHTML = `
-        <div style="width:44px;height:44px;border-radius:8px;background:var(--gradient);display:flex;align-items:center;justify-content:center;">
-          <i class="${getGenderByName(who) === 'female' ? 'fas fa-female' : 'fas fa-male'}" style="color:#05251b;font-size:20px;"></i>
-        </div>
-        <div>
-          <strong>${who}</strong>
-          <div style="color:var(--muted);font-size:13px">${action} • agora</div>
-        </div>
-      `;
-      
-      notifList.prepend(el);
-      while (notifList.children.length > 5) notifList.removeChild(notifList.lastElementChild);
-      
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(-8px)';
-      requestAnimationFrame(() => {
-        el.style.transition = 'all .45s cubic-bezier(.2,.9,.3,1)';
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      });
-    }
+        function selectOption(optionIndex) {
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[optionIndex].classList.add('selected');
+            
+            document.getElementById('nextBtn').disabled = false;
+            userAnswers[currentQuestion] = quizData[currentQuestion].options[optionIndex].value;
+        }
 
-    // Inicia com algumas notificações
-    for (let i = 0; i < 3; i++) setTimeout(pushNotif, 700 * (i + 1));
-    setInterval(pushNotif, 4500);
+        function nextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        }
 
-    /* ========================
-       Contador regressivo
-       ======================== */
-    function updateCountdown() {
-      // Define a data de expiração (24 horas a partir de agora)
-      const now = new Date();
-      const expireDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-      
-      const diff = expireDate - now;
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      
-      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-      
-      document.getElementById('hours2').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes2').textContent = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds2').textContent = seconds.toString().padStart(2, '0');
-    }
-    
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
 
-    /* ========================
-       Vagas restantes (dinâmico)
-       ======================== */
-    function updateRemaining() {
-      const remainingEl = document.getElementById('remaining');
-      let remaining = parseInt(remainingEl.textContent);
-      if (remaining > 1 && Math.random() > 0.7) {
-        remaining--;
-        remainingEl.textContent = remaining;
+        function showResults() {
+            const experience = userAnswers[0];
+            const budget = userAnswers[1];
+            const productType = userAnswers[2];
+            
+            let recommendationKey = `${experience}_${budget}_${productType}`;
+            let recommendation = productRecommendations[recommendationKey] || productRecommendations.default;
+            
+            const quizContent = document.getElementById('quizContent');
+            
+            quizContent.innerHTML = `
+                <div class="quiz-result">
+                    <div class="result-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="result-title">Parabéns! Seu perfil foi analisado</div>
+                    <div class="result-subtitle">Com base nas suas respostas, encontramos o produto e estratégia ideais para maximizar seus resultados</div>
+                    
+                    <div class="result-details">
+                        <div class="result-item">
+                            <span class="result-label">Produto Recomendado:</span>
+                            <span class="result-value">${recommendation.product}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Tipo de Funil:</span>
+                            <span class="result-value">${recommendation.funnel}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Investimento em Tráfego:</span>
+                            <span class="result-value">${recommendation.investment}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Projeção de Lucro Mensal:</span>
+                            <span class="result-value">${recommendation.profit}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Tempo para Primeiros Resultados:</span>
+                            <span class="result-value">${recommendation.time}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-note">
+                        <p class="result-note-text"><i class="fas fa-lightbulb"></i> <strong>Observação:</strong> Nosso curso inclui modelos prontos exatamente para esse tipo de produto e funil, com passo a passo detalhado para implementação rápida.</p>
+                    </div>
+                    
+                    <p style="color:var(--text-secondary);margin-bottom:25px;">Junte-se a mais de 1.500 alunos que já transformaram seus resultados com nosso método comprovado.</p>
+                    
+                    <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank" style="font-size:18px;padding:18px 36px;">
+                        <i class="fas fa-gem"></i> Quero Aprender a Implementar!
+                    </a>
+                    
+                    <p style="margin-top:20px;"><a href="javascript:restartQuiz()" style="color:var(--accent-primary);text-decoration:underline;"><i class="fas fa-redo"></i> Refazer o teste</a></p>
+                </div>
+            `;
+            
+            document.getElementById('quizProgress').style.width = '100%';
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            showQuestion(0);
+        }
+
+        // Sistema do Mascote
+        function initMascote() {
+            const mascoteButton = document.getElementById('mascoteButton');
+            const mascoteChat = document.getElementById('mascoteChat');
+            const mascoteMessage = document.getElementById('mascoteMessage');
+            const mascoteClose = document.getElementById('mascoteClose');
+            const mascoteOptions = document.querySelectorAll('.mascote-option');
+
+            let mascoteActive = false;
+
+            mascoteButton.addEventListener('click', () => {
+                mascoteActive = !mascoteActive;
+                mascoteChat.classList.toggle('active', mascoteActive);
+            });
+
+            mascoteClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mascoteActive = false;
+                mascoteChat.classList.remove('active');
+            });
+
+            mascoteOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const optionType = option.getAttribute('data-option');
+                    
+                    switch(optionType) {
+                        case 'comprar':
+                            mascoteMessage.innerHTML = "Ótima decisão! 🎉 O curso está com condições especiais por tempo limitado. Você terá acesso a <strong>conteúdo exclusivo</strong>, <strong>suporte prioritário</strong> e <strong>7 dias de garantia</strong>. Clique no botão abaixo para garantir seu acesso!";
+                            break;
+                            
+                        case 'duvidas':
+                            mascoteMessage.innerHTML = "Claro! Estou aqui para ajudar. As dúvidas mais comuns são sobre: <br><br>• <strong>Garantia</strong>: 7 dias para testar sem risco<br>• <strong>Acesso</strong>: Imediato após a confirmação<br>• <strong>Suporte</strong>: Resposta em até 24h<br>• <strong>Pré-requisitos</strong>: Não precisa de experiência<br><br>O que mais gostaria de saber?";
+                            break;
+                            
+                        case 'conteudo':
+                            mascoteMessage.innerHTML = "O curso tem <strong>5 módulos principais + bônus exclusivos</strong>:<br><br>1️⃣ <strong>Fundamentos</strong>: Base sólida do marketing digital<br>2️⃣ <strong>Tráfego</strong>: Estratégias avançadas de aquisição<br>3️⃣ <strong>Copywriting</strong>: Mensagens que convertem<br>4️⃣ <strong>Automação</strong>: Sistemas que funcionam 24/7<br>5️⃣ <strong>Escala</strong>: Crescimento consistente e seguro<br><br>+ <strong>Bônus</strong>: Templates, ferramentas e suporte";
+                            break;
+                    }
+                });
+            });
+        }
+
+        // Sistema de FAQ
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
+        // Contador regressivo
+        function initCountdown() {
+            function updateCountdown() {
+                const now = new Date();
+                const expireDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+                
+                const diff = expireDate - now;
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        }
+
+        // Navegação e efeitos
+        function initNavigation() {
+            const header = document.getElementById('header');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const nav = document.querySelector('nav');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            mobileToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                mobileToggle.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Buybar para mobile
+        function initBuyBar() {
+            const buybar = document.getElementById('buybar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768 && window.scrollY > 400) {
+                    buybar.classList.add('visible');
+                } else {
+                    buybar.classList.remove('visible');
+                }
+            });
+        }
+
+        // Vagas restantes (dinâmico)
+        function updateRemaining() {
+            const remainingEl = document.getElementById('remaining');
+            let remaining = parseInt(remainingEl.textContent);
+            if (remaining > 1 && Math.random() > 0.7) {
+                remaining--;
+                remainingEl.textContent = remaining;
+                
+                const progressFill = document.querySelector('.progress-fill');
+                const percentage = (100 - (remaining / 25 * 100)) + '%';
+                progressFill.style.width = percentage;
+            }
+        }
         
-        // Atualiza a barra de progresso
-        const progressFill = document.querySelector('.progress-fill');
-        const percentage = (100 - (remaining / 25 * 100)) + '%';
-        progressFill.style.width = percentage;
-      }
-    }
-    
-    setInterval(updateRemaining, 30000);
-
-    /* ========================
-       Modal de saída
-       ======================== */
-    let mouseMoving = false;
-    let mouseY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-      if (e.clientY < mouseY && e.clientY < 50 && mouseMoving) {
-        exitModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-      mouseY = e.clientY;
-      mouseMoving = true;
-    });
-    
-    modalClose.addEventListener('click', () => {
-      exitModal.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    });
-
-    /* ========================
-       Analytics de clique
-       ======================== */
-    document.querySelectorAll('.cta-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Simulação de tracking - em produção, integrar com Google Analytics ou Facebook Pixel
-        console.log('CTA clicked:', btn.textContent.trim());
-      });
-    });
-
-    /* ========================
-       Melhoria de acessibilidade
-       ======================== */
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && exitModal.classList.contains('active')) {
-        exitModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      }
-    });
-
-    // Foco visível para elementos interativos
-    document.addEventListener('focusin', (e) => {
-      if (e.target.matches('a, button, input, summary')) {
-        e.target.style.outline = `2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--cta-1')}`;
-        e.target.style.outlineOffset = '2px';
-      }
-    });
-
-    document.addEventListener('focusout', (e) => {
-      e.target.style.outline = 'none';
-    });
-
-    // Inicializar quando a página for carregada
-    window.addEventListener('DOMContentLoaded', () => {
-      initQuiz();
-      createTestiNavigation();
-      adjustTestiWidth();
-      
-      // Iniciar com o primeiro depoimento ativo
-      scrollToTestimonial(0);
-    });
-
-    // Ajustar responsividade dos depoimentos
-    function adjustTestiWidth() {
-      const testiItems = document.querySelectorAll('.testi');
-      const containerWidth = track.clientWidth;
-      
-      if (containerWidth < 400) {
-        testiItems.forEach(item => {
-          item.style.minWidth = '260px';
-        });
-      } else {
-        testiItems.forEach(item => {
-          item.style.minWidth = '300px';
-        });
-      }
-    }
-
-    window.addEventListener('resize', adjustTestiWidth);
-  </script>
+        setInterval(updateRemaining, 30000);
+    </script>
 </body>
 </html>
-
