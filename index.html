@@ -1146,6 +1146,7 @@
             font-size: 60px;
             color: var(--accent-primary);
             margin-bottom: 30px;
+            display: block;
         }
 
         .guarantee-title {
@@ -1211,6 +1212,7 @@
             font-size: 40px;
             margin-bottom: 20px;
             color: var(--accent-primary);
+            display: block;
         }
 
         .program-title {
@@ -1503,7 +1505,7 @@
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 5px 20px rgba(0, 255, 149, 0.3); }
             50% { transform: scale(1.05); box-shadow: 0 5px 30px rgba(0, 255, 149, 0.5); }
-            100% { transform: scale(1); box-shadow: 0 5px 20px rgba(0, 255, 149, 0.3); }
+           100% { transform: scale(1); box-shadow: 0 5px 20px rgba(0, 255, 149, 0.3); }
         }
 
         @keyframes bounce {
@@ -1762,8 +1764,8 @@
                     
                     <div class="price-card">
                         <div class="price-content">
-                            <div class="price-tag">R$ 497,00</div>
-                            <div class="old-price">de R$ 1.497,00</div>
+                            <div class="price-tag">R$ 39,90</div>
+                            <div class="old-price">de R$ 199,90</div>
                             
                             <div class="price-features">
                                 <div class="price-feature"><i class="fas fa-check"></i> Acesso Imediato</div>
@@ -1899,7 +1901,7 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3 class="feature-title">Resultados Comprovados</h3>
-                    <p class="feature-description">Estratégias testadas e aprovadas por mais de 1.500 alunos que transformaram seus resultados usando nosso método.</p>
+                    <p class="feature-description">Estratégias testadas and aprovadas por mais de 1.500 alunos que transformaram seus resultados usando nosso método.</p>
                     <a href="#" class="feature-link">
                         <span>Saiba mais</span>
                         <i class="fas fa-arrow-right"></i>
@@ -1979,7 +1981,7 @@
                         <i class="fas fa-pencil-alt"></i>
                     </div>
                     <h3 class="program-title">Copywriting Persuassivo</h3>
-                    <p class="program-description">Técnicas de copywriting que convertem visitantes em clients, com fórmulas comprovadas para criar mensagens irresistíveis que vendem sozinhas.</p>
+                    <p class="program-description">Técnicas de copywriting que convertem visitantes em clientes, com fórmulas comprovadas para criar mensagens irresistíveis que vendem sozinhas.</p>
                 </div>
                 
                 <div class="program-card">
@@ -1997,7 +1999,7 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3 class="program-title">Escalabilidade e Análise</h3>
-                    <p class="program-description">Métodos para escalar resultados com segurança, análise de dados avançada e tomada de decisões baseada em métricas que realmente importam.</p>
+                    <p class="program-description">Métodos para escalar resultados com segurança, análise de dados avançada and tomada de decisões baseada em métricas que realmente importam.</p>
                 </div>
                 
                 <div class="program-card">
@@ -2064,7 +2066,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim! Estratégias de marketing digital evoluem constantly. Mantemos o conteúdo sempre atualizado com as melhores práticas e novidades do mercado.</p>
+                        <p>Sim! Estratégias de marketing digital evoluem constantemente. Mantemos o conteúdo sempre atualizado com as melhores práticas e novidades do mercado.</p>
                     </div>
                 </div>
                 
@@ -2133,7 +2135,7 @@
     <div class="buybar" id="buybar">
         <div>
             <div class="buybar-text">Oferta exclusiva</div>
-            <div class="buybar-price">R$ 497,00</div>
+            <div class="buybar-price">R$ 39,90</div>
         </div>
         <div>
             <a class="cta-btn" href="https://pay.cakto.com.br/37zt5mx_541282" target="_blank">
@@ -2170,6 +2172,7 @@
             {
                 question: "Quanto você pode investir inicialmente em tráfego pago?",
                 options: [
+                    { text: "Não quero investir inicialmente", value: "none", icon: "fas fa-hand-holding-heart" },
                     { text: "Até R$ 500 por mês", value: "low", icon: "fas fa-wallet" },
                     { text: "Entre R$ 500 e R$ 1.500 por mês", value: "medium", icon: "fas fa-money-bill-wave" },
                     { text: "Entre R$ 1.500 e R$ 3.000 por mês", value: "high", icon: "fas fa-chart-line" },
@@ -2206,6 +2209,16 @@
         ];
 
         const productRecommendations = {
+            beginner_none_physical: {
+                product: "Produtos de Nicho Específico (Método Orgânico)",
+                funnel: "Funil de Conteúdo Gratuito + Vendas",
+                investment: "R$ 0 (métodos orgânicos)",
+                profit: "R$ 800-1.500/mês",
+                time: "4-6 semanas",
+                roi: "∞ (investimento zero)",
+                difficulty: "Média",
+                successRate: 72
+            },
             beginner_low_physical: {
                 product: "Produtos de Nicho Específico",
                 funnel: "Funil de Vendas Direto (1-2 etapas)",
@@ -2415,12 +2428,16 @@
         function initCharts(recommendation) {
             // Gráfico de ROI
             const roiCtx = document.getElementById('roiChart').getContext('2d');
+            
+            let roiValue = recommendation.roi === "∞ (investimento zero)" ? 10 : recommendation.roi;
+            let roiLabel = recommendation.roi === "∞ (investimento zero)" ? "ROI Infinito" : "ROI Esperado";
+            
             new Chart(roiCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['ROI Esperado', 'Investimento'],
+                    labels: [roiLabel, 'Investimento'],
                     datasets: [{
-                        data: [recommendation.roi, 1],
+                        data: [roiValue, 1],
                         backgroundColor: [
                             '#00ff95',
                             '#083428'
